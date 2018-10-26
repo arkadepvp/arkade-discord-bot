@@ -14,6 +14,19 @@ class admin:
         await self.client.delete_message(ctx.message)
 
         pollChannel = ctx.message.channel
+        embed = discord.Embed(title=" Vote ✅ or ❌ on the question below.\n_ _", description=" ".join(string), color=0xCC33CC)
+        embed.set_author(name="Poll", icon_url="https://melbournechapter.net/images/question-mark-clipart-transparent.png")
+        message = await self.client.send_message(pollChannel, embed=embed)
+        await self.client.add_reaction(message, '✅')
+        await self.client.add_reaction(message, '❌')
+
+    #polleveryone command
+    @commands.command(pass_context=True)
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def polleveryone(self, ctx, *string):
+        await self.client.delete_message(ctx.message)
+
+        pollChannel = ctx.message.channel
         await self.client.send_message(pollChannel, "\@everyone")
         embed = discord.Embed(title=" Vote ✅ or ❌ on the question below.\n_ _", description=" ".join(string), color=0xCC33CC)
         embed.set_author(name="Poll", icon_url="https://melbournechapter.net/images/question-mark-clipart-transparent.png")
