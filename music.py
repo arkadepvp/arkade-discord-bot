@@ -13,6 +13,7 @@ class music:
     @commands.command(pass_context=True)
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def play(self, ctx, url):
+        voice_client = self.client.voice_client_in(ctx.message.server)
         if voice_client:
             await voice_client.disconnect()
         else: 
@@ -29,6 +30,7 @@ class music:
     @commands.command(pass_context=True)
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def fire(self, ctx):
+        voice_client = self.client.voice_client_in(ctx.message.server)
         if voice_client:
             await voice_client.disconnect()
         else: 
@@ -58,8 +60,7 @@ class music:
     @commands.command(pass_context=True)
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def stop(self, ctx):
-        server = ctx.message.server
-        voice_client = self.client.voice_client_in(server)
+        voice_client = self.client.voice_client_in(ctx.message.server)
         if voice_client:
             await voice_client.disconnect()
         else:
