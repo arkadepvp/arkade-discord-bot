@@ -14,4 +14,6 @@ Command arguments are shown with `<string/int>` and are required.
 `.map <string>` - Displays a picture of the given map.<br>
 `.tame <string>` - In development.<br>
 `.wiki <string>` - Displays basic wiki info of the given dinosaur<br>
+
+###### ****
 ---
