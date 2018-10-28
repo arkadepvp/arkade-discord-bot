@@ -20,5 +20,3 @@ Command arguments are shown with `<>` and are required.
 `.fire` - A nice relaxing fireplace (mst be in a voice channel)<br>
 `.stop` - Stops whatever is currently playing<br>
 ---
-### **Info**
----
