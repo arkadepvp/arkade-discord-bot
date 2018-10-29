@@ -1,0 +1,7 @@
+{
+  "MysqlHost":"localhost",
+  "MysqlUser":"Remote_ArkadeUser",
+  "MysqlPass":"E6Zb9He^xQrv_wgu",
+  "MysqlDB":"arkdb",
+  "MysqlPort":3306,
+}
