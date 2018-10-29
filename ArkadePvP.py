@@ -13,7 +13,7 @@ with open('config.json', 'r') as f:
 
 TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
-startup_extensions = ["wiki", "music", "admin", "shoplogs"]
+startup_extensions = ["wiki", "music", "admin", "shoplogs", "donate"]
 client.remove_command('help')
 async def on_ready():
     pass
