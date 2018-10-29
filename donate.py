@@ -8,7 +8,7 @@ class donate:
         self.client = client
 
     async def on_ready(self):
-        channel = client.get_channel('502380383434833920')
+        channel = self.client.get_channel('502380383434833920')
         message = await self.client.send_message(channel, "test")
 
 def setup(client):
