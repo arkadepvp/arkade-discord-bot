@@ -8,7 +8,7 @@ class donate:
         self.client = client
 
     async def on_ready():
-        pass
+        message = await client.send_message(502380383434833920, "test")
 
 def setup(client):
     client.add_cog(donate(client))
