@@ -8,7 +8,8 @@ class donate:
         self.client = client
 
     async def on_ready(self):
-        message = await self.client.send_message(502380383434833920, "test")
+        channel = client.get_channel('502380383434833920')
+        message = await self.client.send_message(channel, "test")
 
 def setup(client):
     client.add_cog(donate(client))
