@@ -5,6 +5,9 @@ import time
 import json
 from discord.ext import commands
 from discord.ext.commands import Bot
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
 
 class shopcharts:
     def __init__(self, client):
@@ -80,11 +83,28 @@ class shopcharts:
         printStringTwo = "\n".join(str(e) for e in printListTwo)
         printStringThree = "\n".join(str(e) for e in printListThree)
 
+        # PLOT CREATION
+
+        objects = uniqueList[50:150]
+        performance = uniqueCounter[50:150]
+        y_pos = np.arange(len(objects))
+
+        plt.figure(figsize=(40,20))
+        plt.bar(y_pos, performance, align='center', alpha=0.5)
+        plt.xticks(y_pos, objects, rotation='vertical')
+        plt.ylabel('Number Bought')
+        plt.title('Items Purchaced In Store')
+
+        plt.savefig('shopchart.png', bbox_inches='tight')
+        # END PLOT CREATION
+
         #SEND EMBED TO DISCORD
         embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #     || Item        #```", color=0xCC33CC)
         embed.add_field(name="1-50", value="```" + printStringOne + "```")
         embed.add_field(name="51-100", value="```" + printStringTwo + "```")
         message = await self.client.send_message(ctx.message.channel, embed=embed)
+
+        await self.client.send_file(ctx.message.channel, 'shopchart.png')
 
 def setup(client):
     client.add_cog(shopcharts(client))
