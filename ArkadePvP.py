@@ -108,9 +108,9 @@ async def help(ctx):
 
     embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x50bdfe)
     embed.add_field(name="General Commands", value="`.help` -  Displays this information\n`.info` - Displays info about the bot")
-    embed.add_field(name="Ark Commands", value="`.craft <>` -  Display crafting requirments for an item\n`.search <>` -  Searches [gamepedia](https://ark.gamepedia.com) for the given query\n`.map <>` -  Displays a picture of the given map.\n`.tame <>` -  In development.\n`.wiki <>` -  Displays basic wiki info of the given dinosaur")
+    embed.add_field(name="Ark Commands", value="`.craft <item>` -  Display crafting requirments for an item\n`.search <query>` -  Searches [gamepedia](https://ark.gamepedia.com) for the given query\n`.map <map>` -  Displays a picture of the given map.\n`.tame <creature>` -  In development.\n`.wiki <creature>` -  Displays basic wiki info of the given dinosaur")
     if ctx.message.author.server_permissions.administrator:
-        embed.add_field(name="Admin Commands", value="`.poll <>` - Creates a poll with the given question\n`.welcome` - Sends the welcome message in the active channel\n`.play` - Plays a youtube link (must be in a voice channel)\n`.fire` - A nice relaxing fireplace (mst be in a voice channel)\n`.stop` - Stops whatever is currently playing")
+        embed.add_field(name="Admin Commands", value="`.poll <question>` - Creates a poll with the given question\n`.multipoll <\"question\" \"answer1\">` - Creates a poll with the given question and up to eight answers.\n`.welcome` - Sends the welcome message in the active channel\n`.play <url>` - Plays a youtube link (must be in a voice channel)\n`.fire` - A nice relaxing fireplace (must be in a voice channel)\n`.stop` - Stops whatever is currently playing")
     message = await client.send_message(ctx.message.channel, embed=embed)
 
 #info command
