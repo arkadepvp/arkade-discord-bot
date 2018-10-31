@@ -14,25 +14,39 @@ class admin:
         await self.client.delete_message(ctx.message)
 
         pollChannel = ctx.message.channel
-        embed = discord.Embed(title=" Vote ✅ or ❌ on the question below.\n_ _", description=" ".join(string), color=0xCC33CC)
-        embed.set_author(name="Poll", icon_url="https://melbournechapter.net/images/question-mark-clipart-transparent.png")
+        embed = discord.Embed(title="📊 | Vote ✅ or ❌ on the question below.\n_ _", description=" ".join(string), color=0xCC33CC)
         message = await self.client.send_message(pollChannel, embed=embed)
         await self.client.add_reaction(message, '✅')
         await self.client.add_reaction(message, '❌')
 
-    #polleveryone command
+    #multipoll command
     @commands.command(pass_context=True)
     @commands.has_any_role('Arkade Admin', 'Moderator')
-    async def polleveryone(self, ctx, *string):
+    async def multipoll(self, ctx, *string):
         await self.client.delete_message(ctx.message)
 
+        pollList = list(string)
+        multiList = ['?', '🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭']
+
+        try:
+            pollList[1] = "🇦 " + pollList[1]
+            pollList[2] = "🇧 " + pollList[2]
+            pollList[3] = "🇨 " + pollList[3]
+            pollList[4] = "🇩 " + pollList[4]
+            pollList[5] = "🇪 " + pollList[5]
+            pollList[6] = "🇫 " + pollList[6]
+            pollList[7] = "🇬 " + pollList[7]
+            pollList[8] = "🇭 " + pollList[8]
+        except:
+            pass
         pollChannel = ctx.message.channel
-        await self.client.send_message(pollChannel, "\@everyone")
-        embed = discord.Embed(title=" Vote ✅ or ❌ on the question below.\n_ _", description=" ".join(string), color=0xCC33CC)
-        embed.set_author(name="Poll", icon_url="https://melbournechapter.net/images/question-mark-clipart-transparent.png")
+        embed = discord.Embed(title="📊 | Vote on the question below.\n", description="".join(pollList[0]), color=0xCC33CC)
+        embed.add_field(name="---", value="\n".join(pollList[1:]))
+
         message = await self.client.send_message(pollChannel, embed=embed)
-        await self.client.add_reaction(message, '✅')
-        await self.client.add_reaction(message, '❌')
+
+        for i in range(1,len(pollList)):
+            await self.client.add_reaction(message, multiList[i])
 
     #welcome command
     @commands.command(pass_context=True)
