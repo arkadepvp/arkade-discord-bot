@@ -124,11 +124,51 @@ async def info(ctx):
     embed.add_field(name="_ _", value="made with love by<@147901548167430144>")
     message = await client.send_message(ctx.message.channel, embed=embed)
 
+#load commands
+@client.command(pass_context=True)
+async def load(ctx, string):
+    try:
+        client.load_extension(string)
+        print('Loaded extension \"{}\"'.format(string))
+        await client.send_message(ctx.message.channel, 'Loaded extension \"{}\"'.format(string))
+    except Exception as e:
+        exc = '{}: {}'.format(type(e).__name__, e)
+        print('Failed to load extension \"{}\"\n{}'.format(string, exc))
+
+#unload commands
+@client.command(pass_context=True)
+async def unload(ctx, string):
+    try:
+        client.unload_extension(string)
+        print('Unloaded extension \"{}\"'.format(string))
+        await client.send_message(ctx.message.channel, 'Loaded extension \"{}\"'.format(string))
+    except Exception as e:
+        exc = '{}: {}'.format(type(e).__name__, e)
+        print('Failed to unload extension \"{}\"\n{}'.format(string, exc))
+
+#reload commands
+@client.command(pass_context=True)
+async def reload(ctx, string):
+    try:
+        client.unload_extension(string)
+        print('Unloaded extension \"{}\"'.format(string))
+    except Exception as e:
+        exc = '{}: {}'.format(type(e).__name__, e)
+        print('Failed to unload extension \"{}\"\n{}'.format(string, exc))
+    try:
+        client.load_extension(string)
+        print('Loaded extension \"{}\"'.format(string))
+        await client.send_message(ctx.message.channel, 'Reloaded extension \"{}\"'.format(string))
+    except Exception as e:
+        exc = '{}: {}'.format(type(e).__name__, e)
+        print('Failed to load extension \"{}\"\n{}'.format(string, exc))
+
 #IMPORT EXTENSIONS/COGS
 if __name__ == "__main__":
     for extension in startup_extensions:
         try:
             client.load_extension(extension)
+            print('Loaded extension \"{}\"'.format(extension))
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension \"{}\"\n{}'.format(extension, exc))
