@@ -44,7 +44,7 @@ class admin:
         message = await ctx.message.channel.send(embed=embed)
 
         for i in range(1,len(pollList)):
-            await ctx.message.channel.add_reaction(multiList[i])
+            await message.add_reaction(multiList[i])
 
     #welcome command
     @commands.command(pass_context=True)
