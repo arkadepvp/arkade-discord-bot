@@ -2,6 +2,7 @@
 # THIS IS THE LIVE VERSION
 import discord
 import asyncio
+import time
 from discord import Game
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -17,6 +18,7 @@ TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
 startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.help"]
 client.remove_command('help')
+startTime = time.time()
 async def on_ready():
     pass
 
@@ -44,10 +46,23 @@ async def help(ctx, string=None):
 async def info(ctx):
     await ctx.message.delete()
 
-    embed = discord.Embed(title="Arkade PvP Bot Information", description="A custom built bot for the [Arkade PvP Discord.](https://discord.gg/G8d5YFd)", color=0x50bdfe)
+    secs = (time.time() - startTime)
+    days = secs//86400
+    hours =  (secs - days * 86400)//3600
+    minutes  = int(secs - days * 86400 - hours * 3600)//60
+    seconds = int(secs - days * 86400 - hours * 3600 - minutes * 60)
+
+    days = int(days)
+    hours = int(hours)
+    minutes = int(minutes)
+
+    embed = discord.Embed(title="_ _", description="A custom built bot for the [Arkade PvP Discord.](https://discord.gg/G8d5YFd)", color=0x50bdfe)
+    embed.set_author(name="Arkade PvP | Bot Stats", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
     embed.set_thumbnail(url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
-    embed.add_field(name="_ _", value="_ _")
-    embed.add_field(name="_ _", value="made with love by<@147901548167430144>")
+    embed.add_field(name="Members", value="750", inline=True)
+    embed.add_field(name="Uptime", value="{}d {}h {}m {}s".format(days, hours, minutes, seconds), inline=True)
+    embed.add_field(name="Links", value="T\nB\nD")
+    embed.set_footer(text="Made in Python 3.6.6 with Discord.py rewrite | Made by N0XIRE#7589", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
     message = await ctx.message.channel.send(embed=embed)
 
 #load commands
