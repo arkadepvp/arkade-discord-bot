@@ -1,3 +1,4 @@
-
-config.json
-dontateconfig.json
+# ignored files
+*.json
+*.png
+__pycache__

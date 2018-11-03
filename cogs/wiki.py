@@ -19,7 +19,7 @@ class wiki:
         embed.add_field(name='Command', value="```%info\n%poll <arg>\n \n%cmd```", inline=True)
         embed.add_field(name='Description', value="```Shows this page.\nStarts a poll with the question: <arg>.\ncmddesc```", inline=True)
         embed.add_field(name='_ _', value="-------------------------------------------------------------------------------------------------")
-        message = await self.client.send_message(ctx.message.channel, embed=embed)
+        message = await ctx.message.channel.send(embed=embed)
 
     #craft command
     @commands.command(pass_context=True)
@@ -55,10 +55,10 @@ class wiki:
         embed.add_field(name='Required Resources: ', value=" " + "".join(cost))
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
         try:
-            message = await self.client.send_message(ctx.message.channel, embed=embed)
+            message = await ctx.message.channel.send(embed=embed)
         except:
             embed = discord.Embed(title="Error", description="That is not a valid craft.", color=0xff0000)
-            message = await self.client.send_message(ctx.message.channel, embed=embed)
+            message = await ctx.message.channel.send(embed=embed)
 
     #search command
     @commands.command(pass_context=True)
@@ -74,7 +74,7 @@ class wiki:
         except:
             embed = discord.Embed(title="Ark Gamepedia: No Results Found", color=0xff0000)
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
-        message = await self.client.send_message(ctx.message.channel, embed=embed)
+        message = await ctx.message.channel.send(embed=embed)
 
     #map command
     @commands.command(pass_context=True)
@@ -106,7 +106,7 @@ class wiki:
         else:
             pass
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
-        message = await self.client.send_message(ctx.message.channel, embed=embed)
+        message = await ctx.message.channel.send(embed=embed)
 
     #wiki command
     @commands.command(pass_context=True)
@@ -144,10 +144,10 @@ class wiki:
         embed.add_field(name="Dossier", value="TBD", inline=False)
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
         try:
-            message = await self.client.send_message(ctx.message.channel, embed=embed)
+            message = await ctx.message.channel.send(embed=embed)
         except:
             embed = discord.Embed(title="Error", description="That is not a valid dinosaur.", color=0xff0000)
-            message = await self.client.send_message(ctx.message.channel, embed=embed)
+            message = await ctx.message.channel.send(embed=embed)
 
 def setup(client):
     client.add_cog(wiki(client))
