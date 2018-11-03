@@ -61,6 +61,7 @@ async def load(ctx, string):
     except Exception as e:
         exc = '{}: {}'.format(type(e).__name__, e)
         print('Failed to load extension \"{}\"\n{}'.format(string, exc))
+        await ctx.message.channel.send('Failed to load extension \"{}\"'.format(string))
 
 #unload commands
 @client.command(pass_context=True)
@@ -91,6 +92,7 @@ async def reload(ctx, string):
     except Exception as e:
         exc = '{}: {}'.format(type(e).__name__, e)
         print('Failed to load extension \"{}\"\n{}'.format(string, exc))
+        await ctx.message.channel.send('Failed to load extension \"{}\"'.format(string))
 
 #IMPORT EXTENSIONS/COGS
 if __name__ == "__main__":
