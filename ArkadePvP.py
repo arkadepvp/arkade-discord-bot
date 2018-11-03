@@ -53,6 +53,7 @@ async def info(ctx):
 #load commands
 @client.command(pass_context=True)
 async def load(ctx, string):
+    string = 'cogs.' + string
     try:
         client.load_extension(string)
         print('Loaded extension \"{}\"'.format(string))
@@ -64,6 +65,7 @@ async def load(ctx, string):
 #unload commands
 @client.command(pass_context=True)
 async def unload(ctx, string):
+    string = 'cogs.' + string
     try:
         client.unload_extension(string)
         print('Unloaded extension \"{}\"'.format(string))
@@ -75,6 +77,7 @@ async def unload(ctx, string):
 #reload commands
 @client.command(pass_context=True)
 async def reload(ctx, string):
+    string = 'cogs.' + string
     try:
         client.unload_extension(string)
         print('Unloaded extension \"{}\"'.format(string))
