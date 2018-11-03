@@ -41,7 +41,7 @@ class admin:
         embed = discord.Embed(title="📊 | Vote on the question below.\n", description="".join(pollList[0]), color=0xCC33CC)
         embed.add_field(name="---", value="\n".join(pollList[1:]))
 
-        message = await pollChannel.send(embed=embed)
+        message = await ctx.message.channel.send(embed=embed)
 
         for i in range(1,len(pollList)):
             await ctx.message.channel.add_reaction(multiList[i])
