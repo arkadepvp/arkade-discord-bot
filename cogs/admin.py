@@ -8,7 +8,7 @@ class admin:
         self.client = client
 
     #poll command
-    @commands.command(pass_context=True)
+    @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def poll(self, ctx, *string):
         await ctx.message.delete()
@@ -19,7 +19,7 @@ class admin:
         await message.add_reaction('❌')
 
     #multipoll command
-    @commands.command(pass_context=True)
+    @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def multipoll(self, ctx, *string):
         await ctx.message.delete()
@@ -47,7 +47,7 @@ class admin:
             await message.add_reaction(multiList[i])
 
     #welcome command
-    @commands.command(pass_context=True)
+    @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def welcome(self, ctx):
         await ctx.message.delete()

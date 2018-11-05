@@ -11,7 +11,7 @@ class wiki:
         self.client = client
 
     #tame command
-    @commands.command(pass_context=True)
+    @commands.command()
     async def two(self, ctx):
         await self.client.delete_message(ctx.message)
 
@@ -22,7 +22,7 @@ class wiki:
         message = await ctx.message.channel.send(embed=embed)
 
     #craft command
-    @commands.command(pass_context=True)
+    @commands.command()
     async def craft(self, ctx, string, extend = None):
         string = string.capitalize()
         stringSafeThumb = string
@@ -61,7 +61,7 @@ class wiki:
             message = await ctx.message.channel.send(embed=embed)
 
     #search command
-    @commands.command(pass_context=True)
+    @commands.command()
     async def search(self, ctx, *string):
         search = "+".join(string)
         url = "https://ark.gamepedia.com/index.php?search={0}&title=Special%3ASearch&fulltext=Search".format(search)
@@ -77,7 +77,7 @@ class wiki:
         message = await ctx.message.channel.send(embed=embed)
 
     #map command
-    @commands.command(pass_context=True)
+    @commands.command()
     async def map(self, ctx, string, extend = None):
         if (string.lower()).startswith("isl"):
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/0/04/The_Island_Topographic_Map.jpg"
@@ -109,7 +109,7 @@ class wiki:
         message = await ctx.message.channel.send(embed=embed)
 
     #wiki command
-    @commands.command(pass_context=True)
+    @commands.command()
     async def wiki(self, ctx, string, extend = None):
         string = string.capitalize()
         stringSafeThumb = string

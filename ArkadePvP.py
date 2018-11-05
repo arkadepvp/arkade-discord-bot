@@ -30,7 +30,7 @@ async def on_ready():
     print('---\nLogged in as\nUser: ' + client.user.name + '\nID: ' + str(client.user.id) + '\n---')
 
 #help command
-@client.command(pass_context=True)
+@client.command()
 async def help(ctx, string=None):
     await ctx.message.delete()
 
@@ -42,7 +42,7 @@ async def help(ctx, string=None):
     message = await ctx.message.channel.send(embed=embed)
 
 #info command
-@client.command(pass_context=True)
+@client.command()
 async def info(ctx):
     await ctx.message.delete()
 
@@ -66,7 +66,7 @@ async def info(ctx):
     message = await ctx.message.channel.send(embed=embed)
 
 #load commands
-@client.command(pass_context=True)
+@client.command()
 async def load(ctx, string):
     string = 'cogs.' + string
     try:
@@ -79,7 +79,7 @@ async def load(ctx, string):
         await ctx.message.channel.send('Failed to load extension \"{}\"'.format(string))
 
 #unload commands
-@client.command(pass_context=True)
+@client.command()
 async def unload(ctx, string):
     string = 'cogs.' + string
     try:
@@ -91,7 +91,7 @@ async def unload(ctx, string):
         print('Failed to unload extension \"{}\"\n{}'.format(string, exc))
 
 #reload commands
-@client.command(pass_context=True)
+@client.command()
 async def reload(ctx, string):
     string = 'cogs.' + string
     try:
