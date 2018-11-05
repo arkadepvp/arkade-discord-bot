@@ -13,8 +13,6 @@ class wiki:
     #tame command
     @commands.command()
     async def two(self, ctx):
-        await self.client.delete_message(ctx.message)
-
         embed = discord.Embed(title="Arkade PvP Bot Information:", description="_ _", color=0x50bdfe)
         embed.add_field(name='Command', value="```%info\n%poll <arg>\n \n%cmd```", inline=True)
         embed.add_field(name='Description', value="```Shows this page.\nStarts a poll with the question: <arg>.\ncmddesc```", inline=True)
