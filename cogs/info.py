@@ -4,11 +4,11 @@ import time
 from discord.ext import commands
 from discord.ext.commands import Bot
 
+startTime = time.time()
+
 class info:
     def __init__(self, client):
         self.client = client
-		
-	startTime = time.time()
 
     #help command
     @commands.command()
