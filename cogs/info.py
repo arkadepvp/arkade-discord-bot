@@ -8,9 +8,10 @@ class info:
         self.client = client
 
     #help command
-    @client.command()
-    async def help(ctx, string=None):
-        await ctx.message.delete()
+    @commands.command()
+    async def help(self, ctx, string=None):
+
+        print(discord.utils.get(roles, id=508798353950244868))
 
         embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x50bdfe)
         embed.add_field(name="General Commands", value="`.help` -  Displays this information\n`.info` - Displays info about the bot")
@@ -20,8 +21,8 @@ class info:
         message = await ctx.message.channel.send(embed=embed)
 
     #info command
-    @client.command()
-    async def info(ctx):
+    @commands.command()
+    async def info(self, ctx):
         await ctx.message.delete()
 
         secs = (time.time() - startTime)
