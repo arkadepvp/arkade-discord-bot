@@ -2,7 +2,6 @@
 # THIS IS THE LIVE VERSION
 import discord
 import asyncio
-import time
 from discord import Game
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -18,7 +17,6 @@ TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
 startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info"]
 client.remove_command('help')
-startTime = time.time()
 async def on_ready():
     pass
 
