@@ -84,7 +84,7 @@ class wiki:
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/thumb/5/58/The_Center_Topographic_Map.jpg/800px-The_Center_Topographic_Map.jpg?"
             embed = discord.Embed(title="Center map: ", color=0xffff66)
         elif (string.lower()).startswith("ab"):
-            mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/2/20/Map_Aberration.png"
+            mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/thumb/6/68/Aberration_Map.jpg/800px-Aberration_Map.jpg"
             embed = discord.Embed(title="Aberration map: ", color=0xffff66)
         elif (string.lower()).startswith("rag"):
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/thumb/c/cf/Ragnarok_Ocean_Topographic_Map.jpg/800px-Ragnarok_Ocean_Topographic_Map.jpg?"
@@ -93,7 +93,7 @@ class wiki:
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/3/39/Scorched_Earth_Topographic_Map.jpg"
             embed = discord.Embed(title="Scorched map: ", color=0xffff66)
         elif (string.lower()).startswith("ext"):
-            mapUrl = "https://png2.kisspng.com/sh/c8e2de65018473ce38648b4c0211a2a4/L0KzQYm3VsI6N6t9gpH0aYP2gLBuTfVud5tuRdd2b4Tsc7F1TgNucZ1qkZ9sbHnzPbL5lL1pdZ4yTdQ8NkjoSYm9UcIyPWUzTKo6NEO4QYK4VcMxO2E3SaI9M0m6SXB3jvc=/kisspng-emoji-emoticon-smiley-clip-art-hmm-5b368e98612154.4814351115303021043979.png"
+            mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/thumb/f/ff/Extinction_Map.jpg/800px-Extinction_Map.jpg"
             embed = discord.Embed(title="Extinction map: ", color=0xffff66)
         else:
             embed = discord.Embed(title="Error", description="That is not a valid map.", color=0xff0000)
