@@ -18,6 +18,33 @@ class admin:
         await message.add_reaction('✅')
         await message.add_reaction('❌')
 
+    #ogs command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def ogs(self, ctx, *string):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="OGS Information", description="You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit OGS`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.", color=0xCC33CC)
+        message = await ctx.message.channel.send(embed=embed)
+
+    #rep command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def rep(self, ctx, *string):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="Tribe Rep Information", description="Become a Tribe Rep to join in on Rep votes, submit support tickets, and redeem your OGS terminal.\n[Tribe Rep Signup Sheet](https://docs.google.com/forms/d/1-zJLG5vengDKkv0dAdAVZq8g68ZA2c925NI1pj4g878)", color=0xCC33CC)
+        message = await ctx.message.channel.send(embed=embed)
+
+    #servers command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def servers(self, ctx, *string):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="Server Direct Connect Links", description="✦ Extinction One: steam://connect/147.135.9.6:27017\n✦ Extinction Two: steam://connect/147.135.8.210:27015\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.8.214:27017\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n✦ Event Map: steam://connect/147.135.9.6:27051\n", color=0xCC33CC)
+        message = await ctx.message.channel.send(embed=embed)
+
     #multipoll command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
