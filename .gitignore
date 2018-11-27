@@ -2,3 +2,4 @@
 *.json
 *.png
 __pycache__
+cogs/shoplogs.py
