@@ -33,7 +33,20 @@ class admin:
     async def rep(self, ctx, *string):
         await ctx.message.delete()
 
-        embed = discord.Embed(title="Tribe Rep Information", description="Become a Tribe Rep to join in on Rep votes, submit support tickets, and redeem your OGS terminal.\n[Tribe Rep Signup Sheet](https://docs.google.com/forms/d/1-zJLG5vengDKkv0dAdAVZq8g68ZA2c925NI1pj4g878)", color=0xCC33CC)
+        embed = discord.Embed(title="Tribe Representative Information", description="A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [SAFE] tags, and communicating with admins should an issue arrise.", color=0xCC33CC)
+        embed.add_field(name="_ _\nTribe Rep Requirements", value="Please provide the following info in <#484779257202081823>. If your tribe contains 7 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```")
+        embed.add_field(name="_ _\nTribe Rep Perks/Responsibilities", value="-Being a Tribe Representative gives you limited access to /kit OGS in game for your Offline Guard System.  Offline Guard System buffs the health of tames within the protective shield while all tribe members are offline.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment.")
+        message = await ctx.message.channel.send(embed=embed)
+
+    #safe command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def safe(self, ctx, *string):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="Fun with [SAFE] tags!", description="[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each safe tag is judged on a case by case basics and the time awarded is based on the damage received.", color=0xCC33CC)
+        embed.add_field(name="Safe Tag Rules", value="Please read over our safe tag rules at <#509312769385037824>. Violating these rules can result in the reduction or removal of your safe tag.")
+        embed.add_field(name="Safe Tag Requirements", value="Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [SAFE] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```")
         message = await ctx.message.channel.send(embed=embed)
 
     #servers command
