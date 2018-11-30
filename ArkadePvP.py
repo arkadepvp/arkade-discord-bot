@@ -10,7 +10,7 @@ import json
 import os
 import sys
 
-with open('config.json', 'r') as f:
+with open('configfinal.json', 'r') as f:
     config = json.load(f)
 
 TOKEN = config['token']
