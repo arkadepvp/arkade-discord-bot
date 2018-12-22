@@ -92,10 +92,10 @@ class admin:
     async def welcome(self, ctx):
         await ctx.message.delete()
 
-        embed = discord.Embed(title="Welcome to Arkade PvP!", description="```md\nArkade PvP - More than just a server.\n-------------------------------------\n```\n", color=0xCC33CC)
+        embed = discord.Embed(title="Welcome to Arkade PvP!", description="_ _", color=0xCC33CC)
         embed.set_image(url="https://cdn.discordapp.com/attachments/461022949798051871/472549308454010880/arkadebanner23.png")
         embed.add_field(name="Rates", value="✦ EXP: 3x\n✦ Gathering: 5x\n✦ Taming: 7x\n✦ Breeding: 10x (15x PvE)\n✦ Character Level: 105 +30\n✦ Wild Dino Level: 150", inline="true")
-        embed.add_field(name="Links", value="✦ [Our Website](http://arkadepvp.com)\n✦ [Guilded](https://www.guilded.gg/ArkadePvP/)\n✦ [Discord](https://discord.me/arkade)", inline="true")
+        embed.add_field(name="Links", value="✦ [Our Website](http://arkadepvp.com)\n✦ [Donate](https://shop.arkadepvp.com/)\n✦ [Guilded](https://www.guilded.gg/ArkadePvP/)\n✦ [Discord](https://discord.me/arkade)\n✦ [Twitch](https://www.twitch.tv/tiamoarkade)", inline="true")
         embed.add_field(name="_ _", value="_ _")
         embed.add_field(name="Quick Information", value="✦ Please read <#492888582726615040> for our rules and config settings.\n✦ Check <#472558681687457792> for our connect and vote links.\n✦ Ping @Arkade Admin in <#472623301290622993> if there is a server crash.")
         embed.add_field(name="_ _", value="_ _")
