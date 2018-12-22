@@ -99,7 +99,9 @@ class admin:
         embed.add_field(name="_ _", value="_ _")
         embed.add_field(name="Quick Information", value="✦ Please read <#492888582726615040> for our rules and config settings.\n✦ Check <#472558681687457792> for our connect and vote links.\n✦ Ping @Arkade Admin in <#472623301290622993> if there is a server crash.")
         embed.add_field(name="_ _", value="_ _")
-        embed.add_field(name="Server Direct Connect Links", value="✦ Extinction: steam://connect/147.135.9.6:27017\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.8.214:27017\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n✦ Event Map: steam://connect/147.135.9.6:27051\n")
+        embed.add_field(name="PVP Server Links", value="✦ Extinction: steam://connect/147.135.9.6:27017\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.30.58:27015\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n")
+        embed.add_field(name="PVE Server Links", value="✦ Extinction: steam://connect/206.221.189.242:27021\n✦ Ragnarok: steam://connect/206.221.189.242:27015\n✦ Aberration: steam://connect/206.221.189.242:27019\n✦ The Island: steam://connect/206.221.189.242:27017\n")
+        embed.add_field(name="Event Server Links", value="✦ Event Map: steam://connect/147.135.9.6:27051\n")
         message = await ctx.message.channel.send(embed=embed)
 
 def setup(client):
