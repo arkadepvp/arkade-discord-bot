@@ -21,8 +21,9 @@ class roleselect:
 
         try:
             await user.add_roles(role)
+            message = await ctx.message.channel.send("Success!", delete_after=10)
         except:
-            message = await ctx.message.channel.send("Error: Improper Role", delete_after=10)
+            message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
 
     #leave command
     @commands.command()
@@ -38,8 +39,9 @@ class roleselect:
 
         try:
             await user.remove_roles(role)
+            message = await ctx.message.channel.send("Success!", delete_after=5)
         except:
-            message = await ctx.message.channel.send("Error: Improper Role", delete_after=10)
+            message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
 
 def setup(client):
     client.add_cog(roleselect(client))
