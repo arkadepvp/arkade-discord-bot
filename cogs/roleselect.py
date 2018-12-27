@@ -21,7 +21,7 @@ class roleselect:
 
         try:
             await user.add_roles(role)
-            message = await ctx.message.channel.send("Success!", delete_after=10)
+            message = await ctx.message.channel.send("Success!", delete_after=5)
         except:
             message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
 
