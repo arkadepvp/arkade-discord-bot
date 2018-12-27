@@ -14,12 +14,10 @@ class roleselect:
 
         if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        else:
-            pass
-        if sting.lower() == "pve":
+        elif sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
         else:
-            pass
+            message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
 
         user = ctx.message.author
 
@@ -36,12 +34,10 @@ class roleselect:
 
         if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        else:
-            pass
-        if sting.lower() == "pve":
+        elif sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
         else:
-            pass
+            message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
 
         user = ctx.message.author
 
