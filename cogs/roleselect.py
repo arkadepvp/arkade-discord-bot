@@ -12,9 +12,11 @@ class roleselect:
     async def join(self, ctx, string):
         await ctx.message.delete()
 
-        if string.lower() == "pvp":
+        string = string.lower()
+
+        if string == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        elif sting.lower() == "pve":
+        elif string == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
         else:
             message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
@@ -32,9 +34,11 @@ class roleselect:
     async def leave(self, ctx, string):
         await ctx.message.delete()
 
-        if string.lower() == "pvp":
+        string = string.lower()
+
+        if string == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        elif sting.lower() == "pve":
+        elif string == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
         else:
             message = await ctx.message.channel.send("Error: Improper Role", delete_after=5)
