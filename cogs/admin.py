@@ -101,7 +101,7 @@ class admin:
         embed.add_field(name="_ _", value="_ _")
         embed.add_field(name="PVP Server Links", value="✦ Extinction: steam://connect/147.135.9.6:27017\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.30.58:27015\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n")
         embed.add_field(name="_ _", value="_ _")
-        embed.add_field(name="PVE Server Links", value="✦ Extinction: steam://connect/206.221.189.242:27021\n✦ Ragnarok: steam://connect/206.221.189.242:27015\n✦ Aberration: steam://connect/206.221.189.242:27019\n✦ The Island: steam://connect/206.221.189.242:27017\n")
+        embed.add_field(name="PVE Server Links", value="✦ Extinction: steam://connect/147.135.30.61:27018\n✦ Ragnarok: steam://connect/147.135.30.61:27015\n✦ Aberration: steam://connect/147.135.30.61:27017\n✦ The Island: steam://connect/147.135.30.61:27016\n")
         embed.add_field(name="_ _", value="_ _")
         embed.add_field(name="Event Server Links", value="✦ Event Map: steam://connect/147.135.9.6:27051\n")
         message = await ctx.message.channel.send(embed=embed)

@@ -9,16 +9,19 @@ class roleselect:
 
     #join command
     @commands.command()
-    async def join(self, ctx):
+    async def join(self, ctx, string):
         await ctx.message.delete()
-
-        await client.add_roles(ctx.message.author, discord.utils.get(user.server.roles, name="TestRole"))
+        role = discord.utils.get(ctx.guild.roles, name="TestRole")
+        user = ctx.message.author
+        await user.add_roles(role)
 
     #leave command
     @commands.command()
-    async def leave(self, ctx):
+    async def leave(self, ctx, string):
         await ctx.message.delete()
-
+        role = discord.utils.get(ctx.guild.roles, name="TestRole")
+        user = ctx.message.author
+        await user.remove_roles(role)
 
 def setup(client):
     client.add_cog(roleselect(client))
