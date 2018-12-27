@@ -33,7 +33,6 @@ class roleselect:
             role = discord.utils.get(ctx.guild.roles, name="PvP")
         elif sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
-        else
 
         user = ctx.message.author
 
