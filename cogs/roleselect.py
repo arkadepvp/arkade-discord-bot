@@ -14,8 +14,12 @@ class roleselect:
 
         if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
+        else:
+            pass
         if sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
+        else:
+            pass
 
         user = ctx.message.author
 
@@ -32,8 +36,12 @@ class roleselect:
 
         if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
+        else:
+            pass
         if sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
+        else:
+            pass
 
         user = ctx.message.author
 
