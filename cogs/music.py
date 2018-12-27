@@ -180,7 +180,7 @@ class Music:
 
         return player
 
-    @commands.command(name='connect', aliases=['join'])
+    @commands.command(name='connect')
     async def connect_(self, ctx, *, channel: discord.VoiceChannel=None):
         if not channel:
             try:
