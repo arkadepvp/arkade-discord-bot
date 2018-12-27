@@ -12,9 +12,9 @@ class roleselect:
     async def join(self, ctx, string):
         await ctx.message.delete()
 
-        if string.lower() == "pvp"
+        if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        elif sting.lower() == "pve"
+        elif sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
 
         user = ctx.message.author
@@ -29,9 +29,9 @@ class roleselect:
     async def leave(self, ctx, string):
         await ctx.message.delete()
 
-        if string.lower() == "pvp"
+        if string.lower() == "pvp":
             role = discord.utils.get(ctx.guild.roles, name="PvP")
-        elif sting.lower() == "pve"
+        elif sting.lower() == "pve":
             role = discord.utils.get(ctx.guild.roles, name="PvE")
         else
 
