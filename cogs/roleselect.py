@@ -11,17 +11,36 @@ class roleselect:
     @commands.command()
     async def join(self, ctx, string):
         await ctx.message.delete()
-        role = discord.utils.get(ctx.guild.roles, name="TestRole")
+
+        if string.lower() == "pvp"
+            role = discord.utils.get(ctx.guild.roles, name="PvP")
+        elif sting.lower() == "pve"
+            role = discord.utils.get(ctx.guild.roles, name="PvE")
+
         user = ctx.message.author
-        await user.add_roles(role)
+
+        try:
+            await user.add_roles(role)
+        except:
+            message = await ctx.message.channel.send("Error: Improper Role")
 
     #leave command
     @commands.command()
     async def leave(self, ctx, string):
         await ctx.message.delete()
-        role = discord.utils.get(ctx.guild.roles, name="TestRole")
+
+        if string.lower() == "pvp"
+            role = discord.utils.get(ctx.guild.roles, name="PvP")
+        elif sting.lower() == "pve"
+            role = discord.utils.get(ctx.guild.roles, name="PvE")
+        else
+
         user = ctx.message.author
-        await user.remove_roles(role)
+
+        try:
+            await user.remove_roles(role)
+        except:
+            message = await ctx.message.channel.send("Error: Improper Role")
 
 def setup(client):
     client.add_cog(roleselect(client))
