@@ -68,6 +68,7 @@ class shopcharts:
                         with open(fname) as infile:
                             outfile.write(infile.read())
 
+        #process newly combined log
         with open('shoplogs/Combined_Log.log', 'r') as f:
             combined = f.readlines()
 
