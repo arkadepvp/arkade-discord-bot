@@ -46,11 +46,11 @@ class shopcharts:
             time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L1P-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext1.log')
 
-                filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_ScorchedEarth.log', 'shoplogs/ShopLog_Ext1.log', 'shoplogs/ShopLog_Ext2.log']
-                with open('shoplogs/Combined_Log.log', 'w') as outfile:
-                    for fname in filenames:
-                        with open(fname) as infile:
-                            outfile.write(infile.read())
+            filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_ScorchedEarth.log', 'shoplogs/ShopLog_Ext1.log', 'shoplogs/ShopLog_Ext2.log']
+            with open('shoplogs/Combined_Log.log', 'w') as outfile:
+                for fname in filenames:
+                    with open(fname) as infile:
+                        outfile.write(infile.read())
 
         elif string == "pve":
             #download from ArkadePvE server
@@ -62,11 +62,11 @@ class shopcharts:
             time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L4E-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext.log')
 
-                filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_Ext.log']
-                with open('shoplogs/Combined_Log.log', 'w') as outfile:
-                    for fname in filenames:
-                        with open(fname) as infile:
-                            outfile.write(infile.read())
+            filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_Ext.log']
+            with open('shoplogs/Combined_Log.log', 'w') as outfile:
+                for fname in filenames:
+                    with open(fname) as infile:
+                        outfile.write(infile.read())
 
         #process newly combined log
         with open('shoplogs/Combined_Log.log', 'r') as f:
