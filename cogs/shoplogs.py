@@ -19,7 +19,7 @@ class shopcharts:
     #shopchart command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
-    async def shopchart(self, ctx):
+    async def shopchart(self, ctx, string):
         await ctx.message.delete()
         #COLLECT DATA
 
@@ -28,27 +28,45 @@ class shopcharts:
         ftp2 = config['ftp2user'] + ':' + config['ftp2pass']
         ftp3 = config['ftp3user'] + ':' + config['ftp3pass']
         ftp4 = config['ftp4user'] + ':' + config['ftp4pass']
+        ftp5 = config['ftp5user'] + ':' + config['ftp5pass']
 
-        #download from ArkadePvP server
-        urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L1P-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L3P-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L2P-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L3P-Scorched/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_ScorchedEarth_P.log', 'shoplogs/ShopLog_ScorchedEarth.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp4 + '@147.135.30.58/ArkServers/Servers/S3C1M4-L1P-Center/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheCenter.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp3 + '@147.135.8.210/Servers/S3C1M3-L1P-Extinction2/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext2.log')
-        time.sleep(.1)
-        urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L1P-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext1.log')
+        if string == "pvp":
+            #download from ArkadePvP server
+            urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L1P-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L3P-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L2P-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L3P-Scorched/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_ScorchedEarth_P.log', 'shoplogs/ShopLog_ScorchedEarth.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp4 + '@147.135.30.58/ArkServers/Servers/S3C1M4-L1P-Center/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheCenter.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp3 + '@147.135.8.210/Servers/S3C1M3-L1P-Extinction2/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext2.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L1P-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext1.log')
 
-        filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_ScorchedEarth.log', 'shoplogs/ShopLog_Ext1.log', 'shoplogs/ShopLog_Ext2.log']
-        with open('shoplogs/Combined_Log.log', 'w') as outfile:
-            for fname in filenames:
-                with open(fname) as infile:
-                    outfile.write(infile.read())
+                filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_ScorchedEarth.log', 'shoplogs/ShopLog_Ext1.log', 'shoplogs/ShopLog_Ext2.log']
+                with open('shoplogs/Combined_Log.log', 'w') as outfile:
+                    for fname in filenames:
+                        with open(fname) as infile:
+                            outfile.write(infile.read())
+
+        elif string == "pve":
+            #download from ArkadePvE server
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L1E-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L2E-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L3E-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
+            time.sleep(.025)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L4E-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext.log')
+
+                filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_Ext.log']
+                with open('shoplogs/Combined_Log.log', 'w') as outfile:
+                    for fname in filenames:
+                        with open(fname) as infile:
+                            outfile.write(infile.read())
 
         with open('shoplogs/Combined_Log.log', 'r') as f:
             combined = f.readlines()
