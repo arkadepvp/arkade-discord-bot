@@ -16,7 +16,6 @@ with open('configfinal.json', 'r') as f:
 TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
 startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.roleselect"]
-client.remove_command('help')
 async def on_ready():
     pass
 
@@ -29,6 +28,7 @@ async def on_ready():
 
 #load commands
 @client.command()
+@commands.has_role('Arkade Admin')
 async def load(ctx, string):
     string = 'cogs.' + string
     try:
@@ -42,6 +42,7 @@ async def load(ctx, string):
 
 #unload commands
 @client.command()
+@commands.has_role('Arkade Admin')
 async def unload(ctx, string):
     string = 'cogs.' + string
     try:
@@ -54,6 +55,7 @@ async def unload(ctx, string):
 
 #reload commands
 @client.command()
+@commands.has_role('Arkade Admin')
 async def reload(ctx, string):
     string = 'cogs.' + string
     try:
