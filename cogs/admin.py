@@ -1,7 +1,11 @@
 import discord
 import asyncio
+import json
 from discord.ext import commands
 from discord.ext.commands import Bot
+
+with open('configfinal.json', 'r') as f:
+    config = json.load(f)
 
 class admin:
     def __init__(self, client):
@@ -55,7 +59,10 @@ class admin:
     async def servers(self, ctx, *string):
         await ctx.message.delete()
 
-        embed = discord.Embed(title="Server Direct Connect Links", description="✦ Extinction One: steam://connect/147.135.9.6:27017\n✦ Extinction Two: steam://connect/147.135.8.210:27015\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.8.214:27017\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n✦ Event Map: steam://connect/147.135.9.6:27051\n", color=0xCC33CC)
+        embed = discord.Embed(title="Server Direct Connect Links", description="-", color=0xCC33CC)
+        embed.add_field(name="PVP Server Links", value="✦ Extinction: " + config['pvpext'] + "\n✦ Ragnarok: " + config['pvprag'] + "\n✦ Aberration: " + config['pvpabb'] + "\n✦ The Center: " + config['pvpcen'] + "\n✦ The Island: " + config['pvpisl'] + "\n✦ Scorched Earth: " + config['pvpsch'] + "\n")
+        embed.add_field(name="PVE Server Links", value="✦ Extinction: " + config['pveext'] + "\n✦ Ragnarok: " + config['pverag'] + "\n✦ Aberration: " + config['pveabb'] + "\n✦ The Island: " + config['pveisl'] + "\n")
+        embed.add_field(name="Event Server Links", value="✦ Event Map: " + config['event1'] + "\n")
         message = await ctx.message.channel.send(embed=embed)
 
     #multipoll command
@@ -95,15 +102,15 @@ class admin:
         embed = discord.Embed(title="Welcome to Arkade!", description="**A PvP and PvE ARK community.**\n---", color=0xCC33CC)
         embed.set_image(url="https://cdn.discordapp.com/attachments/461022949798051871/472549308454010880/arkadebanner23.png")
         embed.add_field(name="Rates", value="✦ EXP: 3x\n✦ Gathering: 5x\n✦ Taming: 7x\n✦ Breeding: 10x (15x PvE)\n✦ Character Level: 105 +30\n✦ Wild Dino Level: 150", inline="true")
-        embed.add_field(name="Links", value="✦ [Our Website](http://arkadepvp.com)\n✦ [Donate](https://shop.arkadepvp.com/)\n✦ [Guilded](https://www.guilded.gg/ArkadePvP/)\n✦ [Discord](https://discord.me/arkade)\n✦ [Twitch](https://www.twitch.tv/tiamoarkade)", inline="true")
+        embed.add_field(name="Links", value="✦ [Our Website](" + config['website'] + ")\n✦ [Donate](" + config['donate'] + ")\n✦ [Guilded](" + config['guilded'] + ")\n✦ [Discord](" + config['discord'] + ")\n✦ [Twitch](" + config['twitch'] + ")", inline="true")
         embed.add_field(name="_ _", value="_ _")
         embed.add_field(name="Quick Information", value="✦ Please read <#509312769385037824> or <#525499381789491201> for our rules/config.\n✦ Check <#472558681687457792> for our connect and vote links.\n✦ Ping *@Arkade Admin* in <#472623301290622993> if there is a server crash.")
         embed.add_field(name="_ _", value="_ _")
-        embed.add_field(name="PVP Server Links", value="✦ Extinction: steam://connect/147.135.9.6:27017\n✦ Ragnarok: steam://connect/147.135.8.214:27015\n✦ Aberration: steam://connect/147.135.9.6:27015\n✦ The Center: steam://connect/147.135.30.58:27015\n✦ The Island: steam://connect/147.135.8.214:27018\n✦ Scorched Earth: steam://connect/147.135.9.6:27016\n")
+        embed.add_field(name="PVP Server Links", value="✦ Extinction: " + config['pvpext'] + "\n✦ Ragnarok: " + config['pvprag'] + "\n✦ Aberration: " + config['pvpabb'] + "\n✦ The Center: " + config['pvpcen'] + "\n✦ The Island: " + config['pvpisl'] + "\n✦ Scorched Earth: " + config['pvpsch'] + "\n")
         embed.add_field(name="_ _", value="_ _")
-        embed.add_field(name="PVE Server Links", value="✦ Extinction: steam://connect/147.135.30.61:27018\n✦ Ragnarok: steam://connect/147.135.30.61:27015\n✦ Aberration: steam://connect/147.135.30.61:27017\n✦ The Island: steam://connect/147.135.30.61:27016\n")
+        embed.add_field(name="PVE Server Links", value="✦ Extinction: " + config['pveext'] + "\n✦ Ragnarok: " + config['pverag'] + "\n✦ Aberration: " + config['pveabb'] + "\n✦ The Island: " + config['pveisl'] + "\n")
         embed.add_field(name="_ _", value="_ _")
-        embed.add_field(name="Event Server Links", value="✦ Event Map: steam://connect/147.135.9.6:27051\n")
+        embed.add_field(name="Event Server Links", value="✦ Event Map: " + config['event1'] + "\n")
         message = await ctx.message.channel.send(embed=embed)
 
 def setup(client):
