@@ -135,9 +135,13 @@ class shopcharts:
         #SEND EMBED TO DISCORD
         embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #     || Item        #```", color=0xCC33CC)
         embed.add_field(name="1-60", value="```" + printStringOne + "```")
-        embed.add_field(name="61-120", value="```" + printStringTwo + "```")
-        embed.add_field(name="121-180", value="```" + printStringThree + "```")
-        embed.add_field(name="181-240", value="```" + printStringFour + "```")
+        if len(printListTwo):
+            embed.add_field(name="61-120", value="```" + printStringTwo + "```")
+        if len(printListThree):
+            embed.add_field(name="121-180", value="```" + printStringThree + "```")
+        if len(printListFour):
+            embed.add_field(name="181-240", value="```" + printStringFour + "```")
+
         message = await ctx.message.channel.send(embed=embed)
 
         await ctx.message.channel.send("All time shop chart", file=discord.File('shoplogs/shopchart.png'))
