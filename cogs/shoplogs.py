@@ -96,7 +96,7 @@ class shopcharts:
         for i, (item, quantity) in enumerate(zip(uniqueList, uniqueCounter)):
             printList.append(fmt.format(item, quantity))
         try:
-            printListOne = printList[1:60]
+            printListOne = printList[0:60]
             printListTwo = printList[60:120]
             printListThree = printList[120:180]
             printListFour = printList[180:240]
