@@ -40,7 +40,7 @@ class shopcharts:
             time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L3P-Scorched/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_ScorchedEarth_P.log', 'shoplogs/ShopLog_ScorchedEarth.log')
             time.sleep(.025)
-            urllib.request.urlretrieve('ftp://' + ftp4 + '@147.135.30.58/ArkServers/Servers/S3C1M4-L1P-Center/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheCenter.log')
+            urllib.request.urlretrieve('ftp://' + ftp4 + '@147.135.30.58/Servers/S3C1M4-L1P-Center/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheCenter.log')
             time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp3 + '@147.135.8.210/Servers/S3C1M3-L1P-Extinction2/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext2.log')
             time.sleep(.025)
@@ -52,15 +52,15 @@ class shopcharts:
                     with open(fname) as infile:
                         outfile.write(infile.read())
 
-        elif string == "pve":
+        else:
             #download from ArkadePvE server
-            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L1E-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
-            time.sleep(.025)
-            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L2E-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
-            time.sleep(.025)
-            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L3E-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
-            time.sleep(.025)
-            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/ArkServers/Servers/S1C2M5-L4E-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext.log')
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L1E-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
+            time.sleep(.1)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L2E-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
+            time.sleep(.1)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L3E-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
+            time.sleep(.1)
+            urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L4E-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext.log')
 
             filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_Ext.log']
             with open('shoplogs/Combined_Log.log', 'w') as outfile:
@@ -105,20 +105,22 @@ class shopcharts:
         for i, (item, quantity) in enumerate(zip(uniqueList, uniqueCounter)):
             printList.append(fmt.format(item, quantity))
         try:
-            printListOne = printList[0:50]
-            printListTwo = printList[50:100]
-            printListThree = printList[100:150]
+            printListOne = printList[1:60]
+            printListTwo = printList[60:120]
+            printListThree = printList[120:180]
+            printListFour = printList[180:240]
         except Exception as e:
             print(e)
 
         printStringOne = "\n".join(str(e) for e in printListOne)
         printStringTwo = "\n".join(str(e) for e in printListTwo)
         printStringThree = "\n".join(str(e) for e in printListThree)
+        printStringFour = "\n".join(str(e) for e in printListFour)
 
         # PLOT CREATION
 
-        objects = uniqueList[0:100]
-        performance = uniqueCounter[0:100]
+        objects = uniqueList[1:240]
+        performance = uniqueCounter[1:240]
         y_pos = np.arange(len(objects))
 
         plt.figure(figsize=(40,20))
@@ -132,8 +134,10 @@ class shopcharts:
 
         #SEND EMBED TO DISCORD
         embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #     || Item        #```", color=0xCC33CC)
-        embed.add_field(name="1-50", value="```" + printStringOne + "```")
-        embed.add_field(name="51-100", value="```" + printStringTwo + "```")
+        embed.add_field(name="1-60", value="```" + printStringOne + "```")
+        embed.add_field(name="61-120", value="```" + printStringTwo + "```")
+        embed.add_field(name="121-180", value="```" + printStringThree + "```")
+        embed.add_field(name="181-240", value="```" + printStringFour + "```")
         message = await ctx.message.channel.send(embed=embed)
 
         await ctx.message.channel.send("All time shop chart", file=discord.File('shoplogs/shopchart.png'))
