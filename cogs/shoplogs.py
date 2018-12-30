@@ -45,10 +45,17 @@ class shopcharts:
                 for fname in filenames:
                     with open(fname) as infile:
                         outfile.write(infile.read())
-
             #process newly combined log
             with open('shoplogs/PvP_Combined.log', 'r') as f:
                 combined = f.readlines()
+
+            buysellOnly=[]
+            for s in combined:
+                if s.find('bought item') != -1:
+                    buysellOnly.append(s)
+
+            count = len(buysellOnly)
+            embed = discord.Embed(title="PvP Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xCC33CC)
 
         else:
             #download from ArkadePvE server
@@ -62,15 +69,17 @@ class shopcharts:
                 for fname in filenames:
                     with open(fname) as infile:
                         outfile.write(infile.read())
-
             #process newly combined log
             with open('shoplogs/PvE_Combined.log', 'r') as f:
                 combined = f.readlines()
 
-        buysellOnly=[]
-        for s in combined:
-            if s.find('bought item') != -1:
-                buysellOnly.append(s)
+            buysellOnly=[]
+            for s in combined:
+                if s.find('bought item') != -1:
+                    buysellOnly.append(s)
+
+            count = len(buysellOnly)
+            embed = discord.Embed(title="PvE Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xCC33CC)
 
         finalList = [((x.split('\"', 1)[-1]).replace('\". Amount - ', ',')).rstrip('\n') for x in buysellOnly]
 
@@ -128,7 +137,6 @@ class shopcharts:
         # END PLOT CREATION
 
         #SEND EMBED TO DISCORD
-        embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #```", color=0xCC33CC)
         embed.add_field(name="1-60", value="```" + printStringOne + "```")
         if len(printListTwo):
             embed.add_field(name="61-120", value="```" + printStringTwo + "```")
