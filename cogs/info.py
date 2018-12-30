@@ -10,11 +10,9 @@ class info:
     def __init__(self, client):
         self.client = client
 
-    #help command
+    #oldhelp command
     @commands.command()
-    async def help(self, ctx, string=None):
-
-        print(discord.utils.get(roles, id=508798353950244868))
+    async def oldhelp(self, ctx, string=None):
 
         embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x50bdfe)
         embed.add_field(name="General Commands", value="`.help` -  Displays this information\n`.info` - Displays info about the bot")
@@ -24,7 +22,7 @@ class info:
         message = await ctx.message.channel.send(embed=embed)
 
     #info command
-    @commands.command()
+    @commands.command(name="info", brief="Displays info about the bot")
     async def info(self, ctx):
         await ctx.message.delete()
 

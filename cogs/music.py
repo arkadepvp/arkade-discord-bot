@@ -278,26 +278,7 @@ class Music:
 
         await ctx.send(embed=embed)
 
-    @commands.command(name='now_playing', aliases=['np', 'current', 'currentsong', 'playing'])
-    async def now_playing_(self, ctx):
-        vc = ctx.voice_client
-
-        if not vc or not vc.is_connected():
-            return await ctx.send('Nothing is playing.', delete_after=20)
-
-        player = self.get_player(ctx)
-        if not player.current:
-            return await ctx.send('Nothing is playing.')
-
-        try:
-            await player.np.delete()
-        except discord.HTTPException:
-            pass
-
-        player.np = await ctx.send(f'**Now Playing:** `{vc.source.title}` '
-                                   f'requested by `{vc.source.requester}`')
-
-    @commands.command(name='volume', aliases=['vol'])
+    @commands.command(name='volume')
     async def change_volume(self, ctx, *, vol: float):
         vc = ctx.voice_client
 
@@ -305,7 +286,7 @@ class Music:
             return await ctx.send('Nothing is playing.', delete_after=20)
 
         if not 0 < vol < 101:
-            return await ctx.send('Please enter a value between 1 and 100.')
+            return await ctx.send('Please enter a vue between 1 and 100.')
 
         player = self.get_player(ctx)
 
