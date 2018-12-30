@@ -33,17 +33,11 @@ class shopcharts:
         if string == "pvp":
             #download from ArkadePvP server
             urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L1P-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp1 + '@147.135.8.214/Servers/S3C1M1-L3P-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L2P-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L3P-Scorched/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_ScorchedEarth_P.log', 'shoplogs/ShopLog_ScorchedEarth.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp4 + '@147.135.30.58/Servers/S3C1M4-L1P-Center/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheCenter.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp3 + '@147.135.8.210/Servers/S3C1M3-L1P-Extinction2/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext2.log')
-            time.sleep(.025)
             urllib.request.urlretrieve('ftp://' + ftp2 + '@147.135.9.6/Servers/S3C1M2-L1P-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext1.log')
 
             filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheCenter.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_ScorchedEarth.log', 'shoplogs/ShopLog_Ext1.log', 'shoplogs/ShopLog_Ext2.log']
@@ -55,11 +49,8 @@ class shopcharts:
         else:
             #download from ArkadePvE server
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L1E-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Ragnarok.log')
-            time.sleep(.1)
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L2E-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/ShopLog_TheIsland.log')
-            time.sleep(.1)
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L3E-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/ShopLog_Aberration.log')
-            time.sleep(.1)
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L4E-Extinction/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Extinction.log', 'shoplogs/ShopLog_Ext.log')
 
             filenames = ['shoplogs/ShopLog_Ragnarok.log', 'shoplogs/ShopLog_Aberration.log', 'shoplogs/ShopLog_TheIsland.log', 'shoplogs/ShopLog_Ext.log']
@@ -133,7 +124,7 @@ class shopcharts:
         # END PLOT CREATION
 
         #SEND EMBED TO DISCORD
-        embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #     || Item        #```", color=0xCC33CC)
+        embed = discord.Embed(title="Items Purchaced Chart", description="```Item        #```", color=0xCC33CC)
         embed.add_field(name="1-60", value="```" + printStringOne + "```")
         if len(printListTwo):
             embed.add_field(name="61-120", value="```" + printStringTwo + "```")
