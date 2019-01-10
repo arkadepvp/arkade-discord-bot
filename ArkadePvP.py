@@ -15,7 +15,7 @@ with open('configfinal.json', 'r') as f:
 
 TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
-startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.roleselect"]
+startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.roleselect", "cogs.serverstats"]
 async def on_ready():
     pass
 
