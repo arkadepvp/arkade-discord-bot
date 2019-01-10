@@ -13,7 +13,7 @@ class wiki:
     #tame command
     @commands.command()
     async def two(self, ctx):
-        embed = discord.Embed(title="Arkade PvP Bot Information:", description="_ _", color=0x50bdfe)
+        embed = discord.Embed(title="Arkade PvP Bot Information:", description="_ _", color=0x00FFFF)
         embed.add_field(name='Command', value="```%info\n%poll <arg>\n \n%cmd```", inline=True)
         embed.add_field(name='Description', value="```Shows this page.\nStarts a poll with the question: <arg>.\ncmddesc```", inline=True)
         embed.add_field(name='_ _', value="-------------------------------------------------------------------------------------------------")
@@ -46,7 +46,7 @@ class wiki:
         cost[::2] = cost_quantity
         cost[1::2] = cost_item
 
-        embed = discord.Embed(title="{0}".format(string), url=url, color=0xffff66)
+        embed = discord.Embed(title="{0}".format(string), url=url, color=0x00FFFF)
 
         embed.set_thumbnail(url=thumb)
         embed.add_field(name='Required Level: ', value="Level{0}".format(level))
@@ -55,7 +55,7 @@ class wiki:
         try:
             message = await ctx.message.channel.send(embed=embed)
         except:
-            embed = discord.Embed(title="Error", description="That is not a valid craft.", color=0xff0000)
+            embed = discord.Embed(title="Error", description="That is not a valid craft.", color=0xFF0000)
             message = await ctx.message.channel.send(embed=embed)
 
     #search command
@@ -68,9 +68,9 @@ class wiki:
         try:
             searchResult = tree.xpath('//ul[@class="mw-search-results"]/li/div/a/@href[1]')
             searchUrl = "https://ark.gamepedia.com" + searchResult[0]
-            embed = discord.Embed(title="Ark Gamepedia: " + (searchResult[0]).strip("/"), url=searchUrl, color=0xffff66)
+            embed = discord.Embed(title="Ark Gamepedia: " + (searchResult[0]).strip("/"), url=searchUrl, color=0x00FFFF)
         except:
-            embed = discord.Embed(title="Ark Gamepedia: No Results Found", color=0xff0000)
+            embed = discord.Embed(title="Ark Gamepedia: No Results Found", color=0xFF0000)
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
         message = await ctx.message.channel.send(embed=embed)
 
@@ -96,7 +96,7 @@ class wiki:
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/thumb/f/ff/Extinction_Map.jpg/800px-Extinction_Map.jpg"
             embed = discord.Embed(title="Extinction map: ", color=0xffff66)
         else:
-            embed = discord.Embed(title="Error", description="That is not a valid map.", color=0xff0000)
+            embed = discord.Embed(title="Error", description="That is not a valid map.", color=0xFF0000)
             mapUrl = ""
 
         if mapUrl:
@@ -129,7 +129,7 @@ class wiki:
         rideable = (("".join(tree.xpath('//div[1]/div[@class="info-arkitex info-unit-row"][2]/div[@class="info-X3-33"]/text()'))).rstrip("\n")).strip("\n")
         breedable = (("".join(tree.xpath('//div[1]/div[@class="info-arkitex info-unit-row"][2]/div[@class="info-arkitex-right info-X3-33"]/text()'))).rstrip("\n")).strip("\n")
 
-        embed = discord.Embed(title="{0}".format(string), url=url, color=0xffff66)
+        embed = discord.Embed(title="{0}".format(string), url=url, color=0x00FFFF)
 
         embed.set_thumbnail(url=thumb)
         embed.add_field(name="Species", value="*" + species + "*", inline=True)
@@ -144,7 +144,7 @@ class wiki:
         try:
             message = await ctx.message.channel.send(embed=embed)
         except:
-            embed = discord.Embed(title="Error", description="That is not a valid dinosaur.", color=0xff0000)
+            embed = discord.Embed(title="Error", description="That is not a valid dinosaur.", color=0xFF0000)
             message = await ctx.message.channel.send(embed=embed)
 
 def setup(client):

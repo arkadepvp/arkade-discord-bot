@@ -14,7 +14,7 @@ class info:
     @commands.command()
     async def oldhelp(self, ctx, string=None):
 
-        embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x50bdfe)
+        embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x589BFF)
         embed.add_field(name="General Commands", value="`.help` -  Displays this information\n`.info` - Displays info about the bot")
         embed.add_field(name="Ark Commands", value="`.craft <item>` -  Display crafting requirments for an item\n`.search <query>` -  Searches [gamepedia](https://ark.gamepedia.com) for the given query\n`.map <map>` -  Displays a picture of the given map.\n`.tame <creature>` -  In development.\n`.wiki <creature>` -  Displays basic wiki info of the given dinosaur")
         if string == "admin":
@@ -36,7 +36,7 @@ class info:
         hours = int(hours)
         minutes = int(minutes)
 
-        embed = discord.Embed(title="_ _", description="A custom built bot for the [Arkade PvP Discord.](https://discord.gg/G8d5YFd)", color=0x50bdfe)
+        embed = discord.Embed(title="_ _", description="A custom built bot for the [Arkade PvP Discord.](https://discord.gg/G8d5YFd)", color=0x589BFF)
         embed.set_author(name="Arkade PvP | Bot Stats", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
         embed.set_thumbnail(url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
         embed.add_field(name="Members", value="{}".format(len(ctx.guild.members)), inline=True)

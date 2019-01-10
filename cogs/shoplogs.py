@@ -48,7 +48,7 @@ class shopcharts:
                     buysellOnly.append(s)
 
             count = len(buysellOnly)
-            embed = discord.Embed(title="PvP Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xCC33CC)
+            embed = discord.Embed(title="PvP Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xFF00FF)
 
         else:
             #download from ArkadePvE server
@@ -72,7 +72,7 @@ class shopcharts:
                     buysellOnly.append(s)
 
             count = len(buysellOnly)
-            embed = discord.Embed(title="PvE Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xCC33CC)
+            embed = discord.Embed(title="PvE Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xFF00FF)
 
         finalList = [((x.split('\"', 1)[-1]).replace('\". Amount - ', ',')).rstrip('\n') for x in buysellOnly]
 
