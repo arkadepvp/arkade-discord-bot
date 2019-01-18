@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import datetime
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -13,6 +14,7 @@ class serverstats:
         arkadeusers = self.client.get_channel(532997531022655508)
         arkadevips = self.client.get_channel(533011684479205376)
         arkadereps = self.client.get_channel(533011717551030273)
+        logchannel = self.client.get_channel(502380398261567490)
         viprole = arkade.get_role(496896677983158272)
         reprole = arkade.get_role(441322834451759104)
         test = self.client.get_channel(502380383434833920)
@@ -23,7 +25,9 @@ class serverstats:
             await arkadeusers.edit(name=totalusers)
             await arkadevips.edit(name=vipusers)
             await arkadereps.edit(name=repusers)
-            await asyncio.sleep(15)
+            curDT = datetime.datetime.now()
+            await logchannel.send("Success. Time: " + str(curDT))
+            await asyncio.sleep(300)
 
     #killtask command
     @commands.command()
@@ -36,6 +40,12 @@ class serverstats:
     async def starttask(self, ctx):
         self.bg_task = self.client.loop.create_task(self.getstats())
         await ctx.message.channel.send("Task started")
+
+    #killbot command
+    @commands.command()
+    async def kill(self, ctx):
+        self.client.close()
+
 
 def setup(client):
     client.add_cog(serverstats(client))
