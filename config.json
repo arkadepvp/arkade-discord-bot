@@ -1,9 +1,130 @@
 {
   "token": "",
-  "ftp1user": "",
-  "ftp1pass": "",
-  "ftp2user": "",
-  "ftp2pass": "",
-  "ftp3user": "",
-  "ftp3pass": ""
+  "pvpFtp": [
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    },
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    },
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    },
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    },
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    },
+    {
+      "user": "",
+      "pass": "",
+      "IP": "",
+      "server": "",
+      "log": "",
+      "file": ""
+    }
+  ],
+  "links": [
+    {
+      "Title": "",
+      "URL": ""
+    },
+    {
+      "Title": "",
+      "URL": ""
+    },
+    {
+      "Title": "",
+      "URL": ""
+    },
+    {
+      "Title": "",
+      "URL": ""
+    },
+    {
+      "Title": "",
+      "URL": ""
+    }
+  ],
+  "arkPvpServers": [
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    }
+  
+  ],
+  "arkPveServers": [
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    },
+    {
+      "Map": "",
+      "IP": ""
+    }
+  ],
+  "arkEventServers": [
+    {
+      "Map": "",
+      "IP": ""
+    }
+  ]
 }
