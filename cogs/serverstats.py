@@ -25,21 +25,28 @@ class serverstats:
             await arkadeusers.edit(name=totalusers)
             await arkadevips.edit(name=vipusers)
             await arkadereps.edit(name=repusers)
-            curDT = datetime.datetime.now()
-            await logchannel.send("Success. Time: " + str(curDT))
+            dt = datetime.datetime.now()
+            dt.strftime("%Y-%m-%d %H:%M:%S")
+            await logchannel.send("**Success.** Time: `" + str(dt.strftime("%Y-%m-%d %H:%M:%S")) + "`")
             await asyncio.sleep(300)
 
     #killtask command
     @commands.command()
     async def killtask(self, ctx):
-        self.bg_task.cancel()
-        await ctx.message.channel.send("Task ended")
+        try:
+            self.bg_task.cancel()
+            await ctx.message.channel.send("Task ended.")
+        except:
+            await ctx.message.channel.send("Task wasn't running.")
 
     #starttask command
     @commands.command()
     async def starttask(self, ctx):
-        self.bg_task = self.client.loop.create_task(self.getstats())
-        await ctx.message.channel.send("Task started")
+        try:
+            self.bg_task = self.client.loop.create_task(self.getstats())
+            await ctx.message.channel.send("Task started.")
+        except:
+            await ctx.message.channel.send("Task failed to start.")
 
     #killbot command
     @commands.command()
