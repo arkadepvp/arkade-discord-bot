@@ -25,6 +25,12 @@
       "level": "1"
     },
     {
+      "cmd": "webhook",
+      "desc": "Links the webhook guide. Alias: `.wh`",
+      "usage": "webhook",
+      "level": "1"
+    },
+    {
       "cmd": "safe",
       "desc": "Lists safetag information.",
       "usage": "safe",
