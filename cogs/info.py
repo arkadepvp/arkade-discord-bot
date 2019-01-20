@@ -1,24 +1,37 @@
 import discord
 import asyncio
+import json
 import time
 from discord.ext import commands
 from discord.ext.commands import Bot
 
 startTime = time.time()
 
+with open('help.json', 'r') as f:
+    help = json.load(f)
+
 class info:
     def __init__(self, client):
         self.client = client
 
-    #oldhelp command
+    #help command
     @commands.command()
-    async def oldhelp(self, ctx, string=None):
+    async def help(self, ctx, string=None):
+        embed = discord.Embed(title="**Help: **", description="**Command arguments are shown with <> and are required.**", color=0x589BFF)
+        permLevel = 0
+        if 472999533635436545 in [y.id for y in ctx.author.roles]:
+            permLevel = 1
 
-        embed = discord.Embed(title="Help: ", description="Command arguments are shown with <> and are required.\n", color=0x589BFF)
-        embed.add_field(name="General Commands", value="`.help` -  Displays this information\n`.info` - Displays info about the bot")
-        embed.add_field(name="Ark Commands", value="`.craft <item>` -  Display crafting requirments for an item\n`.search <query>` -  Searches [gamepedia](https://ark.gamepedia.com) for the given query\n`.map <map>` -  Displays a picture of the given map.\n`.tame <creature>` -  In development.\n`.wiki <creature>` -  Displays basic wiki info of the given dinosaur")
-        if string == "admin":
-            embed.add_field(name="Admin Commands", value="`.poll <question>` - Creates a poll with the given question\n`.multipoll <\"question\" \"answer1\">` - Creates a poll with the given question and up to eight answers.\n`.welcome` - Sends the welcome message in the active channel\n`.play <url>` - Plays a youtube link (must be in a voice channel)\n`.fire` - A nice relaxing fireplace (must be in a voice channel)\n`.stop` - Stops whatever is currently playing")
+        for category in help:
+            categoryFormat = category.capitalize()
+            embed.add_field(name=f"\u200b\n**{categoryFormat}**", value="_ _", inline=False)
+            for command in help[category]:
+                if int(command['level']) <= permLevel:
+                    cmd = command['cmd']
+                    usage = command['usage']
+                    desc = command['desc']
+                    embed.add_field(name=f"`.{usage}` - {desc}", value="_ _", inline=False)
+
         message = await ctx.message.channel.send(embed=embed)
 
     #info command
