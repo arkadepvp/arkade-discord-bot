@@ -1,113 +1,130 @@
 {
-  "helpCategories": [
-    "admin": [
-      {
-        "cmd": "poll"
-        "desc": "Makes a yes/no poll."
-        "usage": "poll <question>"
-      },
-      {
-        "cmd": "multipoll"
-        "desc": "Makes a poll with custom answers."
-        "usage": "multipoll <\"qstn\"> <\"ans1\">..."
-      },
-      {
-        "cmd": "ogs"
-        "desc": "Lists OGS information."
-        "usage": "ogs"
-      },
-      {
-        "cmd": "rep"
-        "desc": "Lists Tribe Rep information."
-        "usage": "rep"
-      },
-      {
-        "cmd": "safe"
-        "desc": "Lists safetag information."
-        "usage": "safe"
-      },
-      {
-        "cmd": "servers"
-        "desc": "Lists game servers."
-        "usage": "servers"
-      },
-      {
-        "cmd": "welcome"
-        "desc": "Updates welcome message."
-        "usage": "welcome"
-      }
-    ],
-    "music": [
-      {
-        "cmd": "play"
-        "desc": "Plays the given youtube url."
-        "usage": "play <url/search term>"
-      },
-      {
-        "cmd": "pause"
-        "desc": "Pauses the currently playing song."
-        "usage": "pause"
-      },
-      {
-        "cmd": "resume"
-        "desc": "Resumes the currently paused song."
-        "usage": "resume"
-      },
-      {
-        "cmd": "skip"
-        "desc": "Skips the currently playing song."
-        "usage": "skip"
-      },
-      {
-        "cmd": "queue"
-        "desc": "Lists the song in the play queue."
-        "usage": "queue"
-      },
-      {
-        "cmd": "volume"
-        "desc": "Specifies a volume."
-        "usage": "volume <0-100>"
-      },
-      {
-        "cmd": "stop"
-        "desc": "Stops the music."
-        "usage": "stop"
-      }
-    ],
-    "wiki": [
-      {
-        "cmd": "tame"
-        "desc": "Not yet complete."
-        "usage": "tame <creature>"
-      },
-      {
-        "cmd": "craft"
-        "desc": "Displays required materials to craft item."
-        "usage": "craft <item>"
-      },
-      {
-        "cmd": "search"
-        "desc": "Searches Ark Gamepedia for the given query."
-        "usage": "search <query>"
-      },
-      {
-        "cmd": "map"
-        "desc": "Displays a picture of the given map."
-        "usage": "map <map name>"
-      },
-      {
-        "cmd": "wiki"
-        "desc": "Shows information on the given creature."
-        "usage": "wiki <creature>"
-      }
-    ],
-    "shoplogs": [
-      {
-        "cmd": "shopchart"
-        "desc": "Shows an alltime shopchart of the given server."
-        "usage": "shopchart <pvp/pve>"
-      }
-    ]
+  "admin": [
+    {
+      "cmd": "poll",
+      "desc": "Makes a yes/no poll.",
+      "usage": "poll <question>",
+      "level": "1"
+    },
+    {
+      "cmd": "multipoll",
+      "desc": "Makes a poll with custom answers.",
+      "usage": "multipoll <\"qstn\"> <\"ans1\">...",
+      "level": "1"
+    },
+    {
+      "cmd": "ogs",
+      "desc": "Lists OGS information.",
+      "usage": "ogs",
+      "level": "1"
+    },
+    {
+      "cmd": "rep",
+      "desc": "Lists Tribe Rep information.",
+      "usage": "rep",
+      "level": "1"
+    },
+    {
+      "cmd": "safe",
+      "desc": "Lists safetag information.",
+      "usage": "safe",
+      "level": "1"
+    },
+    {
+      "cmd": "servers",
+      "desc": "Lists game servers.",
+      "usage": "servers",
+      "level": "1"
+    },
+    {
+      "cmd": "welcome",
+      "desc": "Updates welcome message.",
+      "usage": "welcome",
+      "level": "1"
+    }
   ],
-
+  "music": [
+    {
+      "cmd": "play",
+      "desc": "Plays the given youtube url.",
+      "usage": "play <url/search term>",
+      "level": "0"
+    },
+    {
+      "cmd": "pause",
+      "desc": "Pauses the currently playing song.",
+      "usage": "pause",
+      "level": "0"
+    },
+    {
+      "cmd": "resume",
+      "desc": "Resumes the currently paused song.",
+      "usage": "resume",
+      "level": "0"
+    },
+    {
+      "cmd": "skip",
+      "desc": "Skips the currently playing song.",
+      "usage": "skip",
+      "level": "0"
+    },
+    {
+      "cmd": "queue",
+      "desc": "Lists the song in the play queue.",
+      "usage": "queue",
+      "level": "0"
+    },
+    {
+      "cmd": "volume",
+      "desc": "Specifies a volume.",
+      "usage": "volume <0-100>",
+      "level": "0"
+    },
+    {
+      "cmd": "stop",
+      "desc": "Stops the music.",
+      "usage": "stop",
+      "level": "0"
+    }
+  ],
+  "wiki": [
+    {
+      "cmd": "tame",
+      "desc": "Not yet complete.",
+      "usage": "tame <creature>",
+      "level": "0"
+    },
+    {
+      "cmd": "craft",
+      "desc": "Displays required materials to craft item.",
+      "usage": "craft <item>",
+      "level": "0"
+    },
+    {
+      "cmd": "search",
+      "desc": "Searches Ark Gamepedia for the given query.",
+      "usage": "search <query>",
+      "level": "0"
+    },
+    {
+      "cmd": "map",
+      "desc": "Displays a picture of the given map.",
+      "usage": "map <map name>",
+      "level": "0"
+    },
+    {
+      "cmd": "wiki",
+      "desc": "Shows information on the given creature.",
+      "usage": "wiki <creature>",
+      "level": "0"
+    }
+  ],
+  "shoplogs": [
+    {
+      "cmd": "shopchart",
+      "desc": "Shows an alltime shopchart of the given server.",
+      "usage": "shopchart <pvp/pve>",
+      "level": "1"
+    }
+  ]
 }
