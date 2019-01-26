@@ -223,7 +223,7 @@ class Music:
         await player.queue.put(source)
 
     @commands.command(name='fire')
-    async def play_(self, ctx):
+    async def fire(self, ctx):
         await ctx.trigger_typing()
 
         vc = ctx.voice_client
