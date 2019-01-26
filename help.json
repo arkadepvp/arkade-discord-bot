@@ -13,6 +13,12 @@
       "level": "1"
     },
     {
+      "cmd": "sqrt",
+      "desc": "Calculates additional ban time for evasion given original.",
+      "usage": "sqrt <float>",
+      "level": "1"
+    },
+    {
       "cmd": "ogs",
       "desc": "Lists OGS information.",
       "usage": "ogs",
