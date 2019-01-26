@@ -22,6 +22,8 @@ class info:
         permLevel = 0
         if 472999533635436545 in [y.id for y in ctx.author.roles]:
             permLevel = 1
+        if 441322476991938571 in [y.id for y in ctx.author.roles]:
+            permLevel = 1
 
         for category in help:
             categoryFormat = category.capitalize()
