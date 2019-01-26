@@ -15,7 +15,7 @@ class info:
         self.client = client
 
     #help command
-    @commands.command()
+    @commands.command(aliases=['commands'])
     async def help(self, ctx, string=None):
         embed = discord.Embed(title="**Help: **", description="**Command arguments are shown with <> and are required.**", color=0x589BFF)
         permLevel = 0
@@ -35,7 +35,7 @@ class info:
         message = await ctx.message.channel.send(embed=embed)
 
     #info command
-    @commands.command(name="info", brief="Displays info about the bot")
+    @commands.command(aliases=['information'])
     async def info(self, ctx):
         await ctx.message.delete()
 
