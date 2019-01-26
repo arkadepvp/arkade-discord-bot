@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import json
+import math
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -21,6 +22,14 @@ class admin:
         message = await ctx.message.channel.send(embed=embed)
         await message.add_reaction('✅')
         await message.add_reaction('❌')
+
+    #sqrt command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def sqrt(self, ctx, time: float):
+        addedTime = round((2*(math.sqrt(time))), 1)
+        totalTime = addedTime + time
+        message = await ctx.message.channel.send("The increase in ban time should be: {} The new total ban time should be: {}".format(addedTime, totalTime))
 
     #ogs command
     @commands.command()
