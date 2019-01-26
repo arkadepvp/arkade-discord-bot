@@ -68,7 +68,7 @@ class admin:
         await ctx.message.delete()
 
         embed = discord.Embed(title="Fun with [SAFE] tags!", description="[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each safe tag is judged on a case by case basics and the time awarded is based on the damage received.", color=0xFF00FF)
-        embed.add_field(name="Safe Tag Rules", value="Please read over our safe tag rules at <#509312769385037824>. Violating these rules can result in the reduction or removal of your safe tag.")
+        embed.add_field(name="Safe Tag Rules", value="Please read over our safe tag rules at <#535273670919323648>. Violating these rules can result in the reduction or removal of your safe tag.")
         embed.add_field(name="Safe Tag Requirements", value="Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [SAFE] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```")
         message = await ctx.message.channel.send(embed=embed)
 
