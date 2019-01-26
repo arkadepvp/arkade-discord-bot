@@ -3,6 +3,7 @@ import asyncio
 from discord.ext import commands
 from discord.ext.commands import Bot
 
+
 class CommandErrorHandler:
     def __init__(self, client):
         self.client = client
@@ -28,6 +29,7 @@ class CommandErrorHandler:
 
         print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
         traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
+
 
 def setup(client):
     client.add_cog(CommandErrorHandler(client))

@@ -10,11 +10,12 @@ startTime = time.time()
 with open('help.json', 'r') as f:
     help = json.load(f)
 
+
 class info:
     def __init__(self, client):
         self.client = client
 
-    #help command
+    # help command
     @commands.command(aliases=['commands'])
     async def help(self, ctx, string=None):
         embed = discord.Embed(title="**Help: **", description="**Command arguments are shown with <> and are required.**", color=0x589BFF)
@@ -34,15 +35,15 @@ class info:
 
         message = await ctx.message.channel.send(embed=embed)
 
-    #info command
+    # info command
     @commands.command(aliases=['information'])
     async def info(self, ctx):
         await ctx.message.delete()
 
         secs = (time.time() - startTime)
         days = secs//86400
-        hours =  (secs - days * 86400)//3600
-        minutes  = int(secs - days * 86400 - hours * 3600)//60
+        hours = (secs - days * 86400)//3600
+        minutes = int(secs - days * 86400 - hours * 3600)//60
         seconds = int(secs - days * 86400 - hours * 3600 - minutes * 60)
 
         days = int(days)
@@ -57,6 +58,7 @@ class info:
         embed.add_field(name="Links", value="T\nB\nD")
         embed.set_footer(text="Made in Python 3.6.6 with Discord.py rewrite | Made by N0XIRE#7589", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
         message = await ctx.message.channel.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(info(client))

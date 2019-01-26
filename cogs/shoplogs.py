@@ -1,3 +1,4 @@
+import numpy as np
 import discord
 import asyncio
 import urllib.request
@@ -5,25 +6,25 @@ import time
 import json
 from discord.ext import commands
 from discord.ext.commands import Bot
-import matplotlib.pyplot as plt; plt.rcdefaults()
-import numpy as np
 import matplotlib.pyplot as plt
+plt.rcdefaults()
 
 with open('configfinal.json', 'r') as f:
     config = json.load(f)
+
 
 class shopcharts:
     def __init__(self, client):
         self.client = client
 
-    #shopchart command
+    # shopchart command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def shopchart(self, ctx, string=None):
-        #COLLECT DATA
+        # COLLECT DATA
 
         if string == "pvp":
-            #download from ArkadePvP server
+            # download from ArkadePvP server
             for server in config['pvpFtp']:
                 filePath = "/Servers/" + server['server'] + "/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/"
                 urllib.request.urlretrieve('ftp://' + server['user'] + ':' + server['pass'] + '@' + server['IP'] + filePath + server['log'], 'shoplogs/' + server['file'])
@@ -32,11 +33,11 @@ class shopcharts:
                 for fname in filenames:
                     with open(fname) as infile:
                         outfile.write(infile.read())
-            #process newly combined log
+            # process newly combined log
             with open('shoplogs/PvP_Combined.log', 'r') as f:
                 combined = f.readlines()
 
-            buysellOnly=[]
+            buysellOnly = []
             for s in combined:
                 if s.find('bought item') != -1:
                     buysellOnly.append(s)
@@ -45,7 +46,7 @@ class shopcharts:
             embed = discord.Embed(title="PvP Ingame Shop Chart", description="Purchases to date: " + str(count), color=0xFF00FF)
 
         elif string == "pve":
-            #download from ArkadePvE server
+            # download from ArkadePvE server
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L1E-Ragnarok/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Ragnarok.log', 'shoplogs/PvE_Ragnarok.log')
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L2E-Island/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_TheIsland.log', 'shoplogs/PvE_TheIsland.log')
             urllib.request.urlretrieve('ftp://' + ftp5 + '@147.135.30.61/Servers/S1C2M5-L3E-Aberration/ShooterGame/Binaries/Win64/ArkApi/Plugins/ArkShop/ShopLog_Aberration_P.log', 'shoplogs/PvE_Aberration.log')
@@ -56,11 +57,11 @@ class shopcharts:
                 for fname in filenames:
                     with open(fname) as infile:
                         outfile.write(infile.read())
-            #process newly combined log
+            # process newly combined log
             with open('shoplogs/PvE_Combined.log', 'r') as f:
                 combined = f.readlines()
 
-            buysellOnly=[]
+            buysellOnly = []
             for s in combined:
                 if s.find('bought item') != -1:
                     buysellOnly.append(s)
@@ -118,7 +119,7 @@ class shopcharts:
         performance = uniqueCounter[1:240]
         y_pos = np.arange(len(objects))
 
-        plt.figure(figsize=(40,20))
+        plt.figure(figsize=(40, 20))
         plt.bar(y_pos, performance, align='center', alpha=0.5)
         plt.xticks(y_pos, objects, rotation='vertical')
         plt.ylabel('Number Bought')
@@ -127,7 +128,7 @@ class shopcharts:
         plt.savefig('shoplogs/shopchart.png', bbox_inches='tight')
         # END PLOT CREATION
 
-        #SEND EMBED TO DISCORD
+        # SEND EMBED TO DISCORD
         embed.add_field(name="1-60", value="```" + printStringOne + "```")
         if len(printListTwo):
             embed.add_field(name="61-120", value="```" + printStringTwo + "```")
@@ -139,6 +140,7 @@ class shopcharts:
         message = await ctx.message.channel.send(embed=embed)
 
         await ctx.message.channel.send("All time shop chart", file=discord.File('shoplogs/shopchart.png'))
+
 
 def setup(client):
     client.add_cog(shopcharts(client))

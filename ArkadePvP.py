@@ -17,17 +17,22 @@ TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
 startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.serverstats", "cogs.ticketsort", "cogs.CommandErrorHandler"]
 client.remove_command('help')
+
+
 async def on_ready():
     pass
 
+
 @client.event
 async def on_ready():
-    #sets Playing message on discord
+    # sets Playing message on discord
     await client.change_presence(activity=Game(name="N0X Was Here | .help"))
-    #prints succesful launch in console
+    # prints succesful launch in console
     print('---\nLogged in as\nUser: ' + client.user.name + '\nID: ' + str(client.user.id) + '\n---')
 
-#load commands
+# load commands
+
+
 @client.command()
 @commands.has_role('Arkade Admin')
 async def load(ctx, string):
@@ -41,7 +46,9 @@ async def load(ctx, string):
         print('Failed to load extension \"{}\"\n{}'.format(string, exc))
         await ctx.message.channel.send('Failed to load extension \"{}\"'.format(string))
 
-#unload commands
+# unload commands
+
+
 @client.command()
 @commands.has_role('Arkade Admin')
 async def unload(ctx, string):
@@ -54,7 +61,9 @@ async def unload(ctx, string):
         exc = '{}: {}'.format(type(e).__name__, e)
         print('Failed to unload extension \"{}\"\n{}'.format(string, exc))
 
-#reload commands
+# reload commands
+
+
 @client.command()
 @commands.has_role('Arkade Admin')
 async def reload(ctx, string):
@@ -74,7 +83,7 @@ async def reload(ctx, string):
         print('Failed to load extension \"{}\"\n{}'.format(string, exc))
         await ctx.message.channel.send('Failed to load extension \"{}\"'.format(string))
 
-#IMPORT EXTENSIONS/COGS
+# IMPORT EXTENSIONS/COGS
 if __name__ == "__main__":
     for extension in startup_extensions:
         try:
@@ -83,6 +92,6 @@ if __name__ == "__main__":
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension \"{}\"\n{}'.format(extension, exc))
-#DONE IMPORT EXTENSIONS/COGS
+# DONE IMPORT EXTENSIONS/COGS
 
 client.run(TOKEN)

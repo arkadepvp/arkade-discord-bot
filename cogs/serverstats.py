@@ -5,6 +5,7 @@ import requests
 from discord.ext import commands
 from discord.ext.commands import Bot
 
+
 class serverstats:
     def __init__(self, client):
         self.client = client
@@ -21,30 +22,30 @@ class serverstats:
         reprole = arkade.get_role(441322834451759104)
         test = self.client.get_channel(502380383434833920)
         while True:
-            servers = ['https://api.battlemetrics.com/servers/2563723','https://api.battlemetrics.com/servers/2563863','https://api.battlemetrics.com/servers/2563815','https://api.battlemetrics.com/servers/2563816','https://api.battlemetrics.com/servers/2563814','https://api.battlemetrics.com/servers/2822178','https://api.battlemetrics.com/servers/3012917','https://api.battlemetrics.com/servers/3012916','https://api.battlemetrics.com/servers/3012789','https://api.battlemetrics.com/servers/3096726','https://api.battlemetrics.com/servers/3013095']
+            servers = ['https://api.battlemetrics.com/servers/2563723', 'https://api.battlemetrics.com/servers/2563863', 'https://api.battlemetrics.com/servers/2563815', 'https://api.battlemetrics.com/servers/2563816', 'https://api.battlemetrics.com/servers/2563814', 'https://api.battlemetrics.com/servers/2822178', 'https://api.battlemetrics.com/servers/3012917', 'https://api.battlemetrics.com/servers/3012916', 'https://api.battlemetrics.com/servers/3012789', 'https://api.battlemetrics.com/servers/3096726', 'https://api.battlemetrics.com/servers/3013095']
             totalPlayers = 0
             for server in servers:
                 r = requests.get(server, params=None)
                 res = r.json()
                 totalPlayers = totalPlayers + res['data']['attributes']['players']
-            
-            totalusers =  "Users: {}".format(len(arkade.members))
-            vipusers =  "VIPs: {}".format(len(viprole.members))
-            repusers =  "Reps: {}".format(len(reprole.members))
-            servercount =  "Players: {}".format(totalPlayers)
-            
+
+            totalusers = "Users: {}".format(len(arkade.members))
+            vipusers = "VIPs: {}".format(len(viprole.members))
+            repusers = "Reps: {}".format(len(reprole.members))
+            servercount = "Players: {}".format(totalPlayers)
+
             await arkadeusers.edit(name=totalusers)
             await arkadevips.edit(name=vipusers)
             await arkadereps.edit(name=repusers)
             await serverpop.edit(name=servercount)
-            
+
             dt = datetime.datetime.now()
             dt.strftime("%Y-%m-%d %H:%M:%S")
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%Y-%m-%d %H:%M:%S")) + "`")
-            
+
             await asyncio.sleep(300)
 
-    #killtask command
+    # killtask command
     @commands.command()
     async def killtask(self, ctx):
         try:
@@ -53,7 +54,7 @@ class serverstats:
         except:
             await ctx.message.channel.send("Task wasn't running.")
 
-    #starttask command
+    # starttask command
     @commands.command()
     async def starttask(self, ctx):
         try:
@@ -62,10 +63,11 @@ class serverstats:
         except:
             await ctx.message.channel.send("Task failed to start.")
 
-    #killbot command
+    # killbot command
     @commands.command()
     async def kill(self, ctx):
         self.client.close()
+
 
 def setup(client):
     client.add_cog(serverstats(client))

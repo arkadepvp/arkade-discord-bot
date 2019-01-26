@@ -8,11 +8,12 @@ from discord.ext.commands import Bot
 with open('configfinal.json', 'r') as f:
     config = json.load(f)
 
+
 class admin:
     def __init__(self, client):
         self.client = client
 
-    #poll command
+    # poll command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def poll(self, ctx, *string):
@@ -23,7 +24,7 @@ class admin:
         await message.add_reaction('✅')
         await message.add_reaction('❌')
 
-    #sqrt command
+    # sqrt command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def sqrt(self, ctx, time: float):
@@ -31,7 +32,7 @@ class admin:
         totalTime = addedTime + time
         message = await ctx.message.channel.send(f"The increase in ban time should be: {addedTime} The new total ban time should be: {totalTime}")
 
-    #ogs command
+    # ogs command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def ogs(self, ctx, *string):
@@ -40,7 +41,7 @@ class admin:
         embed = discord.Embed(title="OGS Information", description="You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit OGS`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.", color=0xFF00FF)
         message = await ctx.message.channel.send(embed=embed)
 
-    #rep command
+    # rep command
     @commands.command(aliases=['triberep', 'reps'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def rep(self, ctx, *string):
@@ -51,7 +52,7 @@ class admin:
         embed.add_field(name="_ _\nTribe Rep Perks/Responsibilities", value="-Being a Tribe Representative gives access to a channel in Discord specifically meant for Reps, and allows a Rep to cast a tribe vote when polls are introduced for the community to have a voice in altering specific gameplay mechanics.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment.")
         message = await ctx.message.channel.send(embed=embed)
 
-    #webhook command
+    # webhook command
     @commands.command(aliases=['wh', 'hook', 'web', 'showmewebhook!', 'wewantwebhooks'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def webhook(self, ctx, *string):
@@ -60,7 +61,7 @@ class admin:
         embed = discord.Embed(title="Webhook Tutorial", description="https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook", color=0xFF00FF)
         message = await ctx.message.channel.send(embed=embed)
 
-    #safe command
+    # safe command
     @commands.command(aliases=['st', 'safetag', 'tag'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def safe(self, ctx, *string):
@@ -71,7 +72,7 @@ class admin:
         embed.add_field(name="Safe Tag Requirements", value="Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [SAFE] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```")
         message = await ctx.message.channel.send(embed=embed)
 
-    #servers command
+    # servers command
     @commands.command(aliases=['server'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def servers(self, ctx, *string):
@@ -95,7 +96,7 @@ class admin:
         embed.add_field(name="Event Server Links", value=eventServers)
         message = await ctx.message.channel.send(embed=embed)
 
-    #multipoll command
+    # multipoll command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def multipoll(self, ctx, *string):
@@ -120,10 +121,10 @@ class admin:
 
         message = await ctx.message.channel.send(embed=embed)
 
-        for i in range(1,len(pollList)):
+        for i in range(1, len(pollList)):
             await message.add_reaction(multiList[i])
 
-    #welcome command
+    # welcome command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def welcome(self, ctx):
@@ -151,6 +152,7 @@ class admin:
         embed.add_field(name="Self Assignable Roles", value="Add your reaction to any of the available role options that you want to join.\nSelecting a role will give you access to the relevant discussion channels in this Discord server.  You may choose more than one role.\n\n**ARK PvP: **:bow_and_arrow:\n**ARK PvE: **:hammer:")
         welcomeMsg = await ctx.channel.get_message(527842025329131521)
         message = await welcomeMsg.edit(embed=embed)
+
 
 def setup(client):
     client.add_cog(admin(client))

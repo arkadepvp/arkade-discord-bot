@@ -6,11 +6,12 @@ from lxml import html
 import requests
 import sys
 
+
 class wiki:
     def __init__(self, client):
         self.client = client
 
-    #tame command
+    # tame command
     @commands.command()
     async def two(self, ctx):
         embed = discord.Embed(title="Arkade PvP Bot Information:", description="_ _", color=0x00FFFF)
@@ -19,9 +20,9 @@ class wiki:
         embed.add_field(name='_ _', value="-------------------------------------------------------------------------------------------------")
         message = await ctx.message.channel.send(embed=embed)
 
-    #craft command
+    # craft command
     @commands.command()
-    async def craft(self, ctx, string, extend = None):
+    async def craft(self, ctx, string, extend=None):
         string = string.capitalize()
         stringSafeThumb = string
         if extend:
@@ -35,7 +36,7 @@ class wiki:
         tree = html.fromstring(page.content)
 
         stringSafeThumb = stringSafeThumb.rstrip("s")
-        thumb = ("".join(tree.xpath('//img[starts-with(@alt, "%s")]/@src'%stringSafeThumb))).split("?", 1)[0]
+        thumb = ("".join(tree.xpath('//img[starts-with(@alt, "%s")]/@src' % stringSafeThumb))).split("?", 1)[0]
         level = ("".join(tree.xpath('//a[@href="/Levels"]/following-sibling::text()[1]'))).rstrip("\n")
         cost_item = (("\n,".join(tree.xpath('//div[@style="display:inline-block;margin:0.2em 1em 0.2em 0;vertical-align:top;text-align:left"]/div/b/a[position() mod 2 = 0]/@href'))).replace("/", "")).replace("_", " ")
         cost_quantity = ",".join(tree.xpath('//div[@style="display:inline-block;margin:0.2em 1em 0.2em 0;vertical-align:top;text-align:left"]/div/b[position() mod 2 = 1]/text()[position() mod 2 = 1]'))
@@ -58,7 +59,7 @@ class wiki:
             embed = discord.Embed(title="Error", description="That is not a valid craft.", color=0xFF0000)
             message = await ctx.message.channel.send(embed=embed)
 
-    #search command
+    # search command
     @commands.command()
     async def search(self, ctx, *string):
         search = "+".join(string)
@@ -74,9 +75,9 @@ class wiki:
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
         message = await ctx.message.channel.send(embed=embed)
 
-    #map command
+    # map command
     @commands.command()
-    async def map(self, ctx, string, extend = None):
+    async def map(self, ctx, string, extend=None):
         if (string.lower()).startswith("isl"):
             mapUrl = "https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/0/04/The_Island_Topographic_Map.jpg"
             embed = discord.Embed(title="Island map: ", color=0xffff66)
@@ -106,9 +107,9 @@ class wiki:
         embed.set_footer(text="Information from ark.gamepedia.com", icon_url="https://d1u5p3l4wpay3k.cloudfront.net/arksurvivalevolved_gamepedia/b/bc/Wiki.png")
         message = await ctx.message.channel.send(embed=embed)
 
-    #wiki command
+    # wiki command
     @commands.command()
-    async def wiki(self, ctx, string, extend = None):
+    async def wiki(self, ctx, string, extend=None):
         string = string.capitalize()
         stringSafeThumb = string
         if extend:
@@ -146,6 +147,7 @@ class wiki:
         except:
             embed = discord.Embed(title="Error", description="That is not a valid dinosaur.", color=0xFF0000)
             message = await ctx.message.channel.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(wiki(client))

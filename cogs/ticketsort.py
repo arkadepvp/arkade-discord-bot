@@ -3,6 +3,7 @@ import asyncio
 from discord.ext import commands
 from discord.ext.commands import Bot
 
+
 class ticketsort:
     def __init__(self, client):
         self.client = client
@@ -17,6 +18,7 @@ class ticketsort:
                 scCategory = discord.utils.get(after.guild.categories, id=533752291853860864)
                 await after.edit(category=scCategory, topic="ARK SC Ticket")
                 print("Ticket moved to SC with ID: " + str(scCategory.id))
+
 
 def setup(client):
     client.add_cog(ticketsort(client))

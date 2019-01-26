@@ -30,10 +30,15 @@ ffmpegopts = {
 
 ytdl = YoutubeDL(ytdlopts)
 
+
 class VoiceConnectionError(commands.CommandError):
     """Custom Exception class for connection errors."""
+
+
 class InvalidVoiceChannel(VoiceConnectionError):
     """Exception for cases of invalid Voice Channels."""
+
+
 class YTDLSource(discord.PCMVolumeTransformer):
 
     def __init__(self, source, *, data, requester):
@@ -76,6 +81,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
         return cls(discord.FFmpegPCMAudio(data['url']), data=data, requester=requester)
 
+
 class MusicPlayer:
     __slots__ = ('bot', '_guild', '_channel', '_cog', 'queue', 'next', 'current', 'np', 'volume')
 
@@ -95,7 +101,7 @@ class MusicPlayer:
         ctx.bot.loop.create_task(self.player_loop())
 
     async def player_loop(self):
-        #main player loop
+        # main player loop
         await self.bot.wait_until_ready()
 
         while not self.bot.is_closed():
@@ -134,6 +140,7 @@ class MusicPlayer:
     def destroy(self, guild):
         """Disconnect and cleanup the player."""
         return self.bot.loop.create_task(self._cog.cleanup(guild))
+
 
 class Music:
     __slots__ = ('bot', 'players')
@@ -181,7 +188,7 @@ class Music:
         return player
 
     @commands.command(name='connect')
-    async def connect_(self, ctx, *, channel: discord.VoiceChannel=None):
+    async def connect_(self, ctx, *, channel: discord.VoiceChannel = None):
         if not channel:
             try:
                 channel = ctx.author.voice.channel
@@ -320,6 +327,7 @@ class Music:
             return await ctx.send('Nothing is playing.', delete_after=20)
 
         await self.cleanup(ctx.guild)
+
 
 def setup(bot):
     bot.add_cog(Music(bot))
