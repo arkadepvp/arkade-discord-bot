@@ -38,10 +38,10 @@ class admin:
         await ctx.message.delete()
 
         embed = discord.Embed(title="Tribe Representative Information", description="A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [SAFE] tags, and communicating with admins should an issue arrise.", color=0xFF00FF)
-        embed.add_field(name="_ _\nTribe Rep Requirements", value="Please provide the following info in <#535668637877534740>. If your tribe contains 7 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```")
+        embed.add_field(name="_ _\nTribe Rep Requirements", value="Please provide the following info in <#535668637877534740>. If your tribe contains 6 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```")
         embed.add_field(name="_ _\nTribe Rep Perks/Responsibilities", value="-Being a Tribe Representative gives access to a channel in Discord specifically meant for Reps, and allows a Rep to cast a tribe vote when polls are introduced for the community to have a voice in altering specific gameplay mechanics.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment.")
         message = await ctx.message.channel.send(embed=embed)
-        
+
     #webhook command
     @commands.command(aliases=['wh', 'hook', 'web', 'showmewebhook!', 'wewantwebhooks'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
@@ -70,13 +70,13 @@ class admin:
         pvpServers = ""
         pveServers = ""
         eventServers = ""
-        
+
         for server in config['arkPvpServers']:
             pvpServers = pvpServers + "✦ " + server['Map'] + ": " + server['IP'] + "\n"
-            
+
         for server in config['arkPveServers']:
             pveServers = pveServers + "✦ " + server['Map'] + ": " + server['IP'] + "\n"
-            
+
         for server in config['arkEventServers']:
             eventServers = eventServers + "✦ " + server['Map'] + ": " + server['IP'] + "\n"
 
