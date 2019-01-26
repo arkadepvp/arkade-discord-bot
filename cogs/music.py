@@ -222,6 +222,22 @@ class Music:
 
         await player.queue.put(source)
 
+    @commands.command(name='fire')
+    async def play_(self, ctx):
+        await ctx.trigger_typing()
+
+        vc = ctx.voice_client
+
+        if not vc:
+            await ctx.invoke(self.connect_)
+
+        player = self.get_player(ctx)
+
+        fire = "https://www.youtube.com/watch?v=L_LUpnjgPso"
+        source = await YTDLSource.create_source(ctx, fire, loop=self.bot.loop, download=True)
+
+        await player.queue.put(source)
+
     @commands.command(name='pause')
     async def pause_(self, ctx):
         vc = ctx.voice_client
