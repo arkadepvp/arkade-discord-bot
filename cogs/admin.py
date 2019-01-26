@@ -29,7 +29,7 @@ class admin:
     async def sqrt(self, ctx, time: float):
         addedTime = round((2*(math.sqrt(time))), 1)
         totalTime = addedTime + time
-        message = await ctx.message.channel.send("The increase in ban time should be: {} The new total ban time should be: {}".format(addedTime, totalTime))
+        message = await ctx.message.channel.send(f"The increase in ban time should be: {addedTime} The new total ban time should be: {totalTime}")
 
     #ogs command
     @commands.command()
