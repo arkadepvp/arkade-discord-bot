@@ -32,7 +32,7 @@ class admin:
         message = await ctx.message.channel.send(embed=embed)
 
     #rep command
-    @commands.command()
+    @commands.command(aliases=['triberep', 'reps'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def rep(self, ctx, *string):
         await ctx.message.delete()
@@ -52,7 +52,7 @@ class admin:
         message = await ctx.message.channel.send(embed=embed)
 
     #safe command
-    @commands.command()
+    @commands.command(aliases=['st', 'safetag', 'tag'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def safe(self, ctx, *string):
         await ctx.message.delete()
@@ -63,7 +63,7 @@ class admin:
         message = await ctx.message.channel.send(embed=embed)
 
     #servers command
-    @commands.command()
+    @commands.command(aliases=['server'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def servers(self, ctx, *string):
         await ctx.message.delete()
