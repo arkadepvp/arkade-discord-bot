@@ -72,6 +72,15 @@ class admin:
         embed.add_field(name="Safe Tag Requirements", value="Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [SAFE] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```")
         message = await ctx.message.channel.send(embed=embed)
 
+    # wipe command
+    @commands.command(aliases=['wipedate', 'wiping'])
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def wipe(self, ctx, *string):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="Server Wipes", description="The last PvP wipe was on `1/18`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 2-3 months when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe is not being considered at this time.\n\nThe PvE servers do not wipe.", color=0xFF00FF)
+        message = await ctx.message.channel.send(embed=embed)
+
     # servers command
     @commands.command(aliases=['server'])
     @commands.has_any_role('Arkade Admin', 'Moderator')
