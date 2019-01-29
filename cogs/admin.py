@@ -38,7 +38,7 @@ class admin:
     async def ogs(self, ctx, *string):
         await ctx.message.delete()
 
-        embed = discord.Embed(title="OGS Information", description="You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit OGS`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.", color=0xFF00FF)
+        embed = discord.Embed(title="OGS Information", description="You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit ogs`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.", color=0xFF00FF)
         message = await ctx.message.channel.send(embed=embed)
 
     # rep command
