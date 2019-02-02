@@ -54,9 +54,9 @@ class serverstats:
             embed.add_field(name="Users", value="{}".format(len(arkade.members)), inline="true")
             embed.add_field(name="VIPs", value="{}".format(len(viprole.members)), inline="true")
             embed.add_field(name="Reps", value="{}".format(len(reprole.members)), inline="true")
+            embed.add_field(name="Players", value="{}".format(pvpPlayers + pvePlayers), inline="true")
             embed.add_field(name="PvP Role", value="{}".format(len(pvprole.members)), inline="true")
             embed.add_field(name="PvE Role", value="{}".format(len(pverole.members)), inline="true")
-            embed.add_field(name="\u200b", value="\u200b", inline="true")
             embed.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpPlayers))
             for server in pvpServers:
                 r = requests.get(server, params=None)
@@ -78,7 +78,7 @@ class serverstats:
                 embed.add_field(name=serverN, value="{}".format(playerC), inline="true")
 
             message = await statMessage.edit(embed=embed)
-            await logchannel.send("**Success.** Time: `" + str(dt.strftime("%Y-%m-%d %H:%M:%S")) + " EST`")
+            await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
 
             await asyncio.sleep(290)
 
@@ -99,17 +99,6 @@ class serverstats:
             await ctx.message.channel.send("Task started.")
         except:
             await ctx.message.channel.send("Task failed to start.")
-
-    # message command
-    @commands.command()
-    async def message(self, ctx):
-        embed = discord.Embed(title="Population Stats", description="\n\u200b\n", color=0xFF00FF)
-        message = await ctx.message.channel.send(embed=embed)
-
-    # killbot command
-    @commands.command()
-    async def kill(self, ctx):
-        self.client.close()
 
 
 def setup(client):
