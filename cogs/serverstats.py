@@ -13,13 +13,15 @@ class serverstats:
         self.bg_task = self.client.loop.create_task(self.getstats())
 
     async def getstats(self):
-        await asyncio.sleep(5)
+        await asyncio.sleep(3)
         arkade = self.client.get_guild(439900471025467403)
         arkadeusers = self.client.get_channel(532997531022655508)
         serverpop = self.client.get_channel(536661782543073280)
         logchannel = self.client.get_channel(502380398261567490)
         statchannel = self.client.get_channel(541029645739491349)
-        statMessage = await statchannel.get_message(541041088367165450)
+        statMessage = await statchannel.get_message(541478737716314122)
+        statMessageTwo = await statchannel.get_message(541478744955682818)
+        statMessageThree = await statchannel.get_message(541478812613869579)
         viprole = arkade.get_role(496896677983158272)
         reprole = arkade.get_role(441322834451759104)
         pvprole = arkade.get_role(527829610134765568)
@@ -56,13 +58,19 @@ class serverstats:
             r = requests.get('https://api.battlemetrics.com/servers/3176233', params=None)
             pveVal = r.json()['data']['attributes']['players']
 
+            r = requests.get('https://api.battlemetrics.com/servers/2792094', params=None)
+            miscEv = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3222091', params=None)
+            miscDM = r.json()['data']['attributes']['players']
+
             pvpTotal = pvpRag + pvpAbb + pvpCen + pvpExt + pvpIsl + pvpSch
             pveTotal = pveRag + pveAbb + pveCen + pveExt + pveIsl + pveSch + pveVal
+            miscTotal = miscEv + miscDM
 
             totalusers = "Users: {}".format(len(arkade.members))
             vipusers = "VIPs: {}".format(len(viprole.members))
             repusers = "Reps: {}".format(len(reprole.members))
-            servercount = "Players: {}".format(pvpTotal + pveTotal)
+            servercount = "Players: {}".format(pvpTotal + pveTotal + miscTotal)
 
             await arkadeusers.edit(name=totalusers)
             await serverpop.edit(name=servercount)
@@ -78,36 +86,42 @@ class serverstats:
                 elif pverole in member.roles:
                     pveCount = pveCount + 1
 
-            embed = discord.Embed(title="Population Stats", description="Last update: " + str(dt.strftime("%m-%d %H:%M:%S")) + " EST\n", color=0xFF00FF)
+            embed = discord.Embed(title="Discord Population Stats", description=f"Last update: " + str(dt.strftime("%m-%d %H:%M:%S")) + " EST\n", color=0xFF00FF)
             embed.add_field(name="Users", value="{}".format(len(arkade.members)), inline="true")
             embed.add_field(name="PvP Role", value="{}".format(len(pvprole.members)), inline="true")
             embed.add_field(name="PvE Role", value="{}".format(len(pverole.members)), inline="true")
             embed.add_field(name="VIPs", value="{}".format(len(viprole.members)), inline="true")
             embed.add_field(name="PvP VIPs", value="{}".format(pvpCount), inline="true")
             embed.add_field(name="PvE VIPs", value="{}".format(pveCount), inline="true")
-
-            embed.add_field(name="Players", value="{}".format(pvpTotal + pveTotal), inline="true")
             embed.add_field(name="Reps", value="{}".format(len(reprole.members)), inline="true")
-            embed.add_field(name="_ _", value="_ _", inline="true")
 
-            embed.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpTotal))
-            embed.add_field(name="Ragnarok", value="{}".format(pvpRag), inline="true")
-            embed.add_field(name="Aberration", value="{}".format(pvpAbb), inline="true")
-            embed.add_field(name="The Center", value="{}".format(pvpCen), inline="true")
-            embed.add_field(name="Extinction", value="{}".format(pvpExt), inline="true")
-            embed.add_field(name="The Island", value="{}".format(pvpIsl), inline="true")
-            embed.add_field(name="Scorched Earth", value="{}".format(pvpSch), inline="true")
+            embedTwo = discord.Embed(title="Server Population Stats", description=f"Total: {pvpTotal + pveTotal + miscTotal}", color=0x58A9FA)
+            embedTwo.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpTotal))
+            embedTwo.add_field(name="Ragnarok", value="{}".format(pvpRag), inline="true")
+            embedTwo.add_field(name="Aberration", value="{}".format(pvpAbb), inline="true")
+            embedTwo.add_field(name="The Center", value="{}".format(pvpCen), inline="true")
+            embedTwo.add_field(name="Extinction", value="{}".format(pvpExt), inline="true")
+            embedTwo.add_field(name="The Island", value="{}".format(pvpIsl), inline="true")
+            embedTwo.add_field(name="Scorched Earth", value="{}".format(pvpSch), inline="true")
 
-            embed.add_field(name="\u200b\nPvE Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pveTotal))
-            embed.add_field(name="Ragnarok", value="{}".format(pveRag), inline="true")
-            embed.add_field(name="Aberration", value="{}".format(pveAbb), inline="true")
-            embed.add_field(name="The Center", value="{}".format(pveCen), inline="true")
-            embed.add_field(name="Extinction", value="{}".format(pveExt), inline="true")
-            embed.add_field(name="The Island", value="{}".format(pveIsl), inline="true")
-            embed.add_field(name="Scorched Earth", value="{}".format(pveSch), inline="true")
-            embed.add_field(name="Valguero", value="{}".format(pveVal), inline="true")
+            embedTwo.add_field(name="\u200b\nPvE Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pveTotal))
+            embedTwo.add_field(name="Ragnarok", value="{}".format(pveRag), inline="true")
+            embedTwo.add_field(name="Aberration", value="{}".format(pveAbb), inline="true")
+            embedTwo.add_field(name="The Center", value="{}".format(pveCen), inline="true")
+            embedTwo.add_field(name="Extinction", value="{}".format(pveExt), inline="true")
+            embedTwo.add_field(name="The Island", value="{}".format(pveIsl), inline="true")
+            embedTwo.add_field(name="Scorched Earth", value="{}".format(pveSch), inline="true")
+            embedTwo.add_field(name="Valguero", value="{}".format(pveVal), inline="true")
+
+            embedTwo.add_field(name="\u200b\nMisc Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(miscTotal))
+            embedTwo.add_field(name="Events", value="{}".format(miscEv), inline="true")
+            embedTwo.add_field(name="Deathmatch", value="{}".format(miscDM), inline="true")
+
+            embedThree = discord.Embed(title="TBD", description="_ _", color=0xFF00FF)
 
             message = await statMessage.edit(embed=embed)
+            messageTwo = await statMessageTwo.edit(embed=embedTwo)
+            messageThree = await statMessageThree.edit(embed=embedThree)
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
 
             await asyncio.sleep(299)
@@ -129,6 +143,12 @@ class serverstats:
             await ctx.message.channel.send("Task started.")
         except:
             await ctx.message.channel.send("Task failed to start.")
+
+    # message command
+    @commands.command()
+    async def message(self, ctx):
+        embed = discord.Embed(title="title", description="description", color=0xFF00FF)
+        message = await ctx.message.channel.send(embed=embed)
 
 
 def setup(client):
