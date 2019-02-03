@@ -1,16 +1,34 @@
 import discord
 import asyncio
+import json
 import datetime
 from datetime import timedelta
 import requests
 from discord.ext import commands
 from discord.ext.commands import Bot
 
+with open('counter.json', 'r') as f:
+    count = json.load(f)
+
 
 class serverstats:
     def __init__(self, client):
         self.client = client
         self.bg_task = self.client.loop.create_task(self.getstats())
+
+    async def on_member_join(self, member):
+        join = int(count['join'])
+        join = join + 1
+        count['join'] = str(join)
+        with open('counter.json', 'w') as f:
+            json.dump(count, f)
+
+    async def on_member_remove(self, member):
+        leave = int(count['leave'])
+        leave = leave + 1
+        count['leave'] = str(leave)
+        with open('counter.json', 'w') as f:
+            json.dump(count, f)
 
     async def getstats(self):
         await asyncio.sleep(3)
@@ -75,6 +93,10 @@ class serverstats:
             await arkadeusers.edit(name=totalusers)
             await serverpop.edit(name=servercount)
 
+            joinCnt = int(count['join'])
+            leaveCnt = int(count['leave'])
+            jlRatio = round((float(joinCnt)/float(leaveCnt))*100, 2)
+
             dt = datetime.datetime.now() - timedelta(hours=5)
             dt.strftime("%m-%d %H:%M:%S")
 
@@ -86,7 +108,7 @@ class serverstats:
                 elif pverole in member.roles:
                     pveCount = pveCount + 1
 
-            embed = discord.Embed(title="Discord Population Stats", description=f"Last update: " + str(dt.strftime("%m-%d %H:%M:%S")) + " EST\n", color=0xFF00FF)
+            embed = discord.Embed(title="Discord Population Stats", description=f"Last update: " + str(dt.strftime("%m-%d %H:%M")) + " EST\n", color=0xFF00FF)
             embed.add_field(name="Users", value="{}".format(len(arkade.members)), inline="true")
             embed.add_field(name="PvP Role", value="{}".format(len(pvprole.members)), inline="true")
             embed.add_field(name="PvE Role", value="{}".format(len(pverole.members)), inline="true")
@@ -94,6 +116,8 @@ class serverstats:
             embed.add_field(name="PvP VIPs", value="{}".format(pvpCount), inline="true")
             embed.add_field(name="PvE VIPs", value="{}".format(pveCount), inline="true")
             embed.add_field(name="Reps", value="{}".format(len(reprole.members)), inline="true")
+            embed.add_field(name="Join/Leave Raw", value=f"{joinCnt}/{leaveCnt}", inline="true")
+            embed.add_field(name="Join/Leave Ratio", value=f"{jlRatio}%", inline="true")
 
             embedTwo = discord.Embed(title="Server Population Stats", description=f"Total: {pvpTotal + pveTotal + miscTotal}", color=0x58A9FA)
             embedTwo.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpTotal))
