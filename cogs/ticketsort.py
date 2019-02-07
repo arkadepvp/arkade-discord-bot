@@ -10,11 +10,11 @@ class ticketsort:
 
     async def on_guild_channel_update(self, before, after):
         if after.category_id == 473652853354004480:
-            if "are" in after.name:
+            if "are" in after.name[0:3]:
                 areCategory = discord.utils.get(after.guild.categories, id=533147428715495434)
                 await after.edit(category=areCategory, topic="ARK PvE Ticket")
                 print("Ticket moved to PvE with ID: " + str(areCategory.id))
-            elif "sc" in after.name:
+            elif "sc" in after.name[0:3]:
                 scCategory = discord.utils.get(after.guild.categories, id=533752291853860864)
                 await after.edit(category=scCategory, topic="ARK SC Ticket")
                 print("Ticket moved to SC with ID: " + str(scCategory.id))
