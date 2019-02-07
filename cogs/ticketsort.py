@@ -14,10 +14,10 @@ class ticketsort:
                 areCategory = discord.utils.get(after.guild.categories, id=533147428715495434)
                 await after.edit(category=areCategory, topic="ARK PvE Ticket")
                 print("Ticket moved to PvE with ID: " + str(areCategory.id))
-            elif "sc" in after.name[0:3]:
+            elif "arp" in after.name[0:3]:
                 scCategory = discord.utils.get(after.guild.categories, id=533752291853860864)
-                await after.edit(category=scCategory, topic="ARK SC Ticket")
-                print("Ticket moved to SC with ID: " + str(scCategory.id))
+                await after.edit(category=scCategory, topic="ARK PvP Ticket")
+                print("Ticket moved to PvP with ID: " + str(scCategory.id))
 
 
 def setup(client):
