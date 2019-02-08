@@ -19,6 +19,14 @@
       "level": "1"
     },
     {
+      "cmd": "welcome",
+      "desc": "Updates welcome message.",
+      "usage": "welcome",
+      "level": "1"
+    }
+  ],
+  "info": [
+    {
       "cmd": "ogs",
       "desc": "Lists OGS information.",
       "usage": "ogs",
@@ -28,12 +36,6 @@
       "cmd": "rep",
       "desc": "Lists Tribe Rep information.",
       "usage": "rep",
-      "level": "1"
-    },
-    {
-      "cmd": "webhook",
-      "desc": "Links the webhook guide. Alias: `.wh`",
-      "usage": "webhook",
       "level": "1"
     },
     {
@@ -49,9 +51,9 @@
       "level": "1"
     },
     {
-      "cmd": "welcome",
-      "desc": "Updates welcome message.",
-      "usage": "welcome",
+      "cmd": "webhook",
+      "desc": "Links the webhook guide. Alias: `.wh`",
+      "usage": "webhook",
       "level": "1"
     }
   ],
@@ -75,21 +77,15 @@
       "level": "0"
     },
     {
-      "cmd": "skip",
-      "desc": "Skips the currently playing song.",
-      "usage": "skip",
-      "level": "0"
-    },
-    {
       "cmd": "queue",
       "desc": "Lists the song in the play queue.",
       "usage": "queue",
       "level": "0"
     },
     {
-      "cmd": "volume",
-      "desc": "Specifies a volume.",
-      "usage": "volume <0-100>",
+      "cmd": "skip",
+      "desc": "Skips the currently playing song.",
+      "usage": "skip",
       "level": "0"
     },
     {
@@ -97,19 +93,25 @@
       "desc": "Stops the music.",
       "usage": "stop",
       "level": "0"
+    },
+    {
+      "cmd": "volume",
+      "desc": "Specifies a volume.",
+      "usage": "volume <0-100>",
+      "level": "0"
     }
   ],
   "wiki": [
     {
-      "cmd": "tame",
-      "desc": "Not yet complete.",
-      "usage": "tame <creature>",
-      "level": "0"
-    },
-    {
       "cmd": "craft",
       "desc": "Displays required materials to craft item.",
       "usage": "craft <item>",
+      "level": "0"
+    },
+    {
+      "cmd": "map",
+      "desc": "Displays a picture of the given map.",
+      "usage": "map <map name>",
       "level": "0"
     },
     {
@@ -119,9 +121,9 @@
       "level": "0"
     },
     {
-      "cmd": "map",
-      "desc": "Displays a picture of the given map.",
-      "usage": "map <map name>",
+      "cmd": "tame",
+      "desc": "Not yet complete.",
+      "usage": "tame <creature>",
       "level": "0"
     },
     {
