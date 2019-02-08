@@ -2,7 +2,7 @@
 ### **About**
 This is a custom built bot for the [ARKADE Discord](https://discord.gg/G8d5YFd).<br>
 Made by N0XIRE#0001 | [Python 3.6.6](https://www.python.org/downloads/release/python-366/) & [Discord.py rewrite](https://github.com/Rapptz/discord.py/tree/rewrite).
-![ARKADE](https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png "ARKADE Logo")
+![ARKADE](https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png)
 
 ### **Commands**
 Command arguments are shown with `<string/int>` and are required.
