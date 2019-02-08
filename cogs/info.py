@@ -53,12 +53,12 @@ class info:
         minutes = int(minutes)
 
         embed = discord.Embed(title="_ _", description="A custom built bot for the [Arkade PvP Discord.](https://discord.gg/G8d5YFd)", color=0x589BFF)
-        embed.set_author(name="Arkade PvP | Bot Stats", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
+        embed.set_author(name="Arkade PvP | Bot Stats")
         embed.set_thumbnail(url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
         embed.add_field(name="Members", value="{}".format(len(ctx.guild.members)), inline=True)
         embed.add_field(name="Uptime", value="{}d {}h {}m {}s".format(days, hours, minutes, seconds), inline=True)
         embed.add_field(name="Links", value="T\nB\nD")
-        embed.set_footer(text="Made in Python 3.6.6 with Discord.py rewrite | Made by N0XIRE#7589", icon_url="https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/de968c2d-8f58-4778-f007-720acab23e3e.png")
+        embed.set_footer(text="Made by N0XIRE#0001 | Python 3.6.6 & Discord.py rewrite", icon_url="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/49/49f52da179dfbc200d532ac09c550a9be09e1371_full.jpg")
         message = await ctx.message.channel.send(embed=embed)
 
 
