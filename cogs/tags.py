@@ -37,6 +37,16 @@ class info:
 
         message = await ctx.message.channel.send(embed=embed)
 
+    # tags commands
+    @commands.command(aliases=['listtags', 'tagslist'])
+    async def tags(self, ctx):
+        await ctx.message.delete()
+
+        tagString = ""
+        for tag in tags:
+            tagString = tagString + "\n"
+        print(tagString)
+
 
 def setup(client):
     client.add_cog(info(client))
