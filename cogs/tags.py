@@ -14,7 +14,7 @@ class info:
         self.client = client
 
     # tag command
-    @commands.command(aliases=['tags', 't'])
+    @commands.command(aliases=['t'])
     async def tag(self, ctx, search=None):
         await ctx.message.delete()
 
