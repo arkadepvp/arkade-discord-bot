@@ -1,0 +1,16 @@
+{
+  "safe": {
+	"title": "poll",
+	"image": "Makes a yes/no poll.",
+	"fields": {
+	  "field1title": "",
+	  "field1value": "",
+	  "field2title": "",
+	  "field2value": "",
+	  "field3title": "",
+	  "field3value": "",
+	  "field4title": "",
+	  "field4value": ""
+	}
+  }
+}
