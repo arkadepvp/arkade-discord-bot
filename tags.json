@@ -1,16 +1,50 @@
 {
-  "safe": {
-	"title": "poll",
-	"image": "Makes a yes/no poll.",
-	"fields": {
-	  "field1title": "",
-	  "field1value": "",
-	  "field2title": "",
-	  "field2value": "",
-	  "field3title": "",
-	  "field3value": "",
-	  "field4title": "",
-	  "field4value": ""
-	}
+  "safetag st": {
+	"title": "Fun with [Safe] tags!",
+    "desc": "[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each [Safe] tag is judged on a case by case basics and the time awarded is based on the damage received.",
+    "color": "0xFF00FF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Safe Tag Rules",
+        "value": "Please read over our [Safe] tag rules at <#535273670919323648>. Violating these rules can result in the reduction or removal of your [Safe] tag."
+      },
+	  {
+        "title": "Safe Tag Requirements",
+        "value": "Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [Safe] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```"
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+},
+  "example searchterms": {
+	"title": "Title 1",
+    "desc": "Description one goes here",
+    "color": "0xFF00FF",
+    "image": "https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/90165e69-1d73-46ae-4d0e-9be448fe17cb.png",
+	"fields": [
+	  {
+        "title": "Title 2",
+        "value": "Description two goes here"
+      },
+	  {
+        "title": "Title 3",
+        "value": "Description three goes here"
+      },
+	  {
+        "title": "Title 4",
+        "value": "Description four goes here"
+      },
+      {
+        "title": "Title 5",
+        "value": "Description five goes here"
+      }
+    ]
   }
 }
