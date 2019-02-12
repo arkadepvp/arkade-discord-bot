@@ -23,38 +23,38 @@
       "desc": "Updates welcome message.",
       "usage": "welcome",
       "level": "1"
+    },
+    {
+      "cmd": "tag",
+      "desc": "Displays the information stored under the given tag.",
+      "usage": "tag <query>",
+      "level": "1"
+    },
+    {
+      "cmd": "tags",
+      "desc": "Lists all t",
+      "usage": "tags",
+      "level": "1"
     }
   ],
   "info": [
     {
-      "cmd": "ogs",
-      "desc": "Lists OGS information.",
-      "usage": "ogs",
-      "level": "1"
+      "cmd": "help",
+      "desc": "Displays this help message.",
+      "usage": "help",
+      "level": "0"
     },
     {
-      "cmd": "rep",
-      "desc": "Lists Tribe Rep information.",
-      "usage": "rep",
-      "level": "1"
-    },
-    {
-      "cmd": "safe",
-      "desc": "Lists safetag information.",
-      "usage": "safe",
-      "level": "1"
+      "cmd": "info",
+      "desc": "Displays bot information/stats.",
+      "usage": "info",
+      "level": "0"
     },
     {
       "cmd": "servers",
       "desc": "Lists game servers.",
       "usage": "servers",
-      "level": "1"
-    },
-    {
-      "cmd": "webhook",
-      "desc": "Links the webhook guide. Alias: `.wh`",
-      "usage": "webhook",
-      "level": "1"
+      "level": "0"
     }
   ],
   "music": [
