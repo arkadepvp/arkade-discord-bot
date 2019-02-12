@@ -1,5 +1,5 @@
 {
-  "safetag st": {
+  "Safetag ST": {
 	"title": "Fun with [Safe] tags!",
     "desc": "[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each [Safe] tag is judged on a case by case basics and the time awarded is based on the damage received.",
     "color": "0xFF00FF",
@@ -22,28 +22,124 @@
         "value": ""
       }
     ]
-},
-  "example searchterms": {
-	"title": "Title 1",
-    "desc": "Description one goes here",
+  },
+  "OGS Offline Guard System": {
+	"title": "OGS Information",
+    "desc": "You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit ogs`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.",
     "color": "0xFF00FF",
-    "image": "https://s3-us-west-2.amazonaws.com/www.guilded.gg/user_content/image/90165e69-1d73-46ae-4d0e-9be448fe17cb.png",
+    "image": "",
 	"fields": [
 	  {
-        "title": "Title 2",
-        "value": "Description two goes here"
+        "title": "",
+        "value": ""
       },
 	  {
-        "title": "Title 3",
-        "value": "Description three goes here"
+        "title": "",
+        "value": ""
       },
 	  {
-        "title": "Title 4",
-        "value": "Description four goes here"
+        "title": "",
+        "value": ""
       },
       {
-        "title": "Title 5",
-        "value": "Description five goes here"
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Tribe Representatives": {
+	"title": "Tribe Representative Information",
+    "desc": "A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [Safe] tags, and communicating with admins should an issue arrise.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "_ _\nTribe Rep Requirements",
+        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 6 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
+      },
+	  {
+        "title": "_ _\nTribe Rep Perks/Responsibilities",
+        "value": "-Being a Tribe Representative gives access to a channel in Discord specifically meant for Reps, and allows a Rep to cast a tribe vote when polls are introduced for the community to have a voice in altering specific gameplay mechanics.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Webhook Tutorial WH": {
+	"title": "Webhook Tutorial",
+    "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Safetag Rules Saferules STR": {
+	"title": "[SAFE] tag Rules and Punishments",
+    "desc": "You've been granted a [Safe] tag. Please do not pick up and move your OGS terminal while you [Safe] tag is active. This will cancel your [Safe] tag and an admin will not reset it. Please remember that all structures inside the [Safe] bubble are protected, but your dinos are not. Make sure you read the following [Safe] tag rules and punishments.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "[SAFE] tag Rules",
+        "value": "```◈ While under the effects of the [Safe] Tag protection, tribes are not allowed to raid or destroy any other tribes structures across all maps, but any other forms of PvP are acceptable.\n◈ No impeding of [Safe] Tribes around their protection bubble.\n◈ It is the responsibility of the tribe owner to remove the [Safe] tag from the tribes name at the end of the [Safe] Tag protection.```"
+      },
+	  {
+        "title": "[SAFE] tag Punishments",
+        "value": "```Breaking any of the [Safe] Tag rules and guidelines will have punishments associated with the [Safe] Tag system. These punishments could include, but are not limited to:\n◈ A reduction or removal of your current [Safe] Tag.\n◈ Reduced time or no [Safe] Tag offered in future scenarios.\n◈ Players kicked/banned for a period of time.```"
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Sellable Resource": {
+	"title": "Sellable Resource",
+    "desc": "The \"sellable\" resource is no longer used on ARKADE. last season it was used to transfer coins between maps, but now the shop is cluster wide and coins transfer automatically!",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
       }
     ]
   }
