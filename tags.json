@@ -1,18 +1,93 @@
 {
-  "Safetag ST": {
-  "dispname": "Safetag",
-	"title": "Fun with [Safe] tags!",
-    "desc": "[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each [Safe] tag is judged on a case by case basics and the time awarded is based on the damage received.",
-    "color": "0xFF00FF",
+  "Common Errors Mismatch Reliable Buffer Overflow": {
+  "dispname": "Errors",
+	"title": "Common Errors",
+    "desc": "_ _",
+    "color": "0xFFFFFF",
     "image": "",
 	"fields": [
 	  {
-        "title": "Safe Tag Rules",
-        "value": "Please read over our [Safe] tag rules at <#535273670919323648>. Violating these rules can result in the reduction or removal of your [Safe] tag."
+        "title": "Player Already Connected",
+        "value": "https://arkade.flowlu.com/hc/5/17-19--another-player-connected"
       },
 	  {
-        "title": "Safe Tag Requirements",
-        "value": "Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [Safe] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```"
+        "title": "Mod Mismatch",
+        "value": "https://arkade.flowlu.com/hc/5/17-15--mod-mismatch-error"
+      },
+	  {
+        "title": "Can't see servers to Transfer",
+        "value": "https://arkade.flowlu.com/hc/5/17-16--not-seeing-arkade-servers-on-cluster"
+      },
+      {
+        "title": "Reliable Buffer Overflow",
+        "value": "https://arkade.flowlu.com/hc/5/17-18--overflow-buffer-error-upon-transferring"
+      }
+    ]
+  },
+  "Events": {
+  "dispname": "Events",
+	"title": "Events",
+    "desc": "Want to participate a little bit more in the community? Want to win ARKADE themed dinos? Try out our <#472160668154593291>! Hand made by our event team, feel free to submit any suggestions to the Event Coordinator.",
+    "color": "0xFFFFFF",
+    "image": "https://cdn.discordapp.com/attachments/526855791181824031/544848531907674122/20190212205315_1.jpg",
+	"fields": [
+	  {
+        "title": "Prizes!",
+        "value": "All of the ARKADE Events have participation prizes available to all who show up as well as prizes for winning that weeks event."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Fireside FS Firesides": {
+  "dispname": "Fireside",
+	"title": "Fireside",
+    "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EST`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Questions",
+        "value": "Have any questions to ask but would prefer to message us? Tune into Fireside and send your questions to <#475081332280655892>."
+      },
+	  {
+        "title": "Recap",
+        "value": "Missed Fireside chat? Don't worry! There's a recap available in <#483091850161553408> for you to catch up on."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "In-Game Shop ARKShop": {
+  "dispname": "In-Game Shop",
+	"title": "In-Game Shop",
+    "desc": "ARKADE offers an in game shop to purchase resources, gear and tools, dinos, saddles, and more! Earn coins by playing in game, 20 coins every 20 minutes you're logged onto our server.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Shops",
+        "value": "<#534336465040310282>\n<#533844755361300482>"
+      },
+	  {
+        "title": "",
+        "value": ""
       },
 	  {
         "title": "",
@@ -49,45 +124,20 @@
       }
     ]
   },
-  "Tribe Representatives TribeRepresentatives": {
-  "dispname": "Tribe Representatives",
-  "title": "Tribe Representative Information",
-    "desc": "A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [Safe] tags, and communicating with admins should an issue arrise.",
-    "color": "0xFFFFFF",
+  "Safetag ST": {
+  "dispname": "Safetag",
+	"title": "Fun with [Safe] tags!",
+    "desc": "[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each [Safe] tag is judged on a case by case basics and the time awarded is based on the damage received.",
+    "color": "0xFF00FF",
     "image": "",
 	"fields": [
 	  {
-        "title": "_ _\nTribe Rep Requirements",
-        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 6 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
+        "title": "Safe Tag Rules",
+        "value": "Please read over our [Safe] tag rules at <#535273670919323648>. Violating these rules can result in the reduction or removal of your [Safe] tag."
       },
 	  {
-        "title": "_ _\nTribe Rep Perks/Responsibilities",
-        "value": "-Being a Tribe Representative gives access to a channel in Discord specifically meant for Reps, and allows a Rep to cast a tribe vote when polls are introduced for the community to have a voice in altering specific gameplay mechanics.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment."
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
-  },
-  "Webhook Tutorial WH": {
-  "dispname": "Webhook",
-	"title": "Webhook Tutorial",
-    "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
+        "title": "Safe Tag Requirements",
+        "value": "Tribe Reps can create a ticket in <#472229135528230912> with the following info to request a [Safe] tag.```-Which map your base is on and approximate coordinates\n-Screenshots of tribe-log showing as much destruction as you can\n-Pictures of the damage```"
       },
 	  {
         "title": "",
@@ -199,20 +249,20 @@
       }
     ]
   },
-  "In-Game Shop ARKShop": {
-  "dispname": "In-Game Shop",
-	"title": "In-Game Shop",
-    "desc": "ARKADE offers an in game shop to purchase resources, gear and tools, dinos, saddles, and more! Earn coins by playing in game, 20 coins every 20 minutes you're logged onto our server.",
+  "Tribe Representatives TribeRepresentatives": {
+  "dispname": "Tribe Representatives",
+  "title": "Tribe Representative Information",
+    "desc": "A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [Safe] tags, and communicating with admins should an issue arrise.",
     "color": "0xFFFFFF",
     "image": "",
 	"fields": [
 	  {
-        "title": "Shops",
-        "value": "<#534336465040310282>\n<#533844755361300482>"
+        "title": "_ _\nTribe Rep Requirements",
+        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 6 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
       },
 	  {
-        "title": "",
-        "value": ""
+        "title": "_ _\nTribe Rep Perks/Responsibilities",
+        "value": "-Being a Tribe Representative gives access to a channel in Discord specifically meant for Reps, and allows a Rep to cast a tribe vote when polls are introduced for the community to have a voice in altering specific gameplay mechanics.\n-Being a Tribe Rep also grants you the ability to open tickets to our admin team.  To open a ticket go to the <#472229135528230912> channel and follow the directions in the pinned comment."
       },
 	  {
         "title": "",
@@ -224,45 +274,20 @@
       }
     ]
   },
-  "Events": {
-  "dispname": "Events",
-	"title": "Events",
-    "desc": "Want to participate a little bit more in the community? Want to win ARKADE themed dinos? Try out our <#472160668154593291>! Hand made by our event team, feel free to submit any suggestions to the Event Coordinator.",
-    "color": "0xFFFFFF",
-    "image": "https://cdn.discordapp.com/attachments/526855791181824031/544848531907674122/20190212205315_1.jpg",
-	"fields": [
-	  {
-        "title": "Prizes!",
-        "value": "All of the ARKADE Events have participation prizes available to all who show up as well as prizes for winning that weeks event."
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
-  },
-  "Fireside FS Firesides": {
-  "dispname": "Fireside",
-	"title": "Fireside",
-    "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EST`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
+  "Webhook Tutorial WH": {
+  "dispname": "Webhook",
+	"title": "Webhook Tutorial",
+    "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
     "color": "0xFFFFFF",
     "image": "",
 	"fields": [
 	  {
-        "title": "Questions",
-        "value": "Have any questions to ask but would prefer to message us? Tune into Fireside and send your questions to <#475081332280655892>."
+        "title": "",
+        "value": ""
       },
 	  {
-        "title": "Recap",
-        "value": "Missed Fireside chat? Don't worry! There's a recap available in <#483091850161553408> for you to catch up on."
+        "title": "",
+        "value": ""
       },
 	  {
         "title": "",
@@ -271,31 +296,6 @@
       {
         "title": "",
         "value": ""
-      }
-    ]
-  },
-  "Common Errors Mismatch Reliable Buffer Overflow": {
-  "dispname": "Errors",
-	"title": "Common Errors",
-    "desc": "_ _",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "Player Already Connected",
-        "value": "https://arkade.flowlu.com/hc/5/17-19--another-player-connected"
-      },
-	  {
-        "title": "Mod Mismatch",
-        "value": "https://arkade.flowlu.com/hc/5/17-15--mod-mismatch-error"
-      },
-	  {
-        "title": "Can't see servers to Transfer",
-        "value": "https://arkade.flowlu.com/hc/5/17-16--not-seeing-arkade-servers-on-cluster"
-      },
-      {
-        "title": "Reliable Buffer Overflow",
-        "value": "https://arkade.flowlu.com/hc/5/17-18--overflow-buffer-error-upon-transferring"
       }
     ]
   },
@@ -323,5 +323,5 @@
         "value": ""
       }
     ]
-  }
+  },
 }
