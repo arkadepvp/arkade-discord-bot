@@ -43,7 +43,8 @@ class info:
 
         tagString = ""
         for tag in tags:
-            tagString = tagString + "- " + tag + "\n"
+            tagvars = tags[tag]
+            tagString = tagString + "- " + tag['dispname'] + "\n"
         embed = discord.Embed(title="Available Tags List", description=tagString, color=0x589BFF)
         message = await ctx.message.channel.send(embed=embed)
 
