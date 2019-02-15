@@ -310,5 +310,29 @@
         "value": "https://arkade.flowlu.com/hc/5/17-18--overflow-buffer-error-upon-transferring"
       }
     ]
+  },
+  "Server Wipes": {
+	"title": "Server Wipes",
+    "desc": "The last PvP wipe was on `1/18`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe is not being considered at this time.\n\nThe PvE servers do not wipe.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
   }
 }
