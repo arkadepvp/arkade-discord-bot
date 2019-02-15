@@ -1,5 +1,6 @@
 {
   "Safetag ST": {
+  "dispname": "Safetag",
 	"title": "Fun with [Safe] tags!",
     "desc": "[SAFE] tags are a protection system put in place to help tribes and players who have receive excessive amounts of structure damage or loss of creatures due to a raid recover. Tribes will be granted 100% damage protection with in a region around there base for a limited amount of time. Each [Safe] tag is judged on a case by case basics and the time awarded is based on the damage received.",
     "color": "0xFF00FF",
@@ -24,6 +25,7 @@
     ]
   },
   "OGS Offline Guard System": {
+  "dispname": "OGS",
 	"title": "OGS Information",
     "desc": "You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit ogs`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.",
     "color": "0xFF00FF",
@@ -47,8 +49,9 @@
       }
     ]
   },
-  "Tribe Representatives": {
-	"title": "Tribe Representative Information",
+  "Tribe Representatives TribeRepresentatives": {
+  "dispname": "Tribe Representatives",
+  "title": "Tribe Representative Information",
     "desc": "A Tribe Rep is a trusted member of your tribe who carries the responsibility to communicate between the Admin team the rest of your tribe. Tribe Reps will be responsible for creating tickets, redeeming [Safe] tags, and communicating with admins should an issue arrise.",
     "color": "0xFFFFFF",
     "image": "",
@@ -72,6 +75,7 @@
     ]
   },
   "Webhook Tutorial WH": {
+  "dispname": "Webhook",
 	"title": "Webhook Tutorial",
     "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
     "color": "0xFFFFFF",
@@ -96,6 +100,7 @@
     ]
   },
   "Safetag Rules Saferules STR": {
+  "dispname": "SafeRules",
 	"title": "[SAFE] tag Rules and Punishments",
     "desc": "You've been granted a [Safe] tag. Please do not pick up and move your OGS terminal while you [Safe] tag is active. This will cancel your [Safe] tag and an admin will not reset it. Please remember that all structures inside the [Safe] bubble are protected, but your dinos are not. Make sure you read the following [Safe] tag rules and punishments.",
     "color": "0xFFFFFF",
@@ -119,7 +124,8 @@
       }
     ]
   },
-  "Sellable Resource": {
+  "Sellable Resources": {
+  "dispname": "Sellable Resource",
 	"title": "Sellable Resource",
     "desc": "The \"sellable\" resource is no longer used on ARKADE. last season it was used to transfer coins between maps, but now the shop is cluster wide and coins transfer automatically!",
     "color": "0xFFFFFF",
@@ -143,7 +149,8 @@
       }
     ]
   },
-  "TicketPvE": {
+  "TicketPvERules TicketsPvERules TicketRulesPvE": {
+  "dispname": "TicketPvE",
 	"title": "Ticket Rules and Information - PvE",
     "desc": "_ _",
     "color": "0xFFFFFF",
@@ -167,7 +174,8 @@
       }
     ]
   },
-  "TicketPvP": {
+  "TicketPvPRules TicketsPvPRules TicketRulesPvP": {
+  "dispname": "TicketPvP",
 	"title": "Ticket Rules and Information - PvP",
     "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 6 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the #request-for-tribe-rep  channel.",
     "color": "0xFFFFFF",
@@ -191,7 +199,8 @@
       }
     ]
   },
-  "In-Game Shop": {
+  "In-Game Shop ARKShop": {
+  "dispname": "In-Game Shop",
 	"title": "In-Game Shop",
     "desc": "ARKADE offers an in game shop to purchase resources, gear and tools, dinos, saddles, and more! Earn coins by playing in game, 20 coins every 20 minutes you're logged onto our server.",
     "color": "0xFFFFFF",
@@ -216,6 +225,7 @@
     ]
   },
   "Events": {
+  "dispname": "Events",
 	"title": "Events",
     "desc": "Want to participate a little bit more in the community? Want to win ARKADE themed dinos? Try out our <#472160668154593291>! Hand made by our event team, feel free to submit any suggestions to the Event Coordinator.",
     "color": "0xFFFFFF",
@@ -239,7 +249,8 @@
       }
     ]
   },
-  "Fireside": {
+  "Fireside FS Firesides": {
+  "dispname": "Fireside",
 	"title": "Fireside",
     "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EST`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
     "color": "0xFFFFFF",
@@ -263,31 +274,8 @@
       }
     ]
   },
-  "Webhook": {
-	"title": "Webhook",
-    "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
-  },
-  "Common Errors": {
+  "Common Errors Mismatch Reliable Buffer Overflow": {
+  "dispname": "Errors",
 	"title": "Common Errors",
     "desc": "_ _",
     "color": "0xFFFFFF",
@@ -311,7 +299,8 @@
       }
     ]
   },
-  "Server Wipes": {
+  "Server Wipes ServerWipes": {
+  "dispname": "Wipes",
 	"title": "Server Wipes",
     "desc": "The last PvP wipe was on `1/18`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe is not being considered at this time.\n\nThe PvE servers do not wipe.",
     "color": "0xFFFFFF",
