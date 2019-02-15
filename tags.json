@@ -142,5 +142,173 @@
         "value": ""
       }
     ]
+  },
+  "TicketPvE": {
+	"title": "Ticket Rules and Information - PvE",
+    "desc": "_ _",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Tickets should NOT be requested for opening for the following reasons: ",
+        "value": "◈ The recovery of lost creatures or items.\n◈ The recovery of players or any creatures caught under the mesh.\n◈ Lost structures to Auto-Decay or wild dinos.\n◈ General Questions or technical Support. (Use the <#472623301290622993> channel)\n◈ Server crashes.  (Ping @Arkade Admin in <#472623301290622993>)"
+      },
+	  {
+        "title": "Tickets should be requested for opening for the following reasons.",
+        "value": "◈ A player or tribe is suspected of being  in violation of any of the rules.\n◈ Tribe ownership transfer due to an error or missing tribe owner."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "TicketPvP": {
+	"title": "Ticket Rules and Information - PvP",
+    "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 6 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the #request-for-tribe-rep  channel.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Tickets should NOT be requested for opening for the following reasons: ",
+        "value": "◈ The recovery of lost creatures or items.\n◈ The recovery of players or any creatures caught under the mesh.\n◈ Lost structures to Auto-Decay or wild dinos.\n◈ General Questions or technical Support. (Use the <#472623301290622993> channel)\n◈ Server crashes.  (Ping @Arkade Admin in <#472623301290622993>)"
+      },
+	  {
+        "title": "Tickets should be requested for opening for the following reasons.",
+        "value": "◈ A player or tribe is suspected of being  in violation of any of the rules.\n◈ Safe tag request after being a victim of a raid.\n◈ Tribe ownership transfer due to an error or missing tribe owner."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "In-Game Shop": {
+	"title": "In-Game Shop",
+    "desc": "ARKADE offers an in game shop to purchase resources, gear and tools, dinos, saddles, and more! Earn coins by playing in game, 20 coins every 20 minutes you're logged onto our server.",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Shops",
+        "value": "<#534336465040310282>\n<#533844755361300482>"
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Events": {
+	"title": "Events",
+    "desc": "Want to participate a little bit more in the community? Want to win ARKADE themed dinos? Try out our <#472160668154593291>! Hand made by our event team, feel free to submit any suggestions to the Event Coordinator.",
+    "color": "0xFFFFFF",
+    "image": "https://cdn.discordapp.com/attachments/526855791181824031/544848531907674122/20190212205315_1.jpg",
+	"fields": [
+	  {
+        "title": "Prizes!",
+        "value": "All of the ARKADE Events have participation prizes available to all who show up as well as prizes for winning that weeks event."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Fireside": {
+	"title": "Fireside",
+    "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EST`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Questions",
+        "value": "Have any questions to ask but would prefer to message us? Tune into Fireside and send your questions to <#475081332280655892>."
+      },
+	  {
+        "title": "Recap",
+        "value": "Missed Fireside chat? Don't worry! There's a recap available in <#483091850161553408> for you to catch up on."
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Webhook": {
+	"title": "Webhook",
+    "desc": "https://arkade.flowlu.com/hc/5/74--discord-tribelog-webhook",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  },
+  "Common Errors": {
+	"title": "Common Errors",
+    "desc": "_ _",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "Player Already Connected",
+        "value": "https://arkade.flowlu.com/hc/5/17-19--another-player-connected"
+      },
+	  {
+        "title": "Mod Mismatch",
+        "value": "https://arkade.flowlu.com/hc/5/17-15--mod-mismatch-error"
+      },
+	  {
+        "title": "Can't see servers to Transfer",
+        "value": "https://arkade.flowlu.com/hc/5/17-16--not-seeing-arkade-servers-on-cluster"
+      },
+      {
+        "title": "Reliable Buffer Overflow",
+        "value": "https://arkade.flowlu.com/hc/5/17-18--overflow-buffer-error-upon-transferring"
+      }
+    ]
   }
 }
