@@ -29,7 +29,7 @@
 	"title": "Events",
     "desc": "Want to participate a little bit more in the community? Want to win ARKADE themed dinos? Try out our <#472160668154593291>! Hand made by our event team, feel free to submit any suggestions to the Event Coordinator.",
     "color": "0xFFFFFF",
-    "image": "https://cdn.discordapp.com/attachments/526855791181824031/544848531907674122/20190212205315_1.jpg",
+    "image": "https://cdn.discordapp.com/attachments/472160668154593291/545386276921278477/346110_20190213171534_1.png",
 	"fields": [
 	  {
         "title": "Prizes!",
@@ -102,7 +102,7 @@
   "OGS Offline Guard System": {
   "dispname": "OGS",
 	"title": "OGS Information",
-    "desc": "You must be a tribe rep to redeem your OGS terminal.\n Tribe reps can type **`/kit ogs`** in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.",
+    "desc": "You must be a tribe rep to redeem your OGS terminal.\nThis provides all structures within a 30 foundation radius with 4x HP while offline.\nTribe reps can type **`/kit ogs`** (lowercase) in-game to redeem their OGS terminal.\nIf you need an additional terminal (limit one per map) you can submit a ticket.",
     "color": "0xFF00FF",
     "image": "",
 	"fields": [
