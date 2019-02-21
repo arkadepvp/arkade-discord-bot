@@ -15,7 +15,7 @@ with open('configfinal.json', 'r') as f:
 
 TOKEN = config['token']
 client = commands.Bot(command_prefix=".")
-startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.serverstats", "cogs.ticketsort", "cogs.CommandErrorHandler"]
+startup_extensions = ["cogs.wiki", "cogs.music", "cogs.admin", "cogs.shoplogs", "cogs.info", "cogs.serverstats", "cogs.ticketsort", "cogs.CommandErrorHandler", "cogs.tags"]
 client.remove_command('help')
 
 
