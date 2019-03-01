@@ -1,0 +1,6 @@
+aiohttp==3.4.4
+discord==0.0.2
+youtube-dl==2019.1.17
+requests==2.18.4
+matplotlib==3.0.1
+PyNaCl==1.2.1
