@@ -323,55 +323,5 @@
         "value": ""
       }
     ]
-  },
-  "geeee": {
-  "dispname": "geeee",
-	"title": "geeee",
-    "desc": "geeee is great",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
-  },
-  "dec": {
-  "dispname": "dec",
-	"title": "HEY EVERYONE!!!!",
-    "desc": "Throw poop at Dec",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
   }
 }
