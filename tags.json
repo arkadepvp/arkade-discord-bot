@@ -324,4 +324,29 @@
       }
     ]
   }
-}
+},
+ "Server ETA": {
+  "dispname": "ETA",
+	"title": "Server ETA",
+    "desc": "We understand that currently we are having server issues.  We are working very hard at correcting this, everytime we are delayed increases the amount of time to correct the issue.  The ETA of the server being back up is between now and never",
+    "color": "0xFFFFFF",
+    "image": "",
+	"fields": [
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+	  {
+        "title": "",
+        "value": ""
+      },
+      {
+        "title": "",
+        "value": ""
+      }
+    ]
+  }
