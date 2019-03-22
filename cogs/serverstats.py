@@ -75,15 +75,23 @@ class serverstats:
             pveSch = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3176233', params=None)
             pveVal = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3328636', params=None)
+            pveCrI = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3346652', params=None)
+            pveEuR = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3394143', params=None)
+            pveEuE = r.json()['data']['attributes']['players']
 
             r = requests.get('https://api.battlemetrics.com/servers/2792094', params=None)
             miscEv = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3222091', params=None)
             miscDM = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3382712', params=None)
+            miscOl = r.json()['data']['attributes']['players']
 
             pvpTotal = pvpRag + pvpAbb + pvpCen + pvpExt + pvpIsl + pvpSch
-            pveTotal = pveRag + pveAbb + pveCen + pveExt + pveIsl + pveSch + pveVal
-            miscTotal = miscEv + miscDM
+            pveTotal = pveRag + pveAbb + pveCen + pveExt + pveIsl + pveSch + pveVal + pveEuE + pveEuR + pveCrI
+            miscTotal = miscEv + miscDM + miscOl
 
             totalusers = "Users: {}".format(len(arkade.members))
             vipusers = "VIPs: {}".format(len(viprole.members))
@@ -136,10 +144,14 @@ class serverstats:
             embedTwo.add_field(name="The Island", value="{}".format(pveIsl), inline="true")
             embedTwo.add_field(name="Scorched Earth", value="{}".format(pveSch), inline="true")
             embedTwo.add_field(name="Valguero", value="{}".format(pveVal), inline="true")
+            embedTwo.add_field(name="Crystal Isles", value="{}".format(pveCrI), inline="true")
+            embedTwo.add_field(name="EU Ragnarok", value="{}".format(pveEuR), inline="true")
+            embedTwo.add_field(name="EU Extinction", value="{}".format(pveEuE), inline="true")
 
             embedTwo.add_field(name="\u200b\nMisc Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(miscTotal))
             embedTwo.add_field(name="Events", value="{}".format(miscEv), inline="true")
             embedTwo.add_field(name="Deathmatch", value="{}".format(miscDM), inline="true")
+            embedTwo.add_field(name="Olympus", value="{}".format(miscOl), inline="true")
 
             embedThree = discord.Embed(title="TBD", description="_ _", color=0xFF00FF)
 
