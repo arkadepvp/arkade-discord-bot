@@ -52,7 +52,7 @@
   "Fireside FS Firesides": {
   "dispname": "Fireside",
 	"title": "Fireside",
-    "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EST`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
+    "desc": "Fireside chat is a weekly community event that happens every friday at `7pm EDT`. The admin team uses this opportunity to make announcements, address concerns and listen to feedback from our community!",
     "color": "0xFFFFFF",
     "image": "",
 	"fields": [
@@ -227,7 +227,7 @@
   "TicketPvPRules TicketsPvPRules TicketRulesPvP": {
   "dispname": "TicketPvP",
 	"title": "Ticket Rules and Information - PvP",
-    "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 6 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the #request-for-tribe-rep  channel.",
+    "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 7 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the #request-for-tribe-rep  channel.",
     "color": "0xFFFFFF",
     "image": "",
 	"fields": [
@@ -258,7 +258,7 @@
 	"fields": [
 	  {
         "title": "_ _\nTribe Rep Requirements",
-        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 6 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
+        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 7 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
       },
 	  {
         "title": "_ _\nTribe Rep Perks/Responsibilities",
@@ -302,7 +302,7 @@
   "Server Wipes ServerWipes": {
   "dispname": "Wipes",
 	"title": "Server Wipes",
-    "desc": "The last PvP wipe was on `1/18`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  The next scheduled wipe and start of Season 5 will be March 22nd at 7pm EST.\n\nThe PvE servers do not wipe.",
+    "desc": "The last PvP wipe was on `3/22`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  There is no plans for a wipe at this time.\n\nThe PvE servers do not wipe.",
     "image": "",
 	"fields": [
 	  {
