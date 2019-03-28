@@ -45,9 +45,6 @@ class serverstats:
         pvprole = arkade.get_role(527829610134765568)
         pverole = arkade.get_role(527945578613571604)
         while True:
-            pvpServers = ['https://api.battlemetrics.com/servers/2563723', 'https://api.battlemetrics.com/servers/2563863', 'https://api.battlemetrics.com/servers/2563815', 'https://api.battlemetrics.com/servers/2563816', 'https://api.battlemetrics.com/servers/2563814', 'https://api.battlemetrics.com/servers/2822178']
-            pveServers = ['https://api.battlemetrics.com/servers/3012917', 'https://api.battlemetrics.com/servers/3012916', 'https://api.battlemetrics.com/servers/3012789', 'https://api.battlemetrics.com/servers/3096726', 'https://api.battlemetrics.com/servers/3013095', 'https://api.battlemetrics.com/servers/3176233']
-
             r = requests.get('https://api.battlemetrics.com/servers/2563723', params=None)
             pvpRag = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/2563815', params=None)
@@ -69,6 +66,7 @@ class serverstats:
             pveCen = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3013095', params=None)
             pveExt = r.json()['data']['attributes']['players']
+            await asyncio.sleep(150)
             r = requests.get('https://api.battlemetrics.com/servers/3012789', params=None)
             pveIsl = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3183242', params=None)
@@ -77,6 +75,8 @@ class serverstats:
             pveVal = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3328636', params=None)
             pveCrI = r.json()['data']['attributes']['players']
+            r = requests.get('https://api.battlemetrics.com/servers/3362284', params=None)
+            pveOly = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3346652', params=None)
             pveEuR = r.json()['data']['attributes']['players']
             r = requests.get('https://api.battlemetrics.com/servers/3394143', params=None)
@@ -160,7 +160,7 @@ class serverstats:
             messageThree = await statMessageThree.edit(embed=embedThree)
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
 
-            await asyncio.sleep(299)
+            await asyncio.sleep(150)
 
     # killtask command
     @commands.command()
