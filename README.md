@@ -1,7 +1,7 @@
 # **arkade-discord-bot**
 ### **About**
 [<img src="https://discordapp.com/api/guilds/439900471025467403/embed.png">](https://discord.gg/G8d5YFd)
-This is a custom built bot for the ARKADE Discord. 
+This is a custom built bot for the ARKADE Discord.<br>
 Made by N0XIRE#0001 | [Python 3.6.6](https://www.python.org/downloads/release/python-366/) & [Discord.py rewrite](https://github.com/Rapptz/discord.py/tree/rewrite).
 
 ### **Commands**
