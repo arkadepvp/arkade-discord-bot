@@ -90,7 +90,7 @@ class serverstats:
             miscOl = r.json()['data']['attributes']['players']
 
             pvpTotal = pvpRag + pvpAbb + pvpCen + pvpExt + pvpIsl + pvpSch
-            pveTotal = pveRag + pveAbb + pveCen + pveExt + pveIsl + pveSch + pveVal + pveEuE + pveEuR + pveCrI
+            pveTotal = pveRag + pveAbb + pveCen + pveExt + pveIsl + pveSch + pveVal + pveEuE + pveEuR + pveCrI + pveOly
             miscTotal = miscEv + miscDM + miscOl
 
             totalusers = "Users: {}".format(len(arkade.members))
@@ -145,6 +145,7 @@ class serverstats:
             embedTwo.add_field(name="Scorched Earth", value="{}".format(pveSch), inline="true")
             embedTwo.add_field(name="Valguero", value="{}".format(pveVal), inline="true")
             embedTwo.add_field(name="Crystal Isles", value="{}".format(pveCrI), inline="true")
+            embedTwo.add_field(name="Olympus", value="{}".format(pveOly), inline="true")
             embedTwo.add_field(name="EU Ragnarok", value="{}".format(pveEuR), inline="true")
             embedTwo.add_field(name="EU Extinction", value="{}".format(pveEuE), inline="true")
 
