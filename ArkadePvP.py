@@ -56,7 +56,7 @@ async def unload(ctx, string):
     try:
         client.unload_extension(string)
         print('Unloaded extension \"{}\"'.format(string))
-        await ctx.message.channel.send('Loaded extension \"{}\"'.format(string))
+        await ctx.message.channel.send('Unloaded extension \"{}\"'.format(string))
     except Exception as e:
         exc = '{}: {}'.format(type(e).__name__, e)
         print('Failed to unload extension \"{}\"\n{}'.format(string, exc))
