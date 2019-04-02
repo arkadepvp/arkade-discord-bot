@@ -85,6 +85,7 @@ async def reload(ctx, string):
 
 # IMPORT EXTENSIONS/COGS
 if __name__ == "__main__":
+    print('\n')
     for extension in startup_extensions:
         try:
             client.load_extension(extension)
