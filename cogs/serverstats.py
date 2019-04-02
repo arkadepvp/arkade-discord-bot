@@ -45,8 +45,8 @@ class serverstats:
         pvprole = arkade.get_role(527829610134765568)
         pverole = arkade.get_role(527945578613571604)
 
-        pvpServers = {'2563723', '2563815', '2563814', '2822178', '2563816', '2563863'}
-        pveServers = {'3012917', '3012916', '3096726', '3013095', '3012789', '3183242', '3176233', '3328636', '3362284', '3346652', '3394143'}
+        pvpServers = {'2563814', '2563816', '2563815', '2563723', '2822178', '2563863'}
+        pveServers = {'3012917', '3012916', '3096726', '3013095', '3012789', '3183242', '3176233', '3328636', '3362284', '3346652', '3394143', '3427506'}
         miscServers = {'2792094', '3222091', '3382712'}
 
         pvpTotal = 0
@@ -56,49 +56,52 @@ class serverstats:
         while True:
             # BEGIN PVP STATS
             embedPvP = discord.Embed(title="PVP Population Stats", description=f"Total: {pvpTotal}", color=0x58A9FA)
-            embedPvP.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpTotal))
 
             for serverID in pvpServers:
-
-                r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
-                serverPop = r.json()['data']['attributes']['players']
+                try:
+                    r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
+                    serverPop = r.json()['data']['attributes']['players']
+                    map = r.json()['data']['attributes']['details']['map']
+                except:
+                    serverPop = 0
+                    map = "ERROR"
 
                 pvpTotal = pvpTotal + serverPop
-
-                embedPvP.add_field(name="Ragnarok", value="{}".format(serverPop), inline="true")
+                embedPvP.add_field(name="{}".format(map), value="{}".format(serverPop), inline="true")
 
             messagePvP = await statMessagePvP.edit(embed=embedPvP)
             # END PVP STATS
 
             # BEGIN PVE STATS
-            embedPvE = discord.Embed(title="PVP Population Stats", description=f"Total: {pvpTotal}", color=0x58A9FA)
-            embedPvE.add_field(name="\u200b\nPvP Servers" + "\u2003"*25 + "_ _", value="Total: {}".format(pvpTotal))
+            embedPvE = discord.Embed(title="PVE Population Stats", description=f"Total: {pveTotal}", color=0x58A9FA)
 
             for serverID in pveServers:
-
-                r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
-                serverPop = r.json()['data']['attributes']['players']
+                try:
+                    r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
+                    serverPop = r.json()['data']['attributes']['players']
+                    map = r.json()['data']['attributes']['details']['map']
+                except:
+                    serverPop = 0
+                    map = "ERROR"
 
                 pveTotal = pveTotal + serverPop
+                embedPvE.add_field(name="{}".format(map), value="{}".format(serverPop), inline="true")
 
-                embedPvE.add_field(name="Ragnarok", value="{}".format(serverPop), inline="true")
-
-            messagePvP = await statMessagePvP.edit(embed=embedPvE)
+            messagePvE = await statMessagePvE.edit(embed=embedPvE)
             # END PVE STATS
 
+            # START STAT VCs
             totalusers = "Users: {}".format(len(arkade.members))
-            vipusers = "VIPs: {}".format(len(viprole.members))
-            repusers = "Reps: {}".format(len(reprole.members))
             servercount = "Players: {}".format(pvpTotal + pveTotal + miscTotal)
-
             await arkadeusers.edit(name=totalusers)
             await serverpop.edit(name=servercount)
+            # END STAT VCs
 
             joinCnt = int(count['join'])
             leaveCnt = int(count['leave'])
             jlRatio = round((float(joinCnt)/float(leaveCnt))*100, 2)
 
-            dt = datetime.datetime.now() - timedelta(hours=5)
+            dt = datetime.datetime.now() - timedelta(hours=4)
             dt.strftime("%m-%d %H:%M:%S")
 
             pvpCount = 0
@@ -120,13 +123,11 @@ class serverstats:
             embed.add_field(name="Join/Leave Raw", value=f"{joinCnt}/{leaveCnt}", inline="true")
             embed.add_field(name="Join/Leave Ratio", value=f"{jlRatio}%", inline="true")
 
-            embedThree = discord.Embed(title="TBD", description="_ _", color=0xFF00FF)
-
             message = await statMessage.edit(embed=embed)
-            messageTwo = await statMessageTwo.edit(embed=embedTwo)
-            messageThree = await statMessageThree.edit(embed=embedThree)
+            pvpTotal = 0
+            pveTotal = 0
+            miscTotal = 0
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
-
             await asyncio.sleep(299)
 
     # killtask command
