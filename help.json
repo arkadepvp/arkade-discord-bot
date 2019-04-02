@@ -4,25 +4,25 @@
       "cmd": "poll",
       "desc": "Makes a yes/no poll.",
       "usage": "poll <question>",
-      "level": "1"
+      "level": "2"
     },
     {
       "cmd": "multipoll",
       "desc": "Makes a poll with custom answers.",
       "usage": "multipoll <\"qstn\"> <\"ans1\">...",
-      "level": "1"
+      "level": "2"
     },
     {
       "cmd": "sqrt",
       "desc": "Calculates additional ban time for evasion given original.",
       "usage": "sqrt <float>",
-      "level": "1"
+      "level": "2"
     },
     {
       "cmd": "welcome",
       "desc": "Updates welcome message.",
       "usage": "welcome",
-      "level": "1"
+      "level": "2"
     },
     {
       "cmd": "tag",
@@ -138,7 +138,7 @@
       "cmd": "shopchart",
       "desc": "Shows an alltime shopchart of the given server.",
       "usage": "shopchart <pvp/pve>",
-      "level": "1"
+      "level": "2"
     }
   ]
 }

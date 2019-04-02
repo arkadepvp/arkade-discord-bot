@@ -18,16 +18,16 @@ class info:
     # help command
     @commands.command(aliases=['commands'])
     async def help(self, ctx, string=None):
-        embed = discord.Embed(title="**Help: **", description="**Command arguments are shown with <> and are required.**", color=0x589BFF)
+        embed = discord.Embed(title="**Help: **", description="Command arguments are shown with `<int/string>` and are required.", color=0x589BFF)
         permLevel = 0
         if 472999533635436545 in [y.id for y in ctx.author.roles]:
-            permLevel = 1
-        if 441322476991938571 in [y.id for y in ctx.author.roles]:
+            permLevel = 2
+        if 562776016171565067 in [y.id for y in ctx.author.roles]:
             permLevel = 1
 
         for category in help:
             categoryFormat = category.capitalize()
-            embed.add_field(name=f"\u200b\n**{categoryFormat}**", value="_ _", inline=False)
+            embed.add_field(name=f"\u200b\n{categoryFormat}", value="_ _", inline=False)
             for command in help[category]:
                 if int(command['level']) <= permLevel:
                     cmd = command['cmd']
