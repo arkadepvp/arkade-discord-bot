@@ -57,6 +57,8 @@ class serverstats:
             # BEGIN PVP STATS
             embedPvP = discord.Embed(title="PVP Population Stats", description=f"Total: {pvpTotal}", color=0x58A9FA)
 
+            pvpTotal = 0
+
             for serverID in pvpServers:
                 try:
                     r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
@@ -74,6 +76,8 @@ class serverstats:
 
             # BEGIN PVE STATS
             embedPvE = discord.Embed(title="PVE Population Stats", description=f"Total: {pveTotal}", color=0x58A9FA)
+
+            pveTotal = 0
 
             for serverID in pveServers:
                 try:
@@ -99,7 +103,7 @@ class serverstats:
 
             joinCnt = int(count['join'])
             leaveCnt = int(count['leave'])
-            jlRatio = round((float(joinCnt)/float(leaveCnt))*100, 2)
+            jlRatio = round((float(leaveCnt)/float(joinCnt))*100, 2)
 
             dt = datetime.datetime.now() - timedelta(hours=4)
             dt.strftime("%m-%d %H:%M:%S")
@@ -121,12 +125,9 @@ class serverstats:
             embed.add_field(name="PvE VIPs", value="{}".format(pveCount), inline="true")
             embed.add_field(name="Reps", value="{}".format(len(reprole.members)), inline="true")
             embed.add_field(name="Join/Leave Raw", value=f"{joinCnt}/{leaveCnt}", inline="true")
-            embed.add_field(name="Join/Leave Ratio", value=f"{jlRatio}%", inline="true")
+            embed.add_field(name="Join/Leave Ratio", value=f"{100 - jlRatio}%", inline="true")
 
             message = await statMessage.edit(embed=embed)
-            pvpTotal = 0
-            pveTotal = 0
-            miscTotal = 0
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
             await asyncio.sleep(299)
 
