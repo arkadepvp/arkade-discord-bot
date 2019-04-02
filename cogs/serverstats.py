@@ -65,7 +65,7 @@ class serverstats:
 
                 pvpTotal = pvpTotal + serverPop
 
-                embedPvP.add_field(name="Ragnarok", value="{}".format(pvpRag), inline="true")
+                embedPvP.add_field(name="Ragnarok", value="{}".format(serverPop), inline="true")
 
             messagePvP = await statMessagePvP.edit(embed=embedPvP)
             # END PVP STATS
@@ -81,7 +81,7 @@ class serverstats:
 
                 pveTotal = pveTotal + serverPop
 
-                embedPvE.add_field(name="Ragnarok", value="{}".format(pvpRag), inline="true")
+                embedPvE.add_field(name="Ragnarok", value="{}".format(serverPop), inline="true")
 
             messagePvP = await statMessagePvP.edit(embed=embedPvE)
             # END PVE STATS
