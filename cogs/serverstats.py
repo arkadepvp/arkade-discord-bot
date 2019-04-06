@@ -133,6 +133,7 @@ class serverstats:
 
     # killtask command
     @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
     async def killtask(self, ctx):
         try:
             self.bg_task.cancel()
@@ -142,6 +143,7 @@ class serverstats:
 
     # starttask command
     @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
     async def starttask(self, ctx):
         try:
             self.bg_task = self.client.loop.create_task(self.getstats())
@@ -151,6 +153,7 @@ class serverstats:
 
     # message command
     @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
     async def message(self, ctx):
         embed = discord.Embed(title="title", description="description", color=0xFF00FF)
         message = await ctx.message.channel.send(embed=embed)

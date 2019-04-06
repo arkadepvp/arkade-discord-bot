@@ -15,6 +15,7 @@ class info:
 
     # tag command
     @commands.command(aliases=['t'])
+    @commands.has_any_role('Arkade Admin', 'Moderator', 'Community Mentor')
     async def tag(self, ctx, search=None):
         await ctx.message.delete()
 
@@ -38,6 +39,7 @@ class info:
 
     # tags commands
     @commands.command(aliases=['listtags', 'tagslist'])
+    @commands.has_any_role('Arkade Admin', 'Moderator', 'Community Mentor')
     async def tags(self, ctx):
         await ctx.message.delete()
 
