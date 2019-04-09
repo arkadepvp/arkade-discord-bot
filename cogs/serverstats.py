@@ -151,6 +151,17 @@ class serverstats:
         except:
             await ctx.message.channel.send("Task failed to start.")
 
+    # reloadtask command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def reloadtask(self, ctx):
+        try:
+            self.bg_task.cancel()
+            self.bg_task = self.client.loop.create_task(self.getstats())
+            await ctx.message.channel.send("Task restarted.")
+        except:
+            await ctx.message.channel.send("Task failed to reload.")
+
     # message command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
