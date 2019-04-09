@@ -35,6 +35,12 @@
       "desc": "Lists all tags.",
       "usage": "tags",
       "level": "1"
+    },
+    {
+      "cmd": "reloadtask",
+      "desc": "Reloads Serverstats",
+      "usage": "reloadtask",
+      "level": "1"
     }
   ],
   "info": [
