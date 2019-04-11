@@ -109,7 +109,7 @@ class admin:
         embed.add_field(name="PVP Server Links", value=pvpServers)
         embed.add_field(name="PVE Server Links", value=pveServers)
         embed.add_field(name="Event Server Links", value=eventServers)
-        embed.add_field(name="Self Assignable Roles", value="Add your reaction to any of the available role options that you want to join.\nSelecting a role will give you access to the relevant discussion channels in this Discord server.  You may choose more than one role.\n\n**ARK PvP: **:bow_and_arrow:\n**ARK PvE: **:hammer:")
+        embed.add_field(name="Self Assignable Roles", value="Add your reaction to any of the available role options that you want to join.\nSelecting a role will give you access to the relevant discussion channels in this Discord server.  You may choose more than one role.\n\n**ARK PvP: **:bow_and_arrow:\n**ARK PvE: **:hammer:\n**ARK 6Man: **:six:")
         welcomeMsg = await ctx.channel.get_message(527842025329131521)
         message = await welcomeMsg.edit(embed=embed)
 
