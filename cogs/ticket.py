@@ -20,6 +20,7 @@ class ticket:
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
 
     async def on_guild_channel_create(self, ticket):
+        if
         embed = discord.Embed(title="Thank you for opening a ticket.", description="Please react to this message with the cluster this ticket pertains to.\n\n**ARK PvP: **:bow_and_arrow:\n**ARK PvE: **:hammer:\n**ARK 6Man: **:six:"", color=0xFF00FF)
         message = await ctx.message.channel.send(embed=embed)
 
