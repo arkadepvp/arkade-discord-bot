@@ -20,6 +20,7 @@ Command arguments are shown with `<string/int>` and are required.
 `.welcome` - Updates welcome message.<br>
 `.tags` - Lists all available tags for display.<br>
 `.tag <query>` - Displays a specified tag.<br>
+`.reloadtask` - Reloads Serverstats.<br>
 
 ##### **Music**
 
