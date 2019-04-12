@@ -7,7 +7,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import File
 
-with open('ticket.json', 'r') as f:
+with open('ticket/ticket.json', 'r') as f:
     count = json.load(f)
 
 class ticket:
@@ -46,7 +46,7 @@ class ticket:
             ticketID = int(count['ticket'])
             ticketID = ticketID + 1
             count['ticket'] = str(ticketID)
-            with open('ticket.json', 'w') as f:
+            with open('ticket/ticket.json', 'w') as f:
                 json.dump(count, f)
             ticketName = str(ticketID).zfill(4)
 
@@ -93,6 +93,10 @@ class ticket:
                 embed.add_field(name="Reason", value=f"{string}")
                 transcript = await ctx.channel.history(limit=5000).flatten()
                 transcript.reverse()
+                ticketOwner = transcript[:1]
+                for line in ticketOwner:
+                    ownerID = line.content[2:-1]
+                owner = guild.get_member(int(ownerID))
                 transcript = transcript[2:-1]
 
                 with open('transcriptTemplate.html') as inf:
@@ -111,11 +115,14 @@ class ticket:
                             br = soup.new_tag('br')
                             messageBody.append(br)
 
-                with open("transcript.html", "w") as outf:
+                with open("ticket/transcript.html", "w") as outf:
                     outf.write(str(soup))
                 message = await ticketLogs.send(embed=embed)
-                message = await ticketLogs.send(file=File('transcript.html'))
+                message = await ticketLogs.send(file=File('ticket/transcript.html'))
                 await ctx.channel.delete()
+
+                message = await owner.send(embed=embed)
+                message = await owner.send(file=File('ticket/transcript.html'))
 
         else:
             fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
