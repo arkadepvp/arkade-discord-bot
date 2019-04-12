@@ -29,13 +29,14 @@ class ticket:
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator', 'Tribe Reps', 'VIP - Donators')
     async def new(self, ctx, *string):
+        await ctx.message.delete()
         string = ' '.join(string)
         guild = ctx.message.guild
         newTickets = discord.utils.get(ctx.guild.categories, id=473652853354004480)
         ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
         if string is '':
-            fail = discord.Embed(description=f"❌ You must include a ticket subject.", color=0xFF0000)
+            fail = discord.Embed(description=f"❌ You must include a ticket subject.", color=0xFF0000, delete_after=15)
             message = await ctx.channel.send(embed=fail)
         else:
             ticketID = int(count['ticket'])
@@ -61,7 +62,7 @@ class ticket:
             embed.add_field(name="Subject", value=f"{string}")
             message = await ticketLogs.send(embed=embed)
 
-            success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00)
+            success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00, delete_after=15)
             message = await ctx.channel.send(embed=success)
 
             embed = discord.Embed(description=f"Thank you, {ctx.author.mention}, for contacting the ARKADE team!\n\nWe will be with you as soon as possible, in the mean time please provide any information you can regarding your issue.", color=0xFF00FF)
@@ -72,6 +73,7 @@ class ticket:
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def close(self, ctx, *string):
+        await ctx.message.delete()
         m = re.search(r'\d{4}$', ctx.channel.name)
         if m is not None:
             string = ' '.join(string)
@@ -79,7 +81,7 @@ class ticket:
             ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
             if string is '':
-                fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000)
+                fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000, delete_after=5)
                 message = await ctx.channel.send(embed=fail)
             else:
                 embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF0000)
@@ -119,42 +121,44 @@ class ticket:
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def rename(self, ctx, *string):
+        await ctx.message.delete()
         m = re.search(r'\d{4}$', ctx.channel.name)
         if m is not None:
             string = ' '.join(string)
             if string is '':
-                fail = discord.Embed(description=f"❌ Name can't be empty.", color=0xFF0000)
+                fail = discord.Embed(description=f"❌ Name can't be empty.", color=0xFF0000, delete_after=5)
                 message = await ctx.channel.send(embed=fail)
             else:
                 await ctx.channel.edit(name=f'{string}-{ctx.channel.name[-4:]}')
-                success = discord.Embed(description=f"✅ Success! New name is {ctx.channel.mention}", color=0x00FF00)
+                success = discord.Embed(description=f"✅ Success! New name is {ctx.channel.mention}", color=0x00FF00, delete_after=5)
                 message = await ctx.channel.send(embed=success)
         else:
-            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
+            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000, delete_after=5)
             message = await ctx.channel.send(embed=fail)
 
     # add command
     @commands.command()
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def add(self, ctx, string):
+        await ctx.message.delete()
         m = re.search(r'\d{4}$', ctx.channel.name)
         if m is not None:
             guild = ctx.message.guild
             try:
                 member = guild.get_member(int(string))
             except:
-                fail = discord.Embed(description=f"❌ Invalid user ID.", color=0xFF0000)
+                fail = discord.Embed(description=f"❌ Invalid user ID.", color=0xFF0000, delete_after=5)
                 message = await ctx.channel.send(embed=fail)
             if string is '':
-                fail = discord.Embed(description=f"❌ Must specify a user ID.", color=0xFF0000)
+                fail = discord.Embed(description=f"❌ Must specify a user ID.", color=0xFF0000, delete_after=5)
                 message = await ctx.channel.send(embed=fail)
             else:
                 await ctx.channel.set_permissions(member, read_messages=True, send_messages=True)
                 message = await ctx.channel.send(f"{member.mention}")
-                success = discord.Embed(description=f"✅ {member.mention} has been added.", color=0x00FF00)
+                success = discord.Embed(description=f"✅ {member.mention} has been added.", color=0x00FF00, delete_after=5)
                 message = await ctx.channel.send(embed=success)
         else:
-            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
+            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000, delete_after=5)
             message = await ctx.channel.send(embed=fail)
 
 def setup(client):
