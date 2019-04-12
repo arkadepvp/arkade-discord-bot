@@ -32,7 +32,7 @@ class ticket:
         string = ' '.join(string)
         guild = ctx.message.guild
         newTickets = discord.utils.get(ctx.guild.categories, id=473652853354004480)
-
+        ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
         if string is '':
             fail = discord.Embed(description=f"❌ You must include a ticket subject.", color=0xFF0000)
@@ -56,6 +56,11 @@ class ticket:
                 await channel.set_permissions(member, read_messages=True, send_messages=True)
                 message = await channel.send(f"{member.mention}")
 
+            embed = discord.Embed(description=f"{ctx.author.mention} opened ticket {channel.mention}", color=0x00FF00)
+            embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', ' ')[:-5]}")
+            embed.add_field(name="Subject", value=f"{string}")
+            message = await ticketLogs.send(embed=embed)
+
             success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00)
             message = await ctx.channel.send(embed=success)
 
@@ -77,7 +82,7 @@ class ticket:
                 fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000)
                 message = await ctx.channel.send(embed=fail)
             else:
-                embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF00FF)
+                embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF0000)
                 embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', ' ')[:-5]}")
                 embed.add_field(name="Reason", value=f"{string}")
                 transcript = await ctx.channel.history(limit=5000).flatten()
