@@ -57,7 +57,7 @@ class ticket:
                 message = await channel.send(f"{member.mention}")
 
             embed = discord.Embed(description=f"{ctx.author.mention} opened ticket {channel.mention}", color=0x00FF00)
-            embed.add_field(name="Name", value=f"{channel.name.replace('_', ' ')[:-5]}")
+            embed.add_field(name="Name", value=f"{channel.name.replace('_', '-')}")
             embed.add_field(name="Subject", value=f"{string}")
             message = await ticketLogs.send(embed=embed)
 
@@ -83,7 +83,7 @@ class ticket:
                 message = await ctx.channel.send(embed=fail)
             else:
                 embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF0000)
-                embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', ' ')[:-5]}")
+                embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', '-')}")
                 embed.add_field(name="Reason", value=f"{string}")
                 transcript = await ctx.channel.history(limit=5000).flatten()
                 transcript.reverse()
