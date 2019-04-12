@@ -33,7 +33,7 @@ class info:
                     cmd = command['cmd']
                     usage = command['usage']
                     desc = command['desc']
-                    embed.add_field(name=f"`.{usage}` - {desc}", value="_ _", inline=False)
+                    embed.add_field(name=f"`-{usage}` - {desc}", value="_ _", inline=False)
 
         message = await ctx.message.channel.send(embed=embed)
 
