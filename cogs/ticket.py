@@ -24,6 +24,10 @@ class ticket:
                 arpCategory = discord.utils.get(after.guild.categories, id=533752291853860864)
                 await after.edit(category=arpCategory, topic="ARK PvP Ticket")
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
+            elif "ar6" in after.name[0:4]:
+                ar6Category = discord.utils.get(after.guild.categories, id=533752291853860864)
+                await after.edit(category=arpCategory, topic="ARK PvP Ticket")
+                print("Ticket moved to PvP with ID: " + str(arpCategory.id))
 
     # new command
     @commands.command()
@@ -48,7 +52,7 @@ class ticket:
 
             channel = await guild.create_text_channel(name=f'ticket {ticketName}', category=newTickets, reason='Ticket')
 
-            m = re.search(r'\d{18}$', string)
+            m = re.search(r'\d{15}$', string)
             if m is None:
                 await channel.set_permissions(ctx.message.author, read_messages=True, send_messages=True)
                 message = await channel.send(f"{ctx.author.mention}")
