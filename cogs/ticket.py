@@ -31,7 +31,7 @@ class ticket:
     async def new(self, ctx, *string):
         string = ' '.join(string)
         guild = ctx.message.guild
-        newTickets = discord.utils.get(ctx.guild.categories, id=565965886221975553)
+        newTickets = discord.utils.get(ctx.guild.categories, id=473652853354004480)
 
 
         if string is '':
@@ -71,13 +71,13 @@ class ticket:
         if m is not None:
             string = ' '.join(string)
             guild = ctx.message.guild
-            ticketLogs = discord.utils.get(ctx.guild.channels, id=565984342422323221)
+            ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
             if string is '':
                 fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000)
                 message = await ctx.channel.send(embed=fail)
             else:
-                embed = discord.Embed(title="Transcript is above.", description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF00FF)
+                embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF00FF)
                 embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', ' ')[:-5]}")
                 embed.add_field(name="Reason", value=f"{string}")
                 transcript = await ctx.channel.history(limit=5000).flatten()
