@@ -96,7 +96,10 @@ class ticket:
                 ticketOwner = transcript[:1]
                 for line in ticketOwner:
                     ownerID = line.content[2:-1]
-                owner = guild.get_member(int(ownerID))
+                try:
+                    owner = guild.get_member(int(ownerID))
+                except:
+                    owner = guild.get_member(320562851356082176)
                 transcript = transcript[2:-1]
 
                 with open('transcriptTemplate.html') as inf:
