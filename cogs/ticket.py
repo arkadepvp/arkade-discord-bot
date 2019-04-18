@@ -10,6 +10,7 @@ from discord import File
 with open('ticket/ticket.json', 'r') as f:
     count = json.load(f)
 
+
 class ticket:
     def __init__(self, client):
         self.client = client
@@ -64,7 +65,10 @@ class ticket:
             embed = discord.Embed(description=f"{ctx.author.mention} opened ticket {channel.mention}", color=0x00FF00)
             embed.add_field(name="Name", value=f"{channel.name.replace('_', '-')}")
             embed.add_field(name="Subject", value=f"{string}")
-            message = await ticketLogs.send(embed=embed)
+            try:
+                message = await ticketLogs.send(embed=embed)
+            except:
+                print("Couldn't log ticket.")
 
             success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00, delete_after=15)
             message = await ctx.channel.send(embed=success)
@@ -120,12 +124,33 @@ class ticket:
 
                 with open("ticket/transcript.html", "w") as outf:
                     outf.write(str(soup))
-                message = await ticketLogs.send(embed=embed)
-                message = await ticketLogs.send(file=File('ticket/transcript.html'))
+                try:
+                    message = await ticketLogs.send(embed=embed)
+                    message = await ticketLogs.send(file=File('ticket/transcript.html'))
+                except:
+                    print("Couldn't log ticket")
                 await ctx.channel.delete()
 
                 message = await owner.send(embed=embed)
                 message = await owner.send(file=File('ticket/transcript.html'))
+
+                ticketName = ctx.channel.name
+                try:
+                    ticketCategory = count[ticketName[:3]]
+                except:
+                    print('Category not found.')
+
+                ticketName = ticketName[4:-5].replace('_', '-')
+                ticketList = ticketName.split(ticketCategory)
+                for item in count[ticketCategory]:
+                    for word in ticketList:
+                        if item['value'] == word:
+                            try:
+                                item['count'] = str(int(item['count']) + 1)
+                            except:
+                                print("Unknown Error")
+                with open('ticket/ticket.json', 'w') as f:
+                    json.dump(count, f, indent=4)
 
         else:
             fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
@@ -174,6 +199,41 @@ class ticket:
         else:
             fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000, delete_after=5)
             message = await ctx.channel.send(embed=fail)
+
+    # ticket commands
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def ticket(self, ctx, string=None):
+        await ctx.message.delete()
+
+        if string is not None:
+            embed = discord.Embed(title="Ticket Stats", description=f"Lifetime tickets: {count['ticket']}", color=0x00FF00, delete_after=5)
+
+            arpString = ''
+            for entry in count['arp']:
+                if int(entry['count']) > 0:
+                    arpString = arpString + f"{entry['count']}: {entry['value']}\n"
+            if not arpString:
+                arpString = '-'
+            embed.add_field(name="ARP", value=f"{arpString}\n")
+
+            areString = ''
+            for entry in count['are']:
+                if int(entry['count']) > 0:
+                    areString = areString + f"{entry['count']}: {entry['value']}\n"
+            if not areString:
+                areString = '-'
+            embed.add_field(name="ARE", value=f"{areString}\n")
+
+            ar6String = ''
+            for entry in count['ar6']:
+                if int(entry['count']) > 0:
+                    ar6String = ar6String + f"{entry['count']}: {entry['value']}\n"
+            if not ar6String:
+                ar6String = '-'
+            embed.add_field(name="AR6", value=f"{ar6String}\n")
+        message = await ctx.channel.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(ticket(client))
