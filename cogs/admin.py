@@ -101,5 +101,17 @@ class admin:
         welcomeMsg = await ctx.channel.get_message(527842025329131521)
         message = await welcomeMsg.edit(embed=embed)
 
+    # links command
+    @commands.command()
+    @commands.has_any_role('Arkade Admin', 'Moderator')
+    async def links(self, ctx):
+        await ctx.message.delete()
+
+        embed = discord.Embed(title="Trello", description=config['trello'], color=0xFF00FF)
+        embed.add_field(name="Information", value=config['information'])
+        embed.add_field(name="Community Links", value=config['community'])
+        linkMsg = await ctx.channel.get_message(527842025329131521)
+        message = await ctx.message.channel.send(embed=embed)
+
 def setup(client):
     client.add_cog(admin(client))
