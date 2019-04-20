@@ -99,11 +99,11 @@ class ticket:
                 transcript.reverse()
                 ticketOwner = transcript[:1]
                 for line in ticketOwner:
-                    ownerID = line.content[2:-1]
+                    ownerID = line.content
                 try:
-                    owner = guild.get_member(int(ownerID))
+                    owner = guild.get_member(int(''.join(c for c in ownerID if c.isdigit())))
                 except:
-                    owner = guild.get_member(320562851356082176)
+                    owner = guild.get_member(147901548167430144)
                 transcript = transcript[2:-1]
 
                 with open('transcriptTemplate.html') as inf:
@@ -137,18 +137,22 @@ class ticket:
                 ticketName = ctx.channel.name
                 try:
                     ticketCategory = count[ticketName[:3]]
+                    ticketList = ticketName.split(ticketCategory)
                 except:
                     print('Category not found.')
+                    print(ticketName[:3])
 
                 ticketName = ticketName[4:-5].replace('_', '-')
-                ticketList = ticketName.split(ticketCategory)
-                for item in count[ticketCategory]:
-                    for word in ticketList:
-                        if item['value'] == word:
-                            try:
-                                item['count'] = str(int(item['count']) + 1)
-                            except:
-                                print("Unknown Error")
+                try:
+                    for item in count[ticketCategory]:
+                        for word in ticketList:
+                            if item['value'] == word:
+                                try:
+                                    item['count'] = str(int(item['count']) + 1)
+                                except:
+                                    print("Unknown Error")
+                except:
+                    print ("TICKET LOGGING FAILED")
                 with open('ticket/ticket.json', 'w') as f:
                     json.dump(count, f, indent=4)
 
