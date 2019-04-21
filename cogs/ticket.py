@@ -26,9 +26,9 @@ class ticket:
                 await after.edit(category=arpCategory, topic="ARK PvP Ticket")
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
             elif "ar6" in after.name[0:4]:
-                ar6Category = discord.utils.get(after.guild.categories, id=533752291853860864)
+                ar6Category = discord.utils.get(after.guild.categories, id=561726806554574848)
                 await after.edit(category=arpCategory, topic="ARK 6 Man Ticket")
-                print("Ticket moved to PvP with ID: " + str(arpCategory.id))
+                print("Ticket moved to 6 Man with ID: " + str(ar6Category.id))
 
     # new command
     @commands.command()
@@ -41,8 +41,8 @@ class ticket:
         ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
         if string is '':
-            fail = discord.Embed(description=f"❌ You must include a ticket subject.", color=0xFF0000, delete_after=15)
-            message = await ctx.channel.send(embed=fail)
+            fail = discord.Embed(description=f"❌ You must include a ticket subject.", color=0xFF0000)
+            message = await ctx.channel.send(embed=fail, delete_after=20)
         else:
             ticketID = int(count['ticket'])
             ticketID = ticketID + 1
@@ -70,8 +70,8 @@ class ticket:
             except:
                 print("Couldn't log ticket.")
 
-            success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00, delete_after=15)
-            message = await ctx.channel.send(embed=success)
+            success = discord.Embed(description=f"✅ Success! Your new ticket can be found here: {channel.mention}", color=0x00FF00)
+            message = await ctx.channel.send(embed=success, delete_after=20)
 
             embed = discord.Embed(description=f"Thank you, {ctx.author.mention}, for contacting the ARKADE team!\n\nWe will be with you as soon as possible, in the mean time please provide any information you can regarding your issue.", color=0xFF00FF)
             embed.add_field(name="Subject", value=string)
@@ -89,8 +89,8 @@ class ticket:
             ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
             if string is '':
-                fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000, delete_after=5)
-                message = await ctx.channel.send(embed=fail)
+                fail = discord.Embed(description=f"❌ You must include a reason.", color=0xFF0000)
+                message = await ctx.channel.send(embed=fail, delete_after=10)
             else:
                 embed = discord.Embed(description=f"{ctx.author.mention} closed ticket {ctx.channel.mention}", color=0xFF0000)
                 embed.add_field(name="Name", value=f"{ctx.channel.name.replace('_', '-')}")
@@ -170,15 +170,15 @@ class ticket:
         if m is not None:
             string = ' '.join(string)
             if string is '':
-                fail = discord.Embed(description=f"❌ Name can't be empty.", color=0xFF0000, delete_after=5)
-                message = await ctx.channel.send(embed=fail)
+                fail = discord.Embed(description=f"❌ Name can't be empty.", color=0xFF0000)
+                message = await ctx.channel.send(embed=fail, delete_after=10)
             else:
                 await ctx.channel.edit(name=f'{string}-{ctx.channel.name[-4:]}')
-                success = discord.Embed(description=f"✅ Success! New name is {ctx.channel.mention}", color=0x00FF00, delete_after=5)
-                message = await ctx.channel.send(embed=success)
+                success = discord.Embed(description=f"✅ Success! New name is {ctx.channel.mention}", color=0x00FF00)
+                message = await ctx.channel.send(embed=success, delete_after=10)
         else:
-            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000, delete_after=5)
-            message = await ctx.channel.send(embed=fail)
+            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
+            message = await ctx.channel.send(embed=fail, delete_after=10)
 
     # add command
     @commands.command()
@@ -191,19 +191,19 @@ class ticket:
             try:
                 member = guild.get_member(int(string))
             except:
-                fail = discord.Embed(description=f"❌ Invalid user ID.", color=0xFF0000, delete_after=5)
-                message = await ctx.channel.send(embed=fail)
+                fail = discord.Embed(description=f"❌ Invalid user ID.", color=0xFF0000)
+                message = await ctx.channel.send(embed=fail, delete_after=10)
             if string is '':
-                fail = discord.Embed(description=f"❌ Must specify a user ID.", color=0xFF0000, delete_after=5)
-                message = await ctx.channel.send(embed=fail)
+                fail = discord.Embed(description=f"❌ Must specify a user ID.", color=0xFF0000)
+                message = await ctx.channel.send(embed=fail, delete_after=10)
             else:
                 await ctx.channel.set_permissions(member, read_messages=True, send_messages=True)
                 message = await ctx.channel.send(f"{member.mention}")
-                success = discord.Embed(description=f"✅ {member.mention} has been added.", color=0x00FF00, delete_after=5)
-                message = await ctx.channel.send(embed=success)
+                success = discord.Embed(description=f"✅ {member.mention} has been added.", color=0x00FF00)
+                message = await ctx.channel.send(embed=success, delete_after=10)
         else:
-            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000, delete_after=5)
-            message = await ctx.channel.send(embed=fail)
+            fail = discord.Embed(description=f"❌ This only works in a ticket!", color=0xFF0000)
+            message = await ctx.channel.send(embed=fail, delete_after=10)
 
     # ticket commands
     @commands.command()
