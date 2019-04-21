@@ -27,7 +27,7 @@ class ticket:
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
             elif "ar6" in after.name[0:4]:
                 ar6Category = discord.utils.get(after.guild.categories, id=533752291853860864)
-                await after.edit(category=arpCategory, topic="ARK PvP Ticket")
+                await after.edit(category=arpCategory, topic="ARK 6 Man Ticket")
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
 
     # new command
@@ -136,23 +136,24 @@ class ticket:
 
                 ticketName = ctx.channel.name
                 try:
-                    ticketCategory = count[ticketName[:3]]
-                    ticketList = ticketName.split(ticketCategory)
+                    ticketCategory = str(ticketName[:3])
+                    print(f"...{ticketCategory}...")
+                    ticketName = ticketName[4:-5].replace('_', '-')
+                    ticketList = ticketName.split('-')
                 except:
                     print('Category not found.')
-                    print(ticketName[:3])
 
-                ticketName = ticketName[4:-5].replace('_', '-')
-                try:
-                    for item in count[ticketCategory]:
-                        for word in ticketList:
+                for item in count[ticketCategory]:
+                    for word in ticketList:
+                        try:
                             if item['value'] == word:
                                 try:
                                     item['count'] = str(int(item['count']) + 1)
+                                    print(item['count'])
                                 except:
                                     print("Unknown Error")
-                except:
-                    print ("TICKET LOGGING FAILED")
+                        except:
+                            print(word)
                 with open('ticket/ticket.json', 'w') as f:
                     json.dump(count, f, indent=4)
 
