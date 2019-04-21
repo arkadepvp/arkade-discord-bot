@@ -210,33 +210,46 @@ class ticket:
     @commands.has_any_role('Arkade Admin', 'Moderator')
     async def ticket(self, ctx, string=None):
         await ctx.message.delete()
+        embed = discord.Embed(title="Ticket Stats", description=f"Lifetime tickets: {count['ticket']}", color=0x00FF00)
 
-        if string is not None:
-            embed = discord.Embed(title="Ticket Stats", description=f"Lifetime tickets: {count['ticket']}", color=0x00FF00, delete_after=5)
-
+        if string in "arp":
             arpString = ''
-            for entry in count['arp']:
+
+            list = count['arp']
+            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
+            for entry in sortedList:
                 if int(entry['count']) > 0:
-                    arpString = arpString + f"{entry['count']}: {entry['value']}\n"
+                    arpString = arpString + f"{entry['value']} - `{entry['count']} tickets`\n"
             if not arpString:
                 arpString = '-'
             embed.add_field(name="ARP", value=f"{arpString}\n")
 
+        elif string in "are":
             areString = ''
+
+            list = count['are']
+            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
             for entry in count['are']:
                 if int(entry['count']) > 0:
-                    areString = areString + f"{entry['count']}: {entry['value']}\n"
+                    areString = areString + f"{entry['value']} - `{entry['count']} tickets`\n"
             if not areString:
                 areString = '-'
             embed.add_field(name="ARE", value=f"{areString}\n")
 
+        elif string in "ar6":
             ar6String = ''
+
+            list = count['ar6']
+            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
             for entry in count['ar6']:
                 if int(entry['count']) > 0:
-                    ar6String = ar6String + f"{entry['count']}: {entry['value']}\n"
+                    ar6String = ar6String + f"{entry['value']} - `{entry['count']} tickets`\n"
             if not ar6String:
                 ar6String = '-'
             embed.add_field(name="AR6", value=f"{ar6String}\n")
+
+        else:
+            embed.add_field(name="Error", value="No Valid Category Specified")
         message = await ctx.channel.send(embed=embed)
 
 
