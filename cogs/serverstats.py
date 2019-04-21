@@ -103,7 +103,7 @@ class serverstats:
 
             joinCnt = int(count['join'])
             leaveCnt = int(count['leave'])
-            jlRatio = round((float(leaveCnt)/float(joinCnt))*100, 2)
+            jlRatio = round((100-(float(leaveCnt)/float(joinCnt)*100)), 2)
 
             dt = datetime.datetime.now() - timedelta(hours=4)
             dt.strftime("%m-%d %H:%M:%S")
