@@ -40,6 +40,7 @@ class serverstats:
         statMessage = await statchannel.get_message(541478737716314122)
         statMessagePvP = await statchannel.get_message(541478744955682818)
         statMessagePvE = await statchannel.get_message(541478812613869579)
+        statMessageSixMan = await statchannel.get_message(570723444275150868)
         viprole = arkade.get_role(496896677983158272)
         reprole = arkade.get_role(441322834451759104)
         pvprole = arkade.get_role(527829610134765568)
@@ -47,6 +48,7 @@ class serverstats:
 
         pvpServers = {'2563814', '2563816', '2563815', '2563723', '2822178', '2563863'}
         pveServers = {'3012917', '3012916', '3096726', '3013095', '3012789', '3183242', '3176233', '3328636', '3362284', '3346652', '3394143', '3427506'}
+        sixMananServers = {'3462641', '3504032', '3504028'}
         miscServers = {'2792094', '3222091', '3382712'}
 
         pvpTotal = 0
@@ -94,9 +96,29 @@ class serverstats:
             messagePvE = await statMessagePvE.edit(embed=embedPvE)
             # END PVE STATS
 
+            # BEGIN 6M STATS
+            embedPvE = discord.Embed(title="PVE Population Stats", description=f"Total: {pveTotal}", color=0x58A9FA)
+
+            sixManTotal = 0
+
+            for serverID in sixManServers:
+                try:
+                    r = requests.get('https://api.battlemetrics.com/servers/' + serverID, params=None)
+                    serverPop = r.json()['data']['attributes']['players']
+                    map = r.json()['data']['attributes']['details']['map']
+                except:
+                    serverPop = 0
+                    map = "ERROR"
+
+                sixManTotal = sixManTotal + serverPop
+                embedPvE.add_field(name="{}".format(map), value="{}".format(serverPop), inline="true")
+
+            messagePvE = await statMessagePvE.edit(embed=embedPvE)
+            # END 6M STATS
+
             # START STAT VCs
             totalusers = "Users: {}".format(len(arkade.members))
-            servercount = "Players: {}".format(pvpTotal + pveTotal + miscTotal)
+            servercount = "Players: {}".format(pvpTotal + pveTotal + sixManTotal + miscTotal)
             await arkadeusers.edit(name=totalusers)
             await serverpop.edit(name=servercount)
             # END STAT VCs
@@ -110,6 +132,7 @@ class serverstats:
 
             pvpCount = 0
             pveCount = 0
+            sixManCount = 0
             for member in viprole.members:
                 if pvprole in member.roles:
                     pvpCount = pvpCount + 1
