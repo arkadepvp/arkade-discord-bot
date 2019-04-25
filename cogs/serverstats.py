@@ -48,11 +48,12 @@ class serverstats:
 
         pvpServers = {'2563814', '2563816', '2563815', '2563723', '2822178', '2563863'}
         pveServers = {'3012917', '3012916', '3096726', '3013095', '3012789', '3183242', '3176233', '3328636', '3362284', '3346652', '3394143', '3427506'}
-        sixMananServers = {'3462641', '3504032', '3504028'}
+        sixManServers = {'3462641', '3504032', '3504028'}
         miscServers = {'2792094', '3222091', '3382712'}
 
         pvpTotal = 0
         pveTotal = 0
+        sixManTotal = 0
         miscTotal = 0
 
         while True:
@@ -97,7 +98,7 @@ class serverstats:
             # END PVE STATS
 
             # BEGIN 6M STATS
-            embedPvE = discord.Embed(title="PVE Population Stats", description=f"Total: {pveTotal}", color=0x58A9FA)
+            embedSixMan = discord.Embed(title="PVE Population Stats", description=f"Total: {sixManTotal}", color=0x58A9FA)
 
             sixManTotal = 0
 
@@ -111,9 +112,9 @@ class serverstats:
                     map = "ERROR"
 
                 sixManTotal = sixManTotal + serverPop
-                embedPvE.add_field(name="{}".format(map), value="{}".format(serverPop), inline="true")
+                embedSixMan.add_field(name="{}".format(map), value="{}".format(serverPop), inline="true")
 
-            messagePvE = await statMessagePvE.edit(embed=embedPvE)
+            messageSixMan = await statMessageSixMan.edit(embed=embedSixMan)
             # END 6M STATS
 
             # START STAT VCs
