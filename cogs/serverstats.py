@@ -76,7 +76,7 @@ class serverstats:
 
             messagePvP = await statMessagePvP.edit(embed=embedPvP)
             # END PVP STATS
-
+            await asyncio.sleep(60)
             # BEGIN PVE STATS
             embedPvE = discord.Embed(title="PVE Population Stats", description=f"Total: {pveTotal}", color=0x58A9FA)
 
@@ -96,9 +96,9 @@ class serverstats:
 
             messagePvE = await statMessagePvE.edit(embed=embedPvE)
             # END PVE STATS
-
+            await asyncio.sleep(60)
             # BEGIN 6M STATS
-            embedSixMan = discord.Embed(title="PVE Population Stats", description=f"Total: {sixManTotal}", color=0x58A9FA)
+            embedSixMan = discord.Embed(title="6 Man Population Stats", description=f"Total: {sixManTotal}", color=0x58A9FA)
 
             sixManTotal = 0
 
@@ -153,7 +153,7 @@ class serverstats:
 
             message = await statMessage.edit(embed=embed)
             await logchannel.send("**Success.** Time: `" + str(dt.strftime("%m-%d %H:%M:%S")) + " EST`")
-            await asyncio.sleep(299)
+            await asyncio.sleep(179)
 
     # killtask command
     @commands.command()
