@@ -13,19 +13,19 @@ ytdlopts = {
     'format': 'bestaudio/best',
     'outtmpl': 'downloads/musicdownloads/%(extractor)s-%(id)s-%(title)s.%(ext)s',
     'restrictfilenames': True,
-    'noplaylist': True,
+    'noplaylist': False,
     'nocheckcertificate': True,
     'ignoreerrors': False,
     'logtostderr': False,
-    'quiet': True,
-    'no_warnings': True,
+    'quiet': False,
+    'no_warnings': False,
     'default_search': 'auto',
     'source_address': '0.0.0.0'
 }
 
 ffmpegopts = {
     'before_options': '-nostdin',
-    'options': '-vn'
+    'options': '-vn -preset ultrafast -crf 51 -cache'
 }
 
 ytdl = YoutubeDL(ytdlopts)
@@ -52,7 +52,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
         return self.__getattribute__(item)
 
     @classmethod
-    async def create_source(cls, ctx, search: str, *, loop, download=False):
+    async def create_source(cls, ctx, search: str, *, loop, download=True):
         loop = loop or asyncio.get_event_loop()
 
         to_run = partial(ytdl.extract_info, url=search, download=download)
@@ -83,13 +83,13 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
 
 class MusicPlayer:
-    __slots__ = ('bot', '_guild', '_channel', '_cog', 'queue', 'next', 'current', 'np', 'volume')
+    __slots__ = ('bot', 'guild', 'channel', 'cog', 'queue', 'next', 'current', 'np', 'volume')
 
     def __init__(self, ctx):
         self.bot = ctx.bot
-        self._guild = ctx.guild
-        self._channel = ctx.channel
-        self._cog = ctx.cog
+        self.guild = ctx.guild
+        self.channel = ctx.channel
+        self.cog = ctx.cog
 
         self.queue = asyncio.Queue()
         self.next = asyncio.Event()
@@ -111,22 +111,22 @@ class MusicPlayer:
                 async with timeout(300):
                     source = await self.queue.get()
             except asyncio.TimeoutError:
-                return self.destroy(self._guild)
+                return self.destroy(self.guild)
 
             if not isinstance(source, YTDLSource):
                 # Source was probably a stream (not downloaded)
                 try:
                     source = await YTDLSource.regather_stream(source, loop=self.bot.loop)
                 except Exception as e:
-                    await self._channel.send(f'There was an error processing your song.\n'
-                                             f'```css\n[{e}]\n```')
+                    await self.channel.send(f'There was an error processing your song.\n'
+                                            f'```css\n[{e}]\n```')
                     continue
 
             source.volume = self.volume
             self.current = source
 
-            self._guild.voice_client.play(source, after=lambda _: self.bot.loop.call_soon_threadsafe(self.next.set))
-            self.np = await self._channel.send(f'**Now Playing:** `{source.title}`')
+            self.guild.voice_client.play(source, after=lambda _: self.bot.loop.call_soon_threadsafe(self.next.set))
+            self.np = await self.channel.send(f'**Now Playing:** `{source.title}`')
             await self.next.wait()
 
             source.cleanup()
@@ -135,11 +135,11 @@ class MusicPlayer:
             try:
                 await self.np.delete()
             except discord.HTTPException:
-                pass
+                await asyncio.sleep(1)
 
     def destroy(self, guild):
         """Disconnect and cleanup the player."""
-        return self.bot.loop.create_task(self._cog.cleanup(guild))
+        return self.bot.loop.create_task(self.cog.cleanup(guild))
 
 
 class Music:
@@ -153,12 +153,12 @@ class Music:
         try:
             await guild.voice_client.disconnect()
         except AttributeError:
-            pass
+            await asyncio.sleep(1)
 
         try:
             del self.players[guild.id]
         except KeyError:
-            pass
+            await asyncio.sleep(1)
 
     async def __local_check(self, ctx):
         if not ctx.guild:
@@ -170,7 +170,7 @@ class Music:
             try:
                 return await ctx.send('This command can not be used in Private Messages.')
             except discord.HTTPException:
-                pass
+                await asyncio.sleep(1)
         elif isinstance(error, InvalidVoiceChannel):
             await ctx.send('Error connecting to Voice Channel.'
                            'Please join a voice channel or specify a valid one.')
@@ -225,7 +225,7 @@ class Music:
 
         # If download is False, source will be a dict which will be used later to regather the stream.
         # If download is True, source will be a discord.FFmpegPCMAudio with a VolumeTransformer.
-        source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=True)
+        source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=False)
 
         await player.queue.put(source)
 
@@ -277,7 +277,7 @@ class Music:
             return await ctx.send('Nothing is playing.', delete_after=20)
 
         if vc.is_paused():
-            pass
+            await asyncio.sleep(1)
         elif not vc.is_playing():
             return
 
