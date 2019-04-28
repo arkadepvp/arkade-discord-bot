@@ -32,7 +32,7 @@ class ticket:
 
     # new command
     @commands.command()
-    @commands.has_any_role('Arkade Admin', 'Moderator', 'Tribe Reps', 'VIP - Donators')
+    @commands.has_any_role('Arkade Admin', 'Moderator', 'Tribe Reps', '6 Man Tribe Reps', 'VIP - Donators')
     async def new(self, ctx, *string):
         await ctx.message.delete()
         string = ' '.join(string)
