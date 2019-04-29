@@ -43,7 +43,7 @@ class info:
     async def tags(self, ctx):
         await ctx.message.delete()
 
-        tagString = ""
+        tagString = "`-tag <query>`\n"
         for tag in tags:
             tagvars = tags[tag]
             tagString = tagString + "- " + tagvars['dispname'] + "\n"
