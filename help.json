@@ -41,6 +41,24 @@
       "desc": "Reloads Serverstats",
       "usage": "reloadtask",
       "level": "1"
+    },
+    {
+      "cmd": "new",
+      "desc": "Creates a new ticket",
+      "usage": "new <reason>",
+      "level": "1"
+    },
+    {
+      "cmd": "rename",
+      "desc": "Renames a ticket",
+      "usage": "rename <name>",
+      "level": "1"
+    },
+    {
+      "cmd": "close",
+      "desc": "Closes a ticket",
+      "usage": "close <reason>",
+      "level": "1"
     }
   ],
   "info": [
