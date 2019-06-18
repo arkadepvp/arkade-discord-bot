@@ -83,7 +83,7 @@
 	"fields": [
 	  {
         "title": "Shops",
-        "value": "<#534336465040310282>\n<#533844755361300482>"
+        "value": "<#581554193081303177>\n<#567539910194495488>\n<#586351573391900704>"
       },
 	  {
         "title": "",
@@ -133,7 +133,7 @@
 	"fields": [
 	  {
         "title": "Safe Tag Rules",
-        "value": "Please read over our [Safe] tag rules at <#556891543391174657>. Violating these rules can result in the reduction or removal of your [Safe] tag."
+        "value": "Please read over our [Safe] tag rules at <#580820143899410453>. Violating these rules can result in the reduction or removal of your [Safe] tag."
       },
 	  {
         "title": "Safe Tag Requirements",
@@ -174,31 +174,6 @@
       }
     ]
   },
-  "Sellable Resources": {
-  "dispname": "Sellable Resource",
-	"title": "Sellable Resource",
-    "desc": "The \"sellable\" resource is no longer used on ARKADE. last season it was used to transfer coins between maps, but now the shop is cluster wide and coins transfer automatically!",
-    "color": "0xFFFFFF",
-    "image": "",
-	"fields": [
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-	  {
-        "title": "",
-        "value": ""
-      },
-      {
-        "title": "",
-        "value": ""
-      }
-    ]
-  },
   "TicketPvERules TicketsPvERules TicketRulesPvE": {
   "dispname": "TicketPvE",
 	"title": "Ticket Rules and Information - PvE",
@@ -227,7 +202,7 @@
   "TicketPvPRules TicketsPvPRules TicketRulesPvP": {
   "dispname": "TicketPvP",
 	"title": "Ticket Rules and Information - PvP",
-    "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 7 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the #request-for-tribe-rep  channel.",
+    "desc": "ARKADE uses a Tribe Representative system that allows tribes 1 or tribes of 7 or greater  2 members to represent their tribe on discord. This role allows us to help support the community and helps tribes report any issues that might arise. Tribe Representatives have the ability to open tickets to report issues their tribe might be experiencing to the ARKADE Admin Team. Alternatively, tickets can be opened by asking a ARKADE Team member in the #community-support channel. Tribe Representatives also have access to allows a tribe the ability to gain the Safe Tag protection. Apply for Tribe Rep in the <#535668637877534740> or <#562074816346324993> channel.",
     "color": "0xFFFFFF",
     "image": "",
 	"fields": [
@@ -258,7 +233,7 @@
 	"fields": [
 	  {
         "title": "_ _\nTribe Rep Requirements",
-        "value": "Please provide the following info in <#535668637877534740>. If your tribe contains 7 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
+        "value": "Please provide the following info in <#535668637877534740> or <#562074816346324993>. If your tribe contains 7 or more members you are eligible for a second Tribe Rep.\n```-Screenshot of your tribe management window\n-Character name in game\n-Screenshot of approval from your tribe owner (If you are not the tribe owner)\n-How you found Ark Arkade```"
       },
 	  {
         "title": "_ _\nTribe Rep Perks/Responsibilities",
@@ -302,7 +277,7 @@
   "Server Wipes ServerWipes": {
   "dispname": "Wipes",
 	"title": "Server Wipes",
-    "desc": "The last PvP wipe for 12 man was on `3/22`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe has been announced for 5/24.\n\nThe last PvP wipe for 6 man was on `4/26`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 6 weeks, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe has been announced for 5/31.\n\nThe PvE servers do not wipe.",
+    "desc": "The last PvP wipe for 12 man was on `5/24`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  There are no plans for a wipe at this time.\n\nThe last PvP wipe for 6 man was on `5/31`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 6 weeks, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe has been announced for 6/22.\n\nThe PvE Legacy servers do not wipe.",
     "image": "",
 	"fields": [
 	  {
@@ -323,9 +298,9 @@
       }
     ]
   },
-  "ServerETA": {
-   "dispname": "ETA",
- 	"title": "Server ETA",
+  "ServerDown": {
+   "dispname": "Down",
+ 	"title": "Server Down",
     "desc": "We understand that currently we are having server issues.  We are working very hard at correcting this, everytime we are delayed increases the amount of time to correct the issue.  The ETA of the server being back up is between now and never",
     "color": "0xFFFFFF",
     "image": "",
