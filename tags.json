@@ -277,7 +277,7 @@
   "Server Wipes ServerWipes": {
   "dispname": "Wipes",
 	"title": "Server Wipes",
-    "desc": "The last PvP wipe for 12 man was on `5/24`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  There are no plans for a wipe at this time.\n\nThe PvE Evolved cluster started on `7/13`.  This expectation of this cluster is to last a very long time.  A wipe would only be considered if the cluster is at a point where progress is considered stagnated amongst the vast majority of the community and staff. \n\nThe PvE Legacy servers do not wipe.",
+    "desc": "The last PvP wipe for 12 man was on `5/24`.  ARKADE does not operate under a set wipe schedule.  A wipe will generally be considered approximately every 3 months, when gameplay tends to start getting stagnant and a cluster rejuvenation is deemed to be beneficial to the player population.  A wipe has been announced for `7/26` at 7pm est.\n\nThe PvE Evolved cluster started on `7/13`.  This expectation of this cluster is to last a very long time.  A wipe would only be considered if the cluster is at a point where progress is considered stagnated amongst the vast majority of the community and staff. \n\nThe PvE Legacy servers do not wipe.",
     "image": "",
 	"fields": [
 	  {
