@@ -6,6 +6,7 @@ import bs4
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import File
+from discord.utils import get
 
 with open('ticket/ticket.json', 'r') as f:
     count = json.load(f)
@@ -16,7 +17,7 @@ class ticket:
         self.client = client
 
     async def on_guild_channel_update(self, before, after):
-        if after.category_id in [473652853354004480]:
+        if after.category_id in [610905168224976898]:
             if "are" in after.name[0:4]:
                 areCategory = discord.utils.get(after.guild.categories, id=533147428715495434)
                 await after.edit(category=areCategory, topic="ARK PvE Ticket")
@@ -25,10 +26,11 @@ class ticket:
                 arpCategory = discord.utils.get(after.guild.categories, id=533752291853860864)
                 await after.edit(category=arpCategory, topic="ARK PvP Ticket")
                 print("Ticket moved to PvP with ID: " + str(arpCategory.id))
-            elif "ar6" in after.name[0:4]:
-                ar6Category = discord.utils.get(after.guild.categories, id=561726806554574848)
-                await after.edit(category=arpCategory, topic="ARK 6 Man Ticket")
-                print("Ticket moved to 6 Man with ID: " + str(ar6Category.id))
+            elif "ars" in after.name[0:4]:
+                arsCategory = discord.utils.get(after.guild.categories, id=610901074395791370)
+                await after.edit(category=arsCategory, topic="ARK Sensitive Ticket")
+                await after.set_permissions(get(after.guild.roles, id=610893008094887976), read_messages=False)
+                print("Ticket moved to Sensitive with ID: " + str(arsCategory.id))
 
     # new command
     @commands.command()
@@ -37,7 +39,7 @@ class ticket:
         await ctx.message.delete()
         string = ' '.join(string)
         guild = ctx.message.guild
-        newTickets = discord.utils.get(ctx.guild.categories, id=473652853354004480)
+        newTickets = discord.utils.get(ctx.guild.categories, id=610905168224976898)
         ticketLogs = discord.utils.get(ctx.guild.channels, id=472494364241690644)
 
         if string is '':
@@ -216,7 +218,7 @@ class ticket:
             arpString = ''
 
             list = count['arp']
-            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
+            sortedList = sorted(list, key=lambda i: i['count'], reverse=True)
             for entry in sortedList:
                 if int(entry['count']) > 0:
                     arpString = arpString + f"{entry['value']} - `{entry['count']} tickets`\n"
@@ -228,7 +230,7 @@ class ticket:
             areString = ''
 
             list = count['are']
-            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
+            sortedList = sorted(list, key=lambda i: i['count'], reverse=True)
             for entry in count['are']:
                 if int(entry['count']) > 0:
                     areString = areString + f"{entry['value']} - `{entry['count']} tickets`\n"
@@ -236,17 +238,17 @@ class ticket:
                 areString = '-'
             embed.add_field(name="ARE", value=f"{areString}\n")
 
-        elif string in "ar6":
-            ar6String = ''
+        elif string in "ars":
+            arsString = ''
 
-            list = count['ar6']
-            sortedList = sorted(list, key = lambda i: i['count'], reverse=True)
-            for entry in count['ar6']:
+            list = count['ars']
+            sortedList = sorted(list, key=lambda i: i['count'], reverse=True)
+            for entry in count['ars']:
                 if int(entry['count']) > 0:
-                    ar6String = ar6String + f"{entry['value']} - `{entry['count']} tickets`\n"
-            if not ar6String:
-                ar6String = '-'
-            embed.add_field(name="AR6", value=f"{ar6String}\n")
+                    arsString = arsString + f"{entry['value']} - `{entry['count']} tickets`\n"
+            if not arsString:
+                arsString = '-'
+            embed.add_field(name="ARS", value=f"{arsString}\n")
 
         else:
             embed.add_field(name="Error", value="No Valid Category Specified")
