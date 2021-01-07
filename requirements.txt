@@ -6,5 +6,5 @@ youtube_dl==2019.1.17
 requests==2.21.0
 numpy==1.15.3
 discord.py==1.0.0a1590+g860d6a9
-lxml==4.2.5
+lxml==4.6.2
 discord==0.16.12
