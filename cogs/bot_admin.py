@@ -1,11 +1,8 @@
 import discord
 import asyncio
-import time
 import json
 from discord.ext import commands
 from discord.ext.commands import Bot
-
-startTime = time.time()
 
 class bot_admin(commands.Cog):
     def __init__(self, client):
@@ -43,8 +40,13 @@ class bot_admin(commands.Cog):
                 this_guild = guild
 
         if guild_exists == False:
+            print(config['guilds'])
+            print(gid)
+            print(f'CREATING GUILD: {gid}')
             new_guild = {
                 'gid': gid,
+                'admin_roles': {
+                },
                 'ticket_config': {'ticket_id': 0,
                                   'channel': '',
                                   'message': None,
@@ -56,6 +58,14 @@ class bot_admin(commands.Cog):
             this_guild = config['guilds'][-1]
 
         await self.write_config(config)
+        return config, this_guild
+
+    async def get_guild(self, config, gid):
+        this_guild = None
+        for guild in config['guilds']:
+            if gid == guild['gid']:
+                this_guild = guild
+
         return config, this_guild
 
     # Prints config, must be in development guild
