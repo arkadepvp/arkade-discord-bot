@@ -1,0 +1,95 @@
+[
+    {
+        "category": "General",
+        "commands": [
+            {
+                "command": "help",
+                "permission_level": 0,
+                "arguments": [
+                    {
+                        "name": "command",
+                        "required": false,
+                        "type": "example",
+                        "description": "Optional argument to show more information about a specific command."
+                    }
+                ],
+                "description": "Shows the list of available commands.",
+                "example": "help command"
+            },
+            {
+                "command": "admin_roles",
+                "permission_level": 3,
+                "arguments": [
+                ],
+                "description": "Sets up the admin roles for commands.",
+                "example": "admin_roles"
+            }
+        ]
+    },
+    {
+        "category": "Tracker",
+        "commands": [
+            {
+                "command": "newtracker",
+                "permission_level": 3,
+                "arguments": [
+                    {
+                        "name": "channel",
+                        "required": true,
+                        "type": "string",
+                        "description": "The channel to send tracker notifications to."
+                    },
+                    {
+                        "name": "document_id",
+                        "required": true,
+                        "type": "string",
+                        "description": "The spreaadsheet to track changes in."
+                    }
+                ],
+                "description": "Monitors a spreadsheet for changes, then announces those changes in Discord.",
+                "example": "newtracker #channel 1a2b3c4d5e1a2b3c4d5e"
+            },
+            {
+                "command": "trackers",
+                "permission_level": 3,
+                "arguments": [
+                ],
+                "description": "Lists all active trackers.",
+                "example": "trackers"
+            },
+            {
+                "command": "deletetracker",
+                "permission_level": 3,
+                "arguments": [
+                    {
+                        "name": "document_id",
+                        "required": true,
+                        "type": "string",
+                        "description": "The spreadsheet to delete."
+                    }
+                ],
+                "description": "Deletes the tracker for the specified spreadsheet.",
+                "example": "trackers 1a2b3c4d5e1a2b3c4d5e"
+            }
+        ]
+    },
+    {
+        "category": "example",
+        "commands": [
+            {
+                "command": "example",
+                "permission_level": 0,
+                "arguments": [
+                    {
+                        "name": "example",
+                        "required": true,
+                        "type": "example",
+                        "description": "example"
+                    }
+                ],
+                "description": "example",
+                "example": "example"
+            }
+        ]
+    }
+]

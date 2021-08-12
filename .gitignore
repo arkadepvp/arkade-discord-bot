@@ -1,4 +1,5 @@
 # ignored files
 *.png
-*.json
+config.json
+discord*.json
 __pycache__
