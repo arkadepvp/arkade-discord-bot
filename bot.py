@@ -12,8 +12,9 @@ with open('config.json', 'r') as f:
     config = json.load(f)
 
 TOKEN = config['token']
-client = commands.Bot(command_prefix="-")
-startup_extensions = ["cogs.bot_admin", "cogs.ticket", "cogs.welcome", "cogs.tracker", "cogs.mod", "cogs.help"]
+activity = discord.Activity(type=discord.ActivityType.listening, name="-help")
+client = commands.Bot(command_prefix="-", activity=activity, status=discord.Status.online)
+startup_extensions = ['cogs.bot_admin', 'cogs.help', 'cogs.ticket', 'cogs.tracker']
 client.remove_command('help')
 
 def is_in_guild(guild_id):
@@ -23,21 +24,18 @@ def is_in_guild(guild_id):
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=Game(name="-help")) # sets Playing message on discord
     print('---\nLogged in as\nUser: ' + client.user.name + '\nID: ' + str(client.user.id) + '\n---') # prints succesful launch in console
 
     # IMPORT EXTENSIONS/COGS
-    if __name__ == "__main__":
-        print('\n')
-        for extension in startup_extensions:
-            try:
-                client.load_extension(extension)
-                print('Loaded extension \"{}\"'.format(extension))
-            except Exception as e:
-                exc = '{}: {}'.format(type(e).__name__, e)
-                print('Failed to load extension \"{}\"\n{}'.format(extension, exc))
+    for extension in startup_extensions:
+        try:
+            client.load_extension(extension)
+            print('Loaded extension \"{}\"'.format(extension))
+        except Exception as e:
+            exc = '{}: {}'.format(type(e).__name__, e)
+            print('Failed to load extension \"{}\"\n{}'.format(extension, exc))
 
-@client.event
+"""@client.event
 async def on_command_error(ctx, error):
     print(f'ERROR: {error}')
 
@@ -59,7 +57,7 @@ async def on_command_error(ctx, error):
     elif isinstance(error, discord.ext.commands.errors.CommandOnCooldown):
         await embed_maker(title = 'Command On Cooldown', description = error)
     elif isinstance(error, discord.ext.commands.errors.MaxConcurrencyReached):
-        await embed_maker(title = 'Max Concurrency Reached', description = error)
+        await embed_maker(title = 'Max Concurrency Reached', description = error)"""
 
 # load cogs
 @client.command()
